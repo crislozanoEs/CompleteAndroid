@@ -1,7 +1,8 @@
-package com.example.completeandroidknowledge
+package com.example.completeandroidknowledge.section2.viewModel
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.completeandroidknowledge.R
 
 class MainActivity : AppCompatActivity() {
 
