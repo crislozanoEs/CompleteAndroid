@@ -2,7 +2,6 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-
     <data>
         <variable
             name="User"
@@ -14,7 +13,7 @@
         android:orientation="vertical"
         android:padding="16dp">
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/type_doc_container"
+            android:id="@+id/password_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -26,16 +25,16 @@
                 android:id="@+id/type_doc_text"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/document_type"
+                android:text="@string/password_user"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/type_doc_edit"
+                android:id="@+id/password_edit"
                 android:layout_width="0dp"
                 android:inputType="text"
-                android:text="@={User.type}"
+                android:text="@={User.password}"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -43,48 +42,47 @@
                 app:layout_constraintTop_toBottomOf="@+id/type_doc_text" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/action_login"
+            android:id="@+id/login_button"
+            app:layout_constraintEnd_toEndOf="@+id/password_container"
+            app:layout_constraintStart_toStartOf="@+id/password_container"
+            app:layout_constraintTop_toBottomOf="@+id/password_container"
+            app:layout_constraintVertical_bias="0.0" />
+
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/number_doc_container"
+            android:id="@+id/user_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/type_doc_container"
+            app:layout_constraintTop_toBottomOf="@+id/login_button"
             app:layout_constraintVertical_bias="0.0">
 
             <TextView
-                android:id="@+id/number_doc_text"
+                android:id="@+id/salute_text"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/document_number"
+                android:text="@string/salute_user"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <EditText
-                android:id="@+id/text_doc_edit"
+            <TextView
+                android:id="@+id/user_text"
                 android:layout_width="0dp"
-                android:inputType="text"
-                android:text="@={User.document}"
                 android:layout_height="wrap_content"
+                android:text="@={User.document}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/number_doc_text" />
+                app:layout_constraintTop_toBottomOf="@+id/salute_text"
+                />
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/action_next"
-            android:id="@+id/next_user_button"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/number_doc_container"
-            app:layout_constraintStart_toStartOf="@+id/number_doc_container"
-            app:layout_constraintTop_toBottomOf="@+id/number_doc_container"
-            app:layout_constraintVertical_bias="0.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
