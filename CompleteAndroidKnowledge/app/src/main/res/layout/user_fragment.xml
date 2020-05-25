@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
-            name="User"
-            type="com.example.completeandroidknowledge.section1.model.User" />
+            name="UserViewModel"
+            type="com.example.completeandroidknowledge.section1.viewModel.UserViewModel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -34,7 +34,7 @@
                 android:id="@+id/password_edit"
                 android:layout_width="0dp"
                 android:inputType="text"
-                android:text="@={User.password}"
+                android:text="@{UserViewModel.user.password}"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -76,7 +76,7 @@
                 android:id="@+id/user_text"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@={User.document}"
+                android:text="@{UserViewModel.user.document}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

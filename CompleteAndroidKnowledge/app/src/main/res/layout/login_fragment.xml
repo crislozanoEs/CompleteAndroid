@@ -5,9 +5,15 @@
 
     <data>
         <variable
-            name="User"
-            type="com.example.completeandroidknowledge.section1.model.User" />
+            name="loginViewModel"
+            type="com.example.completeandroidknowledge.section1.viewModel.LoginViewModel"/>
     </data>
+
+    <!--<data>
+        <variable
+            name="User"
+            type="com.example.completeandroidknowledge.section1.model.User"/>
+    </data>-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -35,12 +41,23 @@
                 android:id="@+id/type_doc_edit"
                 android:layout_width="0dp"
                 android:inputType="text"
-                android:text="@={User.type}"
+                android:text="@{loginViewModel.userType}"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/type_doc_text" />
+
+            <!--<EditText
+                android:id="@+id/type_doc_edit"
+                android:layout_width="0dp"
+                android:inputType="text"
+                android:text="@={User.type}"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/type_doc_text" />-->
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -63,7 +80,16 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <EditText
+           <EditText
+                android:id="@+id/text_doc_edit"
+                android:layout_width="0dp"
+                android:inputType="text"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/number_doc_text" />
+            <!--<EditText
                 android:id="@+id/text_doc_edit"
                 android:layout_width="0dp"
                 android:inputType="text"
@@ -72,7 +98,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/number_doc_text" />
+                app:layout_constraintTop_toBottomOf="@+id/number_doc_text" />-->
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <Button
