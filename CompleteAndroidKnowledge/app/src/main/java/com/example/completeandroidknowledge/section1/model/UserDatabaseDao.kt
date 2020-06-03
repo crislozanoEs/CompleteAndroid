@@ -14,8 +14,8 @@ interface UserDatabaseDao {
     @Update
     fun update(user: User)
 
-    @Query("SELECT * FROM user_table WHERE document = :document")
-    fun get(document: String) : LiveData<User>
+    @Query("SELECT * FROM user_table")
+    fun get() : LiveData<User>
 
     @Query("DELETE FROM user_table")
     fun clearUser()

@@ -33,8 +33,7 @@
             <EditText
                 android:id="@+id/password_edit"
                 android:layout_width="0dp"
-                android:inputType="text"
-                android:text="@{UserViewModel.user.password}"
+                android:inputType="textPassword"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

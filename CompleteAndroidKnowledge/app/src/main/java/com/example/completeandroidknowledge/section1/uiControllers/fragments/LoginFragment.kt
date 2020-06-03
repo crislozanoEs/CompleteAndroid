@@ -11,21 +11,30 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import com.example.completeandroidknowledge.R
 import com.example.completeandroidknowledge.databinding.LoginFragmentBinding
+import com.example.completeandroidknowledge.section1.model.UserDatabase
 import com.example.completeandroidknowledge.section1.viewModel.LoginViewModel
+import com.example.completeandroidknowledge.section1.viewModel.LoginViewModelFactory
+import com.example.completeandroidknowledge.section1.viewModel.UserViewModelFactory
 import timber.log.Timber
 
 class LoginFragment : Fragment() {
-    //private var user: User = User("Usuario", "", "")
+    // private var user: User = User("Usuario", "", "")
     private lateinit var binding: LoginFragmentBinding
     private lateinit var viewModel: LoginViewModel
+    private lateinit var viewModelFactory: LoginViewModelFactory
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.login_fragment, container, false)
-        //binding.user = user
-        viewModel = ViewModelProviders.of(this).get(LoginViewModel::class.java)
+        // binding.user = user
+
+        val application = requireNotNull(this.activity).application
+        val dataSource = UserDatabase.getInstance(application).userDatabaseDao
+        viewModelFactory = LoginViewModelFactory(dataSource, application)
+        // viewModel = ViewModelProviders.of(this).get(LoginViewModel::class.java)
+        viewModel = ViewModelProviders.of(this, viewModelFactory).get(LoginViewModel::class.java)
         binding.loginViewModel = viewModel
         binding.lifecycleOwner = this
         binding.nextUserButton.setOnClickListener { v: View -> transferToUserPage(v) }
@@ -36,8 +45,8 @@ class LoginFragment : Fragment() {
         this.viewModel.alterUser(binding.typeDocEdit.text.toString(), binding.textDocEdit.text.toString())
         val userType = viewModel.userType.value ?: ""
         val userDoc = viewModel.userDoc.value ?: ""
-        Log.d("LoginFragment","User "+userDoc)
+        this.viewModel.saveUser()
         v.findNavController ().navigate(LoginFragmentDirections.actionLoginFragmentToUserFragment(userType, userDoc))
-        //v.findNavController ().navigate(LoginFragmentDirections.actionLoginFragmentToUserFragment(user.type, user.document))
+        // v.findNavController ().navigate(LoginFragmentDirections.actionLoginFragmentToUserFragment(user.type, user.document))
     }
 }
