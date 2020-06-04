@@ -1,4 +1,4 @@
-package com.example.completeandroidknowledge.section1.uiControllers
+package com.example.completeandroidknowledge.section2.uiControllers
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,21 +7,17 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.example.completeandroidknowledge.R
-import com.example.completeandroidknowledge.databinding.ActivityPublicBinding
+import com.example.completeandroidknowledge.databinding.ActivityMainBinding
 
-class PublicActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityPublicBinding
+    private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_public)
-        navController =  this.findNavController(R.id.insert_point)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        navController = this.findNavController(R.id.insert_point_main)
         NavigationUI.setupActionBarWithNavController(this, navController)
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        return navController.navigateUp()
     }
 }

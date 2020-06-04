@@ -11,5 +11,7 @@
 
     <string name="action_next">Siguiente</string>
     <string name="action_login">Ingresar</string>
+    <string name="more_information">More information</string>
+    <string name="open_product_button">Open product button</string>
 
 </resources>

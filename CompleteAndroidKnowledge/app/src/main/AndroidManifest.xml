@@ -16,7 +16,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".section2.viewModel.MainActivity">
+        <activity android:name=".section2.uiControllers.MainActivity">
         </activity>
     </application>
 

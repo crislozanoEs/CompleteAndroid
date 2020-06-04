@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/navigation_section2"
+    app:startDestination="@id/productSummaryFragment">
+
+    <fragment
+        android:id="@+id/productSummaryFragment"
+        android:name="com.example.completeandroidknowledge.section2.uiControllers.fragments.ProductSummaryFragment"
+        android:label="ProductSummaryFragment" />
+</navigation>

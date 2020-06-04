@@ -3,7 +3,6 @@ package com.example.completeandroidknowledge.section1.model
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.util.*
 
 @Entity(tableName = "user_table")
 data class User (
