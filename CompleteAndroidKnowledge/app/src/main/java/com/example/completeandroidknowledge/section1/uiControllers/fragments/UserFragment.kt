@@ -1,5 +1,6 @@
 package com.example.completeandroidknowledge.section1.uiControllers.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -15,6 +16,7 @@ import com.example.completeandroidknowledge.databinding.UserFragmentBinding
 import com.example.completeandroidknowledge.section1.model.UserDatabase
 import com.example.completeandroidknowledge.section1.viewModel.UserViewModel
 import com.example.completeandroidknowledge.section1.viewModel.UserViewModelFactory
+import com.example.completeandroidknowledge.section2.uiControllers.MainActivity
 
 /**
  * A simple [Fragment] subclass.
@@ -38,6 +40,8 @@ class UserFragment : Fragment() {
         binding.userViewModel = viewModel
         viewModel.navigationToMainFlag.observe(viewLifecycleOwner, Observer {hasFinished ->
             if(hasFinished){
+                val intent = Intent(application.baseContext, MainActivity::class.java)
+                startActivity(intent)
                 viewModel.doneNavigation()
             }
 

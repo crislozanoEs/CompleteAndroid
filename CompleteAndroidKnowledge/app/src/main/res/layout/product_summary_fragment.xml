@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+            name="productSummaryViewModel"
+            type="com.example.completeandroidknowledge.section2.viewModel.ProductSummaryViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

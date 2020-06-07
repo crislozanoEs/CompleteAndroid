@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.completeandroidknowledge.section2.model.Product
 import com.example.completeandroidknowledge.section2.model.ProductSummaryDatabaseDao
+import com.example.completeandroidknowledge.section2.model.temporalModels.ProductSummaryClassT
 import kotlinx.coroutines.*
 
 class ProductSummaryViewModel (val productSummaryDatabaseDao: ProductSummaryDatabaseDao, val application: Application): ViewModel(){
@@ -39,6 +40,11 @@ class ProductSummaryViewModel (val productSummaryDatabaseDao: ProductSummaryData
         withContext(Dispatchers.IO){
             _productSummary.value = productSummaryDatabaseDao.getAllProducts().value
         }
+    }
+
+    fun temporalInitProductSummary(){
+        val productSummaryT = ProductSummaryClassT()
+        _productSummary.value = productSummaryT.products
     }
 
 }
