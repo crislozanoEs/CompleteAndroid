@@ -41,8 +41,6 @@ Y
 )app/src/main/res/layout/activity_main.xml,7/6/76b07e40f24cce093536731477540f12e7da3cb6
 `
 0app/src/main/res/layout/item_product_summary.xml,3/9/399ebf2ac5e91a7fa554fbd17d0e6654178a0f63
-d
-4app/src/main/res/layout/product_summary_fragment.xml,0/9/0960ce547dd656ca423b966abbb10555975e0a8f
 c
 3app/src/main/res/navigation/navigation_section2.xml,f/1/f1ae27e31f3023683ea19d423eda4635158988c4
 S
