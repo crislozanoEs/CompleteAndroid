@@ -39,12 +39,8 @@ qapp/src/main/java/com/example/completeandroidknowledge/section2/uiControllers/f
 kapp/src/main/java/com/example/completeandroidknowledge/section2/viewModel/ProductSummaryViewModelFactory.kt,6/0/60e5d464432f6df15d0cb680eb81a26d77f32f34
 Y
 )app/src/main/res/layout/activity_main.xml,7/6/76b07e40f24cce093536731477540f12e7da3cb6
-`
-0app/src/main/res/layout/item_product_summary.xml,3/9/399ebf2ac5e91a7fa554fbd17d0e6654178a0f63
 c
 3app/src/main/res/navigation/navigation_section2.xml,f/1/f1ae27e31f3023683ea19d423eda4635158988c4
-S
-#app/src/main/res/values/strings.xml,d/2/d2281fbb3027de2722081a53408dd77628bf080e
 P
  app/src/main/AndroidManifest.xml,8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e
 ”

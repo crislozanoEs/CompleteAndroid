@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.example.completeandroidknowledge.R
@@ -13,6 +14,7 @@ import com.example.completeandroidknowledge.databinding.ProductSummaryFragmentBi
 import com.example.completeandroidknowledge.section1.viewModel.UserViewModel
 import com.example.completeandroidknowledge.section2.model.ProductSummaryDatabase
 import com.example.completeandroidknowledge.section2.model.temporalModels.ProductSummaryClassT
+import com.example.completeandroidknowledge.section2.uiControllers.adapters.ProductAdapter
 import com.example.completeandroidknowledge.section2.viewModel.ProductSummaryViewModel
 import com.example.completeandroidknowledge.section2.viewModel.ProductSummaryViewModelFactory
 
@@ -32,7 +34,15 @@ class ProductSummaryFragment: Fragment() {
         val dataSource = ProductSummaryDatabase.getInstance(application).productSummaryDatabaseDao
         viewModelFactory = ProductSummaryViewModelFactory(dataSource, application)
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(ProductSummaryViewModel::class.java)
+        binding.productSummaryViewModel =  viewModel
+        val adapter = ProductAdapter()
+        binding.productSummaryList.adapter = adapter
         temporalInitProductSummary()
+        viewModel.productSummary.observe(viewLifecycleOwner,  Observer {
+            it?.let{
+                adapter.submitList(it)
+            }
+        })
         //val dataSource = UserDatabase.getInstance(application).userDatabaseDao
         return binding.root
     }

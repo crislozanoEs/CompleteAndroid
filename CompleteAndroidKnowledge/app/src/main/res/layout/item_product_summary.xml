@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="product"
+            type="com.example.completeandroidknowledge.section2.model.Product" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -12,11 +14,12 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/account_type_text"
+            android:id="@+id/account_name_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
+            android:text="@{product.productNumber}"
             app:layout_constraintBottom_toTopOf="@+id/account_number_text"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -29,9 +32,10 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
+            app:productNumberCast="@{product}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/account_type_text"
+            app:layout_constraintTop_toBottomOf="@+id/account_name_text"
             tools:text="01231231231231232" />
 
         <TextView
@@ -47,6 +51,7 @@
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toEndOf="@+id/account_number_text"
             app:layout_constraintTop_toTopOf="parent"
+            app:productBalanceCast="@{product}"
             tools:text="$12.000.000.00" />
 
         <ImageView
