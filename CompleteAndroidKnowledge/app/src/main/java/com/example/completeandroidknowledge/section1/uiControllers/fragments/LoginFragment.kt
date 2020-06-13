@@ -1,25 +1,19 @@
 package com.example.completeandroidknowledge.section1.uiControllers.fragments
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
-import com.example.completeandroidknowledge.R
-import com.example.completeandroidknowledge.databinding.LoginFragmentBinding
 import com.example.completeandroidknowledge.section1.model.UserDatabase
+import com.example.completeandroidknowledge.section1.uiControllers.fragments.packageMVCViews.LoginFragmentMVCView
 import com.example.completeandroidknowledge.section1.viewModel.LoginViewModel
 import com.example.completeandroidknowledge.section1.viewModel.LoginViewModelFactory
-import com.example.completeandroidknowledge.section1.viewModel.UserViewModelFactory
-import timber.log.Timber
 
-class LoginFragment : Fragment() {
-    // private var user: User = User("Usuario", "", "")
-    private lateinit var binding: LoginFragmentBinding
+class LoginFragment : Fragment(), LoginFragmentMVCView.Listener{
+    private lateinit var loginFragmentMVCView: LoginFragmentMVCView
     private lateinit var viewModel: LoginViewModel
     private lateinit var viewModelFactory: LoginViewModelFactory
     override fun onCreateView(
@@ -27,26 +21,29 @@ class LoginFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.login_fragment, container, false)
+        loginFragmentMVCView = LoginFragmentMVCView(inflater,container)
+        // binding = DataBindingUtil.inflate(inflater, R.layout.login_fragment, container, false)
         // binding.user = user
-
         val application = requireNotNull(this.activity).application
         val dataSource = UserDatabase.getInstance(application).userDatabaseDao
         viewModelFactory = LoginViewModelFactory(dataSource, application)
         // viewModel = ViewModelProviders.of(this).get(LoginViewModel::class.java)
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(LoginViewModel::class.java)
-        binding.loginViewModel = viewModel
-        binding.lifecycleOwner = this
-        binding.nextUserButton.setOnClickListener { v: View -> transferToUserPage(v) }
-        return binding.root
+        loginFragmentMVCView.setViewModel(viewModel)
+        loginFragmentMVCView.setLifeCycleOwner(this)
+        loginFragmentMVCView.registerListener(this)
+        return loginFragmentMVCView.getRootView()
     }
 
-    fun transferToUserPage(v: View){
-        this.viewModel.alterUser(binding.typeDocEdit.text.toString(), binding.textDocEdit.text.toString())
+    fun transferToUserPage(){
+        this.viewModel.alterUser(loginFragmentMVCView.getTypeDocument(), loginFragmentMVCView.getDocument())
         val userType = viewModel.userType.value ?: ""
         val userDoc = viewModel.userDoc.value ?: ""
         this.viewModel.saveUser()
-        v.findNavController ().navigate(LoginFragmentDirections.actionLoginFragmentToUserFragment(userType, userDoc))
-        // v.findNavController ().navigate(LoginFragmentDirections.actionLoginFragmentToUserFragment(user.type, user.document))
+        loginFragmentMVCView.getRootView().findNavController ().navigate(LoginFragmentDirections.actionLoginFragmentToUserFragment(userType, userDoc))
+    }
+
+    override fun onNextButtonClick() {
+        transferToUserPage()
     }
 }

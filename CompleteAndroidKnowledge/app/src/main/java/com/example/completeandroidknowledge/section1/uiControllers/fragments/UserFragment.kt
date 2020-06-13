@@ -22,11 +22,9 @@ import com.example.completeandroidknowledge.section2.uiControllers.MainActivity
  * A simple [Fragment] subclass.
  */
 class UserFragment : Fragment() {
-
     private lateinit var binding: UserFragmentBinding
     private lateinit var viewModel: UserViewModel
     private lateinit var viewModelFactory: UserViewModelFactory
-    // private var user: User = User("Usuario","", "")
     private lateinit var args: UserFragmentArgs
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
@@ -46,7 +44,7 @@ class UserFragment : Fragment() {
             }
 
         })
-        binding.loginButton.setOnClickListener{_ -> transferToMainActivity()}
+        binding.loginButton.setOnClickListener{ transferToMainActivity() }
         // viewModel.user.observe(viewLifecycleOwner, Observer { user -> binding.userText.text = user.document })
         // user.document = args.document
         return binding.root

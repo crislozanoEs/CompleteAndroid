@@ -45,3 +45,15 @@ P
  app/src/main/AndroidManifest.xml,8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e
 ”
 dapp/src/main/java/com/example/completeandroidknowledge/section2/viewModel/ProductSummaryViewModel.kt,d/9/d9d0ebd753141d80fdfd51ecfb44bbf9402c6662
+œ
+lapp/src/main/java/com/example/completeandroidknowledge/section2/model/temporalModels/ProductSummaryClassT.kt,1/0/106310cc4870c74dc79f1d708eb4bf3ac3b022b4
+™
+iapp/src/main/java/com/example/completeandroidknowledge/section2/repositories/ProductSummaryApiServices.kt,e/1/e1136e16748767c8efa4f014de90e641e77796bf
+¤
+tapp/src/main/java/com/example/completeandroidknowledge/section2/uiControllers/adapters/adaptersUtils/AdapterUtils.kt,e/f/ef367ca1af785fac38e30cb30ed4609f1ea24dab
+˜
+happ/src/main/java/com/example/completeandroidknowledge/section2/uiControllers/adapters/ProductAdapter.kt,9/b/9b5fe010d8cb3c3d27b9e032489f3dbbe58b1a38
+o
+?app/src/main/java/com/example/completeandroidknowledge/Utils.kt,8/1/81920a07d961c58e9e243ed1dc1e6537d7471774
+d
+4app/src/main/res/layout/product_summary_fragment.xml,0/9/0960ce547dd656ca423b966abbb10555975e0a8f
