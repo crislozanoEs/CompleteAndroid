@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import com.example.completeandroidknowledge.section1.model.UserDatabase
 import com.example.completeandroidknowledge.section1.uiControllers.fragments.packageMVCViews.LoginFragmentMVCView
+import com.example.completeandroidknowledge.section1.uiControllers.fragments.packageMVCViews.LoginFragmentMVCViewImpl
 import com.example.completeandroidknowledge.section1.viewModel.LoginViewModel
 import com.example.completeandroidknowledge.section1.viewModel.LoginViewModelFactory
 
@@ -21,7 +22,7 @@ class LoginFragment : Fragment(), LoginFragmentMVCView.Listener{
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        loginFragmentMVCView = LoginFragmentMVCView(inflater,container)
+        loginFragmentMVCView = LoginFragmentMVCViewImpl(inflater,container)
         // binding = DataBindingUtil.inflate(inflater, R.layout.login_fragment, container, false)
         // binding.user = user
         val application = requireNotNull(this.activity).application
@@ -30,12 +31,12 @@ class LoginFragment : Fragment(), LoginFragmentMVCView.Listener{
         // viewModel = ViewModelProviders.of(this).get(LoginViewModel::class.java)
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(LoginViewModel::class.java)
         loginFragmentMVCView.setViewModel(viewModel)
-        loginFragmentMVCView.setLifeCycleOwner(this)
+        loginFragmentMVCView.setLifeCycleOwnerView(this)
         loginFragmentMVCView.registerListener(this)
         return loginFragmentMVCView.getRootView()
     }
 
-    fun transferToUserPage(){
+    private fun transferToUserPage(){
         this.viewModel.alterUser(loginFragmentMVCView.getTypeDocument(), loginFragmentMVCView.getDocument())
         val userType = viewModel.userType.value ?: ""
         val userDoc = viewModel.userDoc.value ?: ""

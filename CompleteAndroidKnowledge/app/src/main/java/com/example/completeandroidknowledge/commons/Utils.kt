@@ -1,6 +1,7 @@
-package com.example.completeandroidknowledge
+package com.example.completeandroidknowledge.commons
 
 import android.content.Context
+import com.example.completeandroidknowledge.R
 import java.text.DecimalFormat
 
 fun maskProductId(productId: String, context: Context) : String{

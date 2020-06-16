@@ -57,3 +57,5 @@ o
 ?app/src/main/java/com/example/completeandroidknowledge/Utils.kt,8/1/81920a07d961c58e9e243ed1dc1e6537d7471774
 d
 4app/src/main/res/layout/product_summary_fragment.xml,0/9/0960ce547dd656ca423b966abbb10555975e0a8f
+¯
+app/src/main/java/com/example/completeandroidknowledge/section1/uiControllers/fragments/packageMVCViews/LoginFragmentMVCView.kt,2/9/294938a1b10cef7a75ec02cfc5c3151591b2cb8a
