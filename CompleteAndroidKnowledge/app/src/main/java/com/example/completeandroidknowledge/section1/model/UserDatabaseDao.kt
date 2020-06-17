@@ -9,13 +9,13 @@ import androidx.room.Update
 @Dao
 interface UserDatabaseDao {
     @Insert
-    fun insert(user: User)
+    fun insert(userTable: UserTable)
 
     @Update
-    fun update(user: User)
+    fun update(userTable: UserTable)
 
     @Query("SELECT * FROM user_table")
-    fun get() : LiveData<User>
+    fun get() : LiveData<UserTable>
 
     @Query("DELETE FROM user_table")
     fun clearUser()

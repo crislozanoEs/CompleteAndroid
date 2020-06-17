@@ -24,3 +24,35 @@ fun castProductBalance(productBalance: Double, context: Context): String{
     val balanceString = format.format(productBalance)
     return context.getString(R.string.product_balance_format, balanceString)
 }
+
+fun getNameFromComplete(completeName: String): String{
+    val charName = completeName.toCharArray()
+    var cantSpaces = 0
+    charName.forEach {
+        if(it.equals(" ")){
+            cantSpaces++;
+        }
+    }
+    return when(cantSpaces){
+        1 -> completeName.substring(0, completeName.indexOf(" "))
+        2 -> completeName.substring(0, completeName.indexOf(" "))
+        3 -> completeName.substring(0, completeName.indexOf(" ", completeName.indexOf(" ")))
+        else -> completeName
+    }
+}
+
+fun getLastNameFromComplete(completeName: String): String{
+    val charName = completeName.toCharArray()
+    var cantSpaces = 0
+    charName.forEach {
+        if(it.equals(" ")){
+            cantSpaces++;
+        }
+    }
+    return when(cantSpaces){
+        1 -> completeName.substring(completeName.indexOf(" "))
+        2 -> completeName.substring(completeName.indexOf(" "))
+        3 -> completeName.substring(completeName.indexOf(" ", completeName.indexOf(" ")))
+        else -> completeName
+    }
+}

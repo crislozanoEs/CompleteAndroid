@@ -5,7 +5,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.completeandroidknowledge.section1.model.User
+import com.example.completeandroidknowledge.section1.model.UserTable
 import com.example.completeandroidknowledge.section1.model.UserDatabaseDao
+import com.example.completeandroidknowledge.section1.model.asDomainObject
 import kotlinx.coroutines.*
 
 class LoginViewModel(val userDatabaseDao: UserDatabaseDao, application: Application): ViewModel() {
@@ -34,30 +36,30 @@ class LoginViewModel(val userDatabaseDao: UserDatabaseDao, application: Applicat
         uiScope.launch {
             val user = getUserFromDatabase()
             if(user != null){
-                _userType.value = user.type
-                _userDoc.value = user.document
+                _userType.value = user.userType
+                _userDoc.value = user.userDocument
             }
         }
     }
 
     private suspend fun getUserFromDatabase(): User?{
         return withContext(Dispatchers.IO){
-            val user = userDatabaseDao.get().value
-            user
+            userDatabaseDao.get().value!!.asDomainObject()
         }
     }
 
     fun saveUser(){
         uiScope.launch {
-            var user = User(document = _userDoc.value!!, type = _userType.value!!)
+            // It can be improve although it works.
+            var user = UserTable(document = _userDoc.value!!, type = _userType.value!!)
             saveUserInDatabase(user)
         }
     }
 
-    private suspend fun saveUserInDatabase(user: User){
+    private suspend fun saveUserInDatabase(userTable: UserTable){
         withContext(Dispatchers.IO){
             userDatabaseDao.clearUser()
-            userDatabaseDao.insert(user)
+            userDatabaseDao.insert(userTable)
         }
     }
 

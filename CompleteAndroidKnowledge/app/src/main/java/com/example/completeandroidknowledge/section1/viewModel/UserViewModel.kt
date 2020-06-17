@@ -1,11 +1,9 @@
 package com.example.completeandroidknowledge.section1.viewModel
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.completeandroidknowledge.section1.model.User
-import com.example.completeandroidknowledge.section1.model.UserDatabaseDao
+import com.example.completeandroidknowledge.section1.model.*
 import kotlinx.coroutines.*
 
 class UserViewModel(user: User, val userDatabaseDao: UserDatabaseDao): ViewModel(){
@@ -43,7 +41,7 @@ class UserViewModel(user: User, val userDatabaseDao: UserDatabaseDao): ViewModel
 
     private suspend fun setPasswordInDatabase(){
         withContext(Dispatchers.IO){
-            userDatabaseDao.update(_user.value!!)
+            userDatabaseDao.update(_user.value!!.asDatabaseObject())
         }
     }
 

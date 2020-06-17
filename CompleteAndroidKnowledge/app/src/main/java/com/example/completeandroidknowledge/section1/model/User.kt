@@ -1,20 +1,39 @@
 package com.example.completeandroidknowledge.section1.model
 
 import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import java.util.*
 
-@Entity(tableName = "user_table")
-data class User (
-    @PrimaryKey(autoGenerate = false)
-    var document: String = "",
-    @ColumnInfo(name = "user_type")
-    var type: String = "",
-    @ColumnInfo(name = "user_name")
-    var name: String = "",
-    @ColumnInfo(name = "user_last_name")
-    var lastName: String = "",
-    //@ColumnInfo(name = "user_last_session")
-    //var dateLastSession: Date ?= null,
-    var password: String = ""
-)
+data class User(
+    var password: String = "",
+    var userDocument: String = "",
+    var userType: String = "",
+    var userName: String = "",
+    var userPassword: String = "",
+    var userLastName: String = "",
+    var userTypeBank: Int = 0,
+    var userCompleteName: String = "",
+    var userImageSecure: Int = 0,
+    var userLastSessionDateString: String = "",
+    var userSessionRefresh: Int = 0,
+    var userSessionInactivity: Int = 0
+) {
+    var userLastSessionDate: Date? = null
+    init{
+        userLastSessionDate = Date(userLastSessionDateString)
+    }
+}
+
+fun User.asDatabaseObject(): UserTable{
+    return UserTable(
+        document = userDocument,
+        type = userType,
+        name = userName,
+        lastName = userLastName,
+        dateLastSession = userLastSessionDateString,
+        typeBank = userTypeBank,
+        imageSecure = userImageSecure,
+        rt = userSessionRefresh,
+        st = userSessionInactivity,
+        password  = userPassword
+    )
+}

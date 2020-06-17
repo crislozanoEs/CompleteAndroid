@@ -9,7 +9,7 @@ class UserViewModelFactory (private val userType: String, private val userDoc: S
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(UserViewModel::class.java)) {
-            val user = User(type = userType, document =  userDoc)
+            val user = User(userType = userType, userDocument =  userDoc)
             return UserViewModel(user, userDatabaseDao) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
