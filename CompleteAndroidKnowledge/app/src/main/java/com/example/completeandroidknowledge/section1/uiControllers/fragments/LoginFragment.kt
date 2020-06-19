@@ -23,9 +23,7 @@ class LoginFragment : BaseFragment(), LoginFragmentMVCView.Listener{
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        loginFragmentMVCView = LoginFragmentMVCViewImpl(inflater,container)
-        // binding = DataBindingUtil.inflate(inflater, R.layout.login_fragment, container, false)
-        // binding.user = user
+        loginFragmentMVCView = getCompositionRootObject().getViewMVCFactory().getLoginFragmentMVCView(container)
         val application = requireNotNull(this.activity).application
         val dataSource = getCompositionRootObject().getUserDatabaseInstance(application).userDatabaseDao
         viewModelFactory = LoginViewModelFactory(dataSource, application)
@@ -33,8 +31,17 @@ class LoginFragment : BaseFragment(), LoginFragmentMVCView.Listener{
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(LoginViewModel::class.java)
         loginFragmentMVCView.setViewModel(viewModel)
         loginFragmentMVCView.setLifeCycleOwnerView(this)
-        loginFragmentMVCView.registerListener(this)
         return loginFragmentMVCView.getRootView()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        loginFragmentMVCView.registerListener(this)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        loginFragmentMVCView.unregisterListener(this)
     }
 
     private fun transferToUserPage(){

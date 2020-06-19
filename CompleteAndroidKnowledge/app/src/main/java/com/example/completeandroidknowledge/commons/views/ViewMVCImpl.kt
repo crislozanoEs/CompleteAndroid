@@ -1,5 +1,6 @@
 package com.example.completeandroidknowledge.commons.views
 
+import android.content.Context
 import android.view.View
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.LifecycleOwner
@@ -15,7 +16,7 @@ open class ViewMVCImpl<BindingType : ViewDataBinding>: ViewMVC<BindingType> {
         rootView = view
     }
 
-    fun getContext() = rootView.context
+    fun getContext(): Context = rootView.context
 
     override fun setLifecycleOwner(binding: BindingType, owner: LifecycleOwner) {
         binding.lifecycleOwner = owner

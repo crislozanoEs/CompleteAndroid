@@ -18,6 +18,7 @@ class LoginFragmentMVCViewImpl(inflater: LayoutInflater, parent: ViewGroup?) :
 
     init{
         binding.nextUserButton.setOnClickListener{ notifyListeners() }
+        setRootView(binding.root)
     }
 
 

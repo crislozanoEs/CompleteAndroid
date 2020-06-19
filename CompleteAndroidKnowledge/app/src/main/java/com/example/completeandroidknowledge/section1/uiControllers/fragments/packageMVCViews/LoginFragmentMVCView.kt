@@ -5,7 +5,9 @@ import com.example.completeandroidknowledge.commons.views.ObservableViewMVC
 import com.example.completeandroidknowledge.databinding.LoginFragmentBinding
 import com.example.completeandroidknowledge.section1.viewModel.LoginViewModel
 
-interface LoginFragmentMVCView : ObservableViewMVC<LoginFragmentMVCView.Listener, LoginFragmentBinding>{
+interface LoginFragmentMVCView :
+    ObservableViewMVC<LoginFragmentMVCView.Listener, LoginFragmentBinding> {
+
     interface Listener{
         fun onNextButtonClick()
     }

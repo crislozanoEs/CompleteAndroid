@@ -10,8 +10,11 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.completeandroidknowledge.R
+import com.example.completeandroidknowledge.commons.controllers.BaseFragment
 import com.example.completeandroidknowledge.databinding.UserFragmentBinding
 import com.example.completeandroidknowledge.section1.model.UserDatabase
+import com.example.completeandroidknowledge.section1.uiControllers.fragments.packageMVCViews.LoginFragmentMVCView
+import com.example.completeandroidknowledge.section1.uiControllers.fragments.packageMVCViews.UserFragmentMVCView
 import com.example.completeandroidknowledge.section1.viewModel.UserViewModel
 import com.example.completeandroidknowledge.section1.viewModel.UserViewModelFactory
 import com.example.completeandroidknowledge.section2.uiControllers.MainActivity
@@ -19,21 +22,24 @@ import com.example.completeandroidknowledge.section2.uiControllers.MainActivity
 /**
  * A simple [Fragment] subclass.
  */
-class UserFragment : Fragment() {
-    private lateinit var binding: UserFragmentBinding
+class UserFragment : BaseFragment(), UserFragmentMVCView.Listener {
+    private lateinit var userFragmentMVCView: UserFragmentMVCView
     private lateinit var viewModel: UserViewModel
     private lateinit var viewModelFactory: UserViewModelFactory
     private lateinit var args: UserFragmentArgs
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater,R.layout.user_fragment, container,false)
-        //binding.user = user
+        userFragmentMVCView = getCompositionRootObject().getViewMVCFactory().getUserFragmentMVCView(container)
         args = UserFragmentArgs.fromBundle(arguments!!)
         val application = requireNotNull(this.activity).application
-        val dataSource = UserDatabase.getInstance(application).userDatabaseDao
+        val dataSource = getCompositionRootObject().getUserDatabaseInstance(application).userDatabaseDao
         viewModelFactory = UserViewModelFactory(args.documentType, args.document, dataSource)
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(UserViewModel::class.java)
-        binding.userViewModel = viewModel
+        userFragmentMVCView.setViewModel(viewModel)
+        userFragmentMVCView.setLifeCycleOwnerView(this)
         viewModel.navigationToMainFlag.observe(viewLifecycleOwner, Observer {hasFinished ->
             if(hasFinished){
                 val intent = Intent(application.baseContext, MainActivity::class.java)
@@ -42,15 +48,21 @@ class UserFragment : Fragment() {
             }
 
         })
-        binding.loginButton.setOnClickListener{ transferToMainActivity() }
-        // viewModel.user.observe(viewLifecycleOwner, Observer { user -> binding.userText.text = user.document })
-        // user.document = args.document
-        return binding.root
+        return userFragmentMVCView.getRootView()
     }
 
-    private fun transferToMainActivity(){
-        viewModel.user.value!!.password = binding.passwordEdit.text.toString()
+    override fun onStart() {
+        super.onStart()
+        userFragmentMVCView.registerListener(this)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        userFragmentMVCView.unregisterListener(this)
+    }
+
+    override fun transferToMainActivity(){
+        viewModel.user.value!!.password = userFragmentMVCView.getPassword()
         viewModel.updatePasswordUser()
     }
-
 }
