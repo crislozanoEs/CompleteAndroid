@@ -10,7 +10,7 @@ import com.example.completeandroidknowledge.section1.model.UserDatabaseDao
 import com.example.completeandroidknowledge.section1.model.asDomainObject
 import kotlinx.coroutines.*
 
-class LoginViewModel(val userDatabaseDao: UserDatabaseDao, application: Application): ViewModel() {
+class LoginViewModel(private val userDatabaseDao: UserDatabaseDao, application: Application): ViewModel() {
 
     //private var user: User = User("Usuario", "", "")
     private var _userType = MutableLiveData<String>()
@@ -34,17 +34,18 @@ class LoginViewModel(val userDatabaseDao: UserDatabaseDao, application: Applicat
 
     private fun initUser(){
         uiScope.launch {
-            val user = getUserFromDatabase()
-            if(user != null){
+            val userTable = getUserFromDatabase()
+            if(userTable != null){
+                val user = userTable.asDomainObject()
                 _userType.value = user.userType
                 _userDoc.value = user.userDocument
             }
         }
     }
 
-    private suspend fun getUserFromDatabase(): User?{
+    private suspend fun getUserFromDatabase(): UserTable?{
         return withContext(Dispatchers.IO){
-            userDatabaseDao.get().value!!.asDomainObject()
+            userDatabaseDao.get().value
         }
     }
 

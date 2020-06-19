@@ -19,7 +19,7 @@ data class User(
 ) {
     var userLastSessionDate: Date? = null
     init{
-        userLastSessionDate = Date(userLastSessionDateString)
+        //userLastSessionDate = Date(userLastSessionDateString)
     }
 }
 

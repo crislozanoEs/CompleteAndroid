@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.example.completeandroidknowledge.section1.model.*
 import kotlinx.coroutines.*
 
-class UserViewModel(user: User, val userDatabaseDao: UserDatabaseDao): ViewModel(){
+class UserViewModel(user: User, private val userDatabaseDao: UserDatabaseDao): ViewModel(){
 
     //private var user: User = User("Usuario", "", "")
     private var viewModelJob = Job()
