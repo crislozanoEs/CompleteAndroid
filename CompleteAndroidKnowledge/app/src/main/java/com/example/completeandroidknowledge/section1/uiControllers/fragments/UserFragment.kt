@@ -13,11 +13,13 @@ import com.example.completeandroidknowledge.R
 import com.example.completeandroidknowledge.commons.controllers.BaseFragment
 import com.example.completeandroidknowledge.databinding.UserFragmentBinding
 import com.example.completeandroidknowledge.section1.model.UserDatabase
+import com.example.completeandroidknowledge.section1.network.sesionServices.SessionServicesUseCase
 import com.example.completeandroidknowledge.section1.uiControllers.fragments.packageMVCViews.LoginFragmentMVCView
 import com.example.completeandroidknowledge.section1.uiControllers.fragments.packageMVCViews.UserFragmentMVCView
 import com.example.completeandroidknowledge.section1.viewModel.UserViewModel
 import com.example.completeandroidknowledge.section1.viewModel.UserViewModelFactory
 import com.example.completeandroidknowledge.section2.uiControllers.MainActivity
+import java.util.*
 
 /**
  * A simple [Fragment] subclass.
@@ -27,6 +29,7 @@ class UserFragment : BaseFragment(), UserFragmentMVCView.Listener {
     private lateinit var viewModel: UserViewModel
     private lateinit var viewModelFactory: UserViewModelFactory
     private lateinit var args: UserFragmentArgs
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -36,7 +39,7 @@ class UserFragment : BaseFragment(), UserFragmentMVCView.Listener {
         args = UserFragmentArgs.fromBundle(arguments!!)
         val application = requireNotNull(this.activity).application
         val dataSource = getCompositionRootObject().getUserDatabaseInstance(application).userDatabaseDao
-        viewModelFactory = UserViewModelFactory(args.documentType, args.document, dataSource)
+        viewModelFactory = UserViewModelFactory(args.documentType, args.document, dataSource, getCompositionRootObject().getLoginServicesUseCase())
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(UserViewModel::class.java)
         userFragmentMVCView.setViewModel(viewModel)
         userFragmentMVCView.setLifeCycleOwnerView(this)
@@ -63,6 +66,6 @@ class UserFragment : BaseFragment(), UserFragmentMVCView.Listener {
 
     override fun transferToMainActivity(){
         viewModel.user.value!!.password = userFragmentMVCView.getPassword()
-        viewModel.updatePasswordUser()
+        viewModel.executeLoginService()
     }
 }

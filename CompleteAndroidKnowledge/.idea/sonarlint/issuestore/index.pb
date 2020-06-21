@@ -89,3 +89,13 @@ oapp/src/main/java/com/example/completeandroidknowledge/commons/dependencyInject
 Kapp/src/main/java/com/example/completeandroidknowledge/commons/Constants.kt,5/c/5c05cc082e5c5690d9cc630d2bc284549bd020fe
 ƒ
 Sapp/src/main/java/com/example/completeandroidknowledge/commons/CustomApplication.kt,2/d/2d0d5de940f5fa87e03a15b21c33f07c5ab42cab
+†
+Vapp/src/main/java/com/example/completeandroidknowledge/commons/views/ViewMVCFactory.kt,a/4/a47ca0673399eac1c0075cb0316c942468163a39
+®
+~app/src/main/java/com/example/completeandroidknowledge/section1/uiControllers/fragments/packageMVCViews/UserFragmentMVCView.kt,e/c/ec3ddf44f4c8b5d46c9f6b57a67148b84a016499
+³
+‚app/src/main/java/com/example/completeandroidknowledge/section1/uiControllers/fragments/packageMVCViews/UserFragmentMVCViewImpl.kt,b/4/b4bd7168e7b82db9793ef3ab5c5a12125eaf6f25
+€
+Papp/src/main/java/com/example/completeandroidknowledge/commons/BaseObservable.kt,c/7/c7cc472585c6176d389f08e73ad8469dea387887
+ 
+papp/src/main/java/com/example/completeandroidknowledge/section1/network/sesionServices/SessionServicesUseCase.kt,3/1/3171e2a69f4a5237bede6a92a02a2f10b8143e83

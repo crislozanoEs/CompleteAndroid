@@ -4,9 +4,9 @@ import android.app.Application
 import android.content.Context
 import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
-import com.example.completeandroidknowledge.commons.views.ViewMVC
 import com.example.completeandroidknowledge.commons.views.ViewMVCFactory
 import com.example.completeandroidknowledge.section1.network.sesionServices.SesionAPI
+import com.example.completeandroidknowledge.section1.network.sesionServices.SessionServicesUseCase
 
 class ControllerCompositionRoot(private val activityCompositionRoot: ActivityCompositionRoot?) {
 
@@ -21,5 +21,9 @@ class ControllerCompositionRoot(private val activityCompositionRoot: ActivityCom
     fun getUserDatabaseInstance(application: Application) = activityCompositionRoot!!.getUserDatabaseInstance(application)
 
     fun getViewMVCFactory(): ViewMVCFactory = ViewMVCFactory(getLayoutInflater())
+
+    fun getLoginServicesUseCase(): SessionServicesUseCase {
+
+    }
 
 }

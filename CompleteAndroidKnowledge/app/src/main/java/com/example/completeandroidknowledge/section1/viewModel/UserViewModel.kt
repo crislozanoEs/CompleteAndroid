@@ -4,13 +4,19 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.completeandroidknowledge.section1.model.*
+import com.example.completeandroidknowledge.section1.network.sesionServices.SessionServicesUseCase
 import kotlinx.coroutines.*
 
-class UserViewModel(user: User, private val userDatabaseDao: UserDatabaseDao): ViewModel(){
+class UserViewModel(user: User, private val userDatabaseDao: UserDatabaseDao, private val sessionServicesUseCase: SessionServicesUseCase): ViewModel(),  SessionServicesUseCase.Listener{
 
-    //private var user: User = User("Usuario", "", "")
     private var viewModelJob = Job()
     private val uiScope = CoroutineScope(Dispatchers.Main +  viewModelJob)
+
+    private var actualState: STATES = STATES.IDLE
+
+    enum class STATES{
+        IDLE, LOADING, LOGIN_SUCCEED, LOGIN_FAIL
+    }
 
     private var _navigationToMainFlag = MutableLiveData<Boolean>()
     val navigationToMainFlag: LiveData<Boolean>
@@ -28,7 +34,7 @@ class UserViewModel(user: User, private val userDatabaseDao: UserDatabaseDao): V
         _navigationToMainFlag.value = false
     }
 
-    fun updatePasswordUser(){
+    fun updateUser(){
         uiScope.launch {
             if(user.value!!.password == "")
                 return@launch
@@ -48,5 +54,20 @@ class UserViewModel(user: User, private val userDatabaseDao: UserDatabaseDao): V
     override fun onCleared() {
         super.onCleared()
         viewModelJob.cancel()
+        sessionServicesUseCase.getJobObject().cancel()
+    }
+
+    override fun loginSucceed(user: User) {
+        //_user.value.
+        //updateUser()
+    }
+
+    override fun loginFailed() {
+        TODO("Not yet implemented")
+    }
+
+    fun executeLoginService() {
+        actualState = STATES.LOADING
+        sessionServicesUseCase.executeLogin()
     }
 }
