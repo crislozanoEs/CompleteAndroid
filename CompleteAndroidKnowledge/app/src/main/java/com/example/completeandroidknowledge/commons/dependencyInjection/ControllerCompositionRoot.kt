@@ -14,7 +14,7 @@ class ControllerCompositionRoot(private val activityCompositionRoot: ActivityCom
 
     private fun getContext(): Context = activityCompositionRoot!!.getActivity().baseContext
 
-    private fun getSesionAPI(): SesionAPI = activityCompositionRoot!!.getSessionAPI()
+    private fun getSessionAPI(): SesionAPI = activityCompositionRoot!!.getSessionAPI()
 
     private fun getLayoutInflater(): LayoutInflater = LayoutInflater.from(getContext())
 
@@ -22,8 +22,6 @@ class ControllerCompositionRoot(private val activityCompositionRoot: ActivityCom
 
     fun getViewMVCFactory(): ViewMVCFactory = ViewMVCFactory(getLayoutInflater())
 
-    fun getLoginServicesUseCase(): SessionServicesUseCase {
-
-    }
+    fun getLoginServicesUseCase(): SessionServicesUseCase = SessionServicesUseCase(getSessionAPI())
 
 }

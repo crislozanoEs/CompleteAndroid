@@ -6,7 +6,9 @@ import com.example.completeandroidknowledge.section1.network.UserNetwork
 import com.example.completeandroidknowledge.section1.network.asDomainObject
 import kotlinx.coroutines.*
 
-class SessionServicesUseCase(private val sessionAPI: SesionAPI): BaseObservable<SessionServicesUseCase.Listener>() {
+class SessionServicesUseCase(private val
+                             sessionAPI: SesionAPI):
+    BaseObservable<SessionServicesUseCase.Listener>() {
 
     interface Listener{
         fun loginSucceed(user : User)
