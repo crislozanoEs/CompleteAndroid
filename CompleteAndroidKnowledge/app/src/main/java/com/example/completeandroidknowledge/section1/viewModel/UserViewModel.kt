@@ -34,6 +34,7 @@ class UserViewModel(user: User,
 
     init{
         _user.value = user
+        sessionServicesUseCase.registerListener(this)
     }
 
     fun doneNavigation(){
@@ -60,18 +61,28 @@ class UserViewModel(user: User,
     override fun onCleared() {
         super.onCleared()
         viewModelJob.cancel()
+        sessionServicesUseCase.unregisterListener(this)
         sessionServicesUseCase.getJobObject().cancel()
     }
 
     override fun loginSucceed(user: User) {
         actualState = STATES.LOGIN_SUCCEED
-        _user.value = user
+        _user.value?.apply {
+            this.userCompleteName = user.userCompleteName
+            this.userDocument = user.userDocument
+            this.userImageSecure = user.userImageSecure
+            this.userLastSessionDateString = user.userLastSessionDateString
+            this.userSessionInactivity = user.userSessionInactivity
+            this.userSessionRefresh = user.userSessionRefresh
+            this.userSessionInactivity = user.userSessionInactivity
+            this.userType = user.userType
+            this.userTypeBank = user.userTypeBank
+        }
         updateUser()
     }
 
     override fun loginFailed() {
         actualState = STATES.LOGIN_FAIL
-        TODO("Not yet implemented")
     }
 
     fun executeLoginService() {

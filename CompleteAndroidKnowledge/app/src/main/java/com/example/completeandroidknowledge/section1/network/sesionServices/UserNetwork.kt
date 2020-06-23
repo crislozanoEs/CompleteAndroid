@@ -1,4 +1,4 @@
-package com.example.completeandroidknowledge.section1.network
+package com.example.completeandroidknowledge.section1.network.sesionServices
 
 import com.example.completeandroidknowledge.commons.getLastNameFromComplete
 import com.example.completeandroidknowledge.commons.getNameFromComplete
@@ -6,7 +6,6 @@ import com.example.completeandroidknowledge.section1.model.User
 import com.example.completeandroidknowledge.section1.model.UserTable
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
-import okhttp3.internal.Util
 
 @JsonClass(generateAdapter = true)
 data class UserNetwork(
@@ -21,7 +20,11 @@ data class UserNetwork(
     @Json(name="session_inactivity")
     val sessionInactivityTime: Int = 0,
     @Json(name="last_session")
-    val lastSessionDate: String = "")
+    val lastSessionDate: String = "",
+    @Json(name="user_document")
+    val userDocument: String = "",
+    @Json(name="user_type_document")
+    val userTypeDocument: String = "")
 
 
 fun UserNetwork.asDomainObject(): User {
@@ -31,7 +34,9 @@ fun UserNetwork.asDomainObject(): User {
         userTypeBank = userTypeBank,
         userSessionInactivity = sessionInactivityTime,
         userSessionRefresh = sessionRefreshTime,
-        userCompleteName = userCompleteName
+        userCompleteName = userCompleteName,
+        userDocument = userDocument,
+        userType = userTypeDocument
     )
 }
 

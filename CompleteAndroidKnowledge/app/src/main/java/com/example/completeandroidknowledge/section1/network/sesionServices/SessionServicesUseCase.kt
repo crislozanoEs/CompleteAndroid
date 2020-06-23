@@ -2,12 +2,10 @@ package com.example.completeandroidknowledge.section1.network.sesionServices
 
 import com.example.completeandroidknowledge.commons.BaseObservable
 import com.example.completeandroidknowledge.section1.model.User
-import com.example.completeandroidknowledge.section1.network.UserNetwork
-import com.example.completeandroidknowledge.section1.network.asDomainObject
 import kotlinx.coroutines.*
 
 class SessionServicesUseCase(private val
-                             sessionAPI: SesionAPI):
+                             sessionAPI: SessionAPI):
     BaseObservable<SessionServicesUseCase.Listener>() {
 
     interface Listener{
@@ -28,7 +26,7 @@ class SessionServicesUseCase(private val
     }
     private suspend fun doLogin(){
         withContext(Dispatchers.IO){
-            val userDeferred = sessionAPI.login()
+            val userDeferred = sessionAPI.loginAsync()
             try{
                 val user = userDeferred.await()
                 notifyLoginSucceed(user)
@@ -40,7 +38,7 @@ class SessionServicesUseCase(private val
 
     private fun notifyLoginSucceed(user: UserNetwork){
         val userDomain = user.asDomainObject()
-        getListeners().forEach {
+        this.getListeners().forEach {
             it.loginSucceed(userDomain)
         }
     }

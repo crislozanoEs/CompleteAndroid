@@ -5,7 +5,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import com.example.completeandroidknowledge.commons.views.ViewMVCFactory
-import com.example.completeandroidknowledge.section1.network.sesionServices.SesionAPI
+import com.example.completeandroidknowledge.section1.network.sesionServices.SessionAPI
 import com.example.completeandroidknowledge.section1.network.sesionServices.SessionServicesUseCase
 
 class ControllerCompositionRoot(private val activityCompositionRoot: ActivityCompositionRoot?) {
@@ -14,7 +14,7 @@ class ControllerCompositionRoot(private val activityCompositionRoot: ActivityCom
 
     private fun getContext(): Context = activityCompositionRoot!!.getActivity().baseContext
 
-    private fun getSessionAPI(): SesionAPI = activityCompositionRoot!!.getSessionAPI()
+    private fun getSessionAPI(): SessionAPI = activityCompositionRoot!!.getSessionAPI()
 
     private fun getLayoutInflater(): LayoutInflater = LayoutInflater.from(getContext())
 

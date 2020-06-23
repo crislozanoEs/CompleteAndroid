@@ -3,13 +3,12 @@ package com.example.completeandroidknowledge.commons.dependencyInjection
 import android.app.Application
 import com.example.completeandroidknowledge.commons.Constants
 import com.example.completeandroidknowledge.section1.model.UserDatabase
-import com.example.completeandroidknowledge.section1.network.sesionServices.SesionAPI
+import com.example.completeandroidknowledge.section1.network.sesionServices.SessionAPI
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
-import com.squareup.moshi.KotlinJsonAdapterFactory
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import com.squareup.moshi.Moshi
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
-import retrofit2.converter.scalars.ScalarsConverterFactory
 
 class CompositionRoot {
 
@@ -30,6 +29,6 @@ class CompositionRoot {
 
 
     fun getUserDatabaseInstance(application: Application): UserDatabase = UserDatabase.getInstance(application)
-    fun getLoginAPI() : SesionAPI = retrofit!!.create(SesionAPI::class.java)
+    fun getLoginAPI() : SessionAPI = retrofit!!.create(SessionAPI::class.java)
 
 }
