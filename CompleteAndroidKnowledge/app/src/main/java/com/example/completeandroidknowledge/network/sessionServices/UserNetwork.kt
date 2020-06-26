@@ -1,4 +1,4 @@
-package com.example.completeandroidknowledge.section1.network.sesionServices
+package com.example.completeandroidknowledge.network.sessionServices
 
 import com.example.completeandroidknowledge.commons.getLastNameFromComplete
 import com.example.completeandroidknowledge.commons.getNameFromComplete

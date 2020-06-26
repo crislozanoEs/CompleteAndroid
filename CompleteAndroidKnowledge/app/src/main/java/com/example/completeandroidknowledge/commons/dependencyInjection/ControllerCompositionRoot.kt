@@ -5,8 +5,8 @@ import android.content.Context
 import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import com.example.completeandroidknowledge.commons.views.ViewMVCFactory
-import com.example.completeandroidknowledge.section1.network.sesionServices.SessionAPI
-import com.example.completeandroidknowledge.section1.network.sesionServices.SessionServicesUseCase
+import com.example.completeandroidknowledge.network.sessionServices.SessionAPI
+import com.example.completeandroidknowledge.network.sessionServices.SessionServicesUseCase
 
 class ControllerCompositionRoot(private val activityCompositionRoot: ActivityCompositionRoot?) {
 

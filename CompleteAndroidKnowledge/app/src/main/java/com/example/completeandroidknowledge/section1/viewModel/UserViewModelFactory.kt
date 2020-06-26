@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.completeandroidknowledge.section1.model.User
 import com.example.completeandroidknowledge.section1.model.UserDatabaseDao
-import com.example.completeandroidknowledge.section1.network.sesionServices.SessionServicesUseCase
+import com.example.completeandroidknowledge.network.sessionServices.SessionServicesUseCase
 
 class UserViewModelFactory (private val userType: String, private val userDoc: String, private val userDatabaseDao: UserDatabaseDao, private val sessionServicesUseCase: SessionServicesUseCase): ViewModelProvider.Factory{
 

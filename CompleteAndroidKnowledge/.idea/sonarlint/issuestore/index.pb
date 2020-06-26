@@ -69,10 +69,6 @@ Oapp/src/main/java/com/example/completeandroidknowledge/commons/views/ViewMVC.kt
 Sapp/src/main/java/com/example/completeandroidknowledge/commons/views/ViewMVCImpl.kt,d/6/d60afae42626156dcb3705d928e84c89680efc44
 Ç
 Rapp/src/main/java/com/example/completeandroidknowledge/section1/model/UserTable.kt,6/1/61408d3c3030f4fd5feecfd72300e5b9741c5871
-ï
-eapp/src/main/java/com/example/completeandroidknowledge/section1/network/sesionServices/UserNetwork.kt,4/f/4f075e424da77716ff2b28bca18c58d50c1e43c5
-ì
-capp/src/main/java/com/example/completeandroidknowledge/section1/network/sesionServices/SesionAPI.kt,f/2/f296b178c7d0ff67a876858616ab104b3e1b7b9e
 ä
 Zapp/src/main/java/com/example/completeandroidknowledge/commons/controllers/BaseActivity.kt,3/3/33450112396db24961c9e60159e672724244d589
 ä
@@ -80,7 +76,7 @@ Zapp/src/main/java/com/example/completeandroidknowledge/commons/controllers/Base
 ù
 mapp/src/main/java/com/example/completeandroidknowledge/commons/dependencyInjection/ActivityCompositionRoot.kt,6/c/6c50cac7ffa642a8715c66f25f534897c67e0baa
 ï
-eapp/src/main/java/com/example/completeandroidknowledge/commons/dependencyInjection/CompositionRoot.kt,a\4\a4213961cf95ac71b05c278a1cdc25d560856ab3
+eapp/src/main/java/com/example/completeandroidknowledge/commons/dependencyInjection/CompositionRoot.kt,a/4/a4213961cf95ac71b05c278a1cdc25d560856ab3
 ü
 oapp/src/main/java/com/example/completeandroidknowledge/commons/dependencyInjection/ControllerCompositionRoot.kt,d/b/db57b38d7ad23561ae67ceb5a0d6ff5b0d4470dd
 {
@@ -95,5 +91,13 @@ Vapp/src/main/java/com/example/completeandroidknowledge/commons/views/ViewMVCFac
 Çapp/src/main/java/com/example/completeandroidknowledge/section1/uiControllers/fragments/packageMVCViews/UserFragmentMVCViewImpl.kt,b/4/b4bd7168e7b82db9793ef3ab5c5a12125eaf6f25
 Ä
 Papp/src/main/java/com/example/completeandroidknowledge/commons/BaseObservable.kt,c/7/c7cc472585c6176d389f08e73ad8469dea387887
-†
-papp/src/main/java/com/example/completeandroidknowledge/section1/network/sesionServices/SessionServicesUseCase.kt,3/1/3171e2a69f4a5237bede6a92a02a2f10b8143e83
+å
+\app/src/main/java/com/example/completeandroidknowledge/network/sessionServices/SessionAPI.kt,4/1/410fe092df6d15aa0af8c26f79f0a85ff1268d24
+ò
+happ/src/main/java/com/example/completeandroidknowledge/network/sessionServices/SessionServicesUseCase.kt,6/d/6dc33c141441475c3255f1d2645651a95924cf16
+ç
+]app/src/main/java/com/example/completeandroidknowledge/network/sessionServices/UserNetwork.kt,e/a/ea233493bd837d07034babb872d7f93209a29e86
+ò
+happ/src/main/java/com/example/completeandroidknowledge/network/productsServices/ProductSummaryNetwork.kt,8/c/8cd5d663759594022f264d5a7d961452e27b5827
+ç
+]app/src/main/java/com/example/completeandroidknowledge/network/productsServices/ProductAPI.kt,3/7/37495e2956aee9344767313173b82082979a4708

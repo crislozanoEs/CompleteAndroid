@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.completeandroidknowledge.section1.model.*
-import com.example.completeandroidknowledge.section1.network.sesionServices.SessionServicesUseCase
+import com.example.completeandroidknowledge.network.sessionServices.SessionServicesUseCase
 import kotlinx.coroutines.*
 
 class UserViewModel(user: User,

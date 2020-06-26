@@ -6,20 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.example.completeandroidknowledge.R
 import com.example.completeandroidknowledge.commons.controllers.BaseFragment
-import com.example.completeandroidknowledge.databinding.UserFragmentBinding
-import com.example.completeandroidknowledge.section1.model.UserDatabase
-import com.example.completeandroidknowledge.section1.network.sesionServices.SessionServicesUseCase
-import com.example.completeandroidknowledge.section1.uiControllers.fragments.packageMVCViews.LoginFragmentMVCView
 import com.example.completeandroidknowledge.section1.uiControllers.fragments.packageMVCViews.UserFragmentMVCView
 import com.example.completeandroidknowledge.section1.viewModel.UserViewModel
 import com.example.completeandroidknowledge.section1.viewModel.UserViewModelFactory
 import com.example.completeandroidknowledge.section2.uiControllers.MainActivity
-import java.util.*
 
 /**
  * A simple [Fragment] subclass.
