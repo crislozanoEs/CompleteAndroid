@@ -3,7 +3,9 @@ package com.example.completeandroidknowledge.section1.viewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.completeandroidknowledge.commons.dialogs.DialogEventBus
 import com.example.completeandroidknowledge.commons.dialogs.DialogManager
+import com.example.completeandroidknowledge.commons.dialogs.optionsDialog.OptionDialogEvent
 import com.example.completeandroidknowledge.section1.model.*
 import com.example.completeandroidknowledge.network.sessionServices.SessionServicesUseCase
 import kotlinx.coroutines.*
@@ -11,9 +13,11 @@ import kotlinx.coroutines.*
 class UserViewModel(user: User,
                     private val userDatabaseDao: UserDatabaseDao,
                     private val sessionServicesUseCase: SessionServicesUseCase,
-                    private val dialogManager: DialogManager):
+                    private val dialogManager: DialogManager,
+                    private val dialogEventBus: DialogEventBus):
     ViewModel(),
-    SessionServicesUseCase.Listener{
+    SessionServicesUseCase.Listener,
+    DialogEventBus.Listener{
     private var viewModelJob = Job()
 
     private val uiScope = CoroutineScope(Dispatchers.Main +  viewModelJob)
@@ -37,6 +41,16 @@ class UserViewModel(user: User,
     init{
         _user.value = user
         sessionServicesUseCase.registerListener(this)
+        dialogEventBus.registerListener(this)
+    }
+
+
+    override fun onCleared() {
+        super.onCleared()
+        viewModelJob.cancel()
+        sessionServicesUseCase.unregisterListener(this)
+        sessionServicesUseCase.getJobObject().cancel()
+        dialogEventBus.unregisterListener(this)
     }
 
     fun doneNavigation(){
@@ -60,13 +74,6 @@ class UserViewModel(user: User,
         }
     }
 
-    override fun onCleared() {
-        super.onCleared()
-        viewModelJob.cancel()
-        sessionServicesUseCase.unregisterListener(this)
-        sessionServicesUseCase.getJobObject().cancel()
-    }
-
     override fun loginSucceed(user: User) {
         actualState = STATES.LOGIN_SUCCEED
         _user.value?.apply {
@@ -85,11 +92,21 @@ class UserViewModel(user: User,
 
     override fun loginFailed() {
         actualState = STATES.LOGIN_FAIL
-        dialogManager.showErrorOnlyOneAction(null, "ERROR LOGIN","Fallo el login","Aceptar")
+        dialogManager.showErrorOnlyTwoAction(null, "ERROR LOGIN","Fallo el login","Intentar","Cerrar")
     }
 
     fun executeLoginService() {
         actualState = STATES.LOADING
         sessionServicesUseCase.executeLogin()
+    }
+
+    override fun onDialogEvent(event: Any) {
+        if(event is OptionDialogEvent){
+            val eventDialog = event as OptionDialogEvent
+            when(eventDialog.getClickedButton()){
+                OptionDialogEvent.Button.POSITIVE -> executeLoginService()
+                OptionDialogEvent.Button.NEGATIVE -> TODO()
+            }
+        }
     }
 }

@@ -35,7 +35,8 @@ class UserFragment : BaseFragment(), UserFragmentMVCView.Listener {
         viewModelFactory = UserViewModelFactory(args.documentType,
             args.document, dataSource,
             getCompositionRootObject().getLoginServicesUseCase(),
-            getCompositionRootObject().getDialogManager())
+            getCompositionRootObject().getDialogManager(),
+            getCompositionRootObject().getDialogEventBus())
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(UserViewModel::class.java)
         userFragmentMVCView.setViewModel(viewModel)
         userFragmentMVCView.setLifeCycleOwnerView(this)

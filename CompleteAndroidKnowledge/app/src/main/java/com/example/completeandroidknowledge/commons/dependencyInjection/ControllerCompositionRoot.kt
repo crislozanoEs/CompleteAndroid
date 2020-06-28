@@ -5,6 +5,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
+import com.example.completeandroidknowledge.commons.dialogs.DialogEventBus
 import com.example.completeandroidknowledge.commons.dialogs.DialogManager
 import com.example.completeandroidknowledge.commons.views.ViewMVCFactory
 import com.example.completeandroidknowledge.network.sessionServices.SessionAPI
@@ -29,5 +30,7 @@ class ControllerCompositionRoot(private val activityCompositionRoot: ActivityCom
     fun getLoginServicesUseCase(): SessionServicesUseCase = SessionServicesUseCase(getSessionAPI())
 
     fun getDialogManager(): DialogManager = DialogManager(getContext(), getFragmentManager())
+
+    fun getDialogEventBus(): DialogEventBus = DialogEventBus()
 
 }

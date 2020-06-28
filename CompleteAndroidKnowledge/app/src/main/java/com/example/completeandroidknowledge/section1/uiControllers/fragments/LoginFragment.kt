@@ -19,7 +19,6 @@ class LoginFragment : BaseFragment(), LoginFragmentMVCView.Listener{
     private lateinit var loginFragmentMVCView: LoginFragmentMVCView
     private lateinit var viewModel: LoginViewModel
     private lateinit var viewModelFactory: LoginViewModelFactory
-    private lateinit var dialogManager: DialogManager
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -29,11 +28,9 @@ class LoginFragment : BaseFragment(), LoginFragmentMVCView.Listener{
         val application = requireNotNull(this.activity).application
         val dataSource = getCompositionRootObject().getUserDatabaseInstance(application).userDatabaseDao
         viewModelFactory = LoginViewModelFactory(dataSource, application)
-        // viewModel = ViewModelProviders.of(this).get(LoginViewModel::class.java)
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(LoginViewModel::class.java)
         loginFragmentMVCView.setViewModel(viewModel)
         loginFragmentMVCView.setLifeCycleOwnerView(this)
-        dialogManager = getCompositionRootObject().getDialogManager()
         return loginFragmentMVCView.getRootView()
     }
 

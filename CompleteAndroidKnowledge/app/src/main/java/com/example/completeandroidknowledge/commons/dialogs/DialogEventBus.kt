@@ -2,13 +2,14 @@ package com.example.completeandroidknowledge.commons.dialogs
 
 import com.example.completeandroidknowledge.commons.BaseObservable
 import java.util.*
+import kotlin.reflect.jvm.internal.impl.load.kotlin.JvmType
 
-class DialogEventBus: BaseObservable<DialogEventBus.Listener>() {
+open class DialogEventBus: BaseObservable<DialogEventBus.Listener>() {
     interface Listener{
-        fun onDialogEvent(event: Objects)
+        fun onDialogEvent(event: Any)
     }
 
-    fun postEvent(event: Objects){
+    fun postEvent(event: Any){
         getListeners().forEach {
             it.onDialogEvent(event)
         }
