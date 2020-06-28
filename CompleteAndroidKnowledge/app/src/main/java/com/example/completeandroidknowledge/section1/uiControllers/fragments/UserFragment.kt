@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.completeandroidknowledge.commons.controllers.BaseFragment
+import com.example.completeandroidknowledge.commons.dialogs.DialogManager
 import com.example.completeandroidknowledge.section1.uiControllers.fragments.packageMVCViews.UserFragmentMVCView
 import com.example.completeandroidknowledge.section1.viewModel.UserViewModel
 import com.example.completeandroidknowledge.section1.viewModel.UserViewModelFactory
@@ -22,7 +23,6 @@ class UserFragment : BaseFragment(), UserFragmentMVCView.Listener {
     private lateinit var viewModel: UserViewModel
     private lateinit var viewModelFactory: UserViewModelFactory
     private lateinit var args: UserFragmentArgs
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -32,7 +32,10 @@ class UserFragment : BaseFragment(), UserFragmentMVCView.Listener {
         args = UserFragmentArgs.fromBundle(arguments!!)
         val application = requireNotNull(this.activity).application
         val dataSource = getCompositionRootObject().getUserDatabaseInstance(application).userDatabaseDao
-        viewModelFactory = UserViewModelFactory(args.documentType, args.document, dataSource, getCompositionRootObject().getLoginServicesUseCase())
+        viewModelFactory = UserViewModelFactory(args.documentType,
+            args.document, dataSource,
+            getCompositionRootObject().getLoginServicesUseCase(),
+            getCompositionRootObject().getDialogManager())
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(UserViewModel::class.java)
         userFragmentMVCView.setViewModel(viewModel)
         userFragmentMVCView.setLifeCycleOwnerView(this)

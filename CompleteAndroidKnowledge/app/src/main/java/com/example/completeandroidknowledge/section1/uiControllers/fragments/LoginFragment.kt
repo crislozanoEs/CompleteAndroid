@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import com.example.completeandroidknowledge.commons.controllers.BaseFragment
+import com.example.completeandroidknowledge.commons.dialogs.DialogManager
 import com.example.completeandroidknowledge.section1.model.UserDatabase
 import com.example.completeandroidknowledge.section1.uiControllers.fragments.packageMVCViews.LoginFragmentMVCView
 import com.example.completeandroidknowledge.section1.uiControllers.fragments.packageMVCViews.LoginFragmentMVCViewImpl
@@ -18,6 +19,7 @@ class LoginFragment : BaseFragment(), LoginFragmentMVCView.Listener{
     private lateinit var loginFragmentMVCView: LoginFragmentMVCView
     private lateinit var viewModel: LoginViewModel
     private lateinit var viewModelFactory: LoginViewModelFactory
+    private lateinit var dialogManager: DialogManager
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -31,6 +33,7 @@ class LoginFragment : BaseFragment(), LoginFragmentMVCView.Listener{
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(LoginViewModel::class.java)
         loginFragmentMVCView.setViewModel(viewModel)
         loginFragmentMVCView.setLifeCycleOwnerView(this)
+        dialogManager = getCompositionRootObject().getDialogManager()
         return loginFragmentMVCView.getRootView()
     }
 

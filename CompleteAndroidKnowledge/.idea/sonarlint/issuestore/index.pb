@@ -32,7 +32,7 @@ _app/src/main/java/com/example/completeandroidknowledge/section2/model/ProductSu
 í
 bapp/src/main/java/com/example/completeandroidknowledge/section2/model/ProductSummaryDatabaseDao.kt,2/8/281e424829863221028b2e9e0bb5c762e401277b
 °
-qapp/src/main/java/com/example/completeandroidknowledge/section2/uiControllers/fragments/ProductSummaryFragment.kt,8\a\8a03834ad0ef628d349ae0e841322e85d28e29c6
+qapp/src/main/java/com/example/completeandroidknowledge/section2/uiControllers/fragments/ProductSummaryFragment.kt,8/a/8a03834ad0ef628d349ae0e841322e85d28e29c6
 ç
 ]app/src/main/java/com/example/completeandroidknowledge/section2/uiControllers/MainActivity.kt,c/d/cd2b02dc2152e9df22c16864fd614d827e3a3f9e
 õ
@@ -101,3 +101,13 @@ happ/src/main/java/com/example/completeandroidknowledge/network/sessionServices/
 happ/src/main/java/com/example/completeandroidknowledge/network/productsServices/ProductSummaryNetwork.kt,8/c/8cd5d663759594022f264d5a7d961452e27b5827
 ç
 ]app/src/main/java/com/example/completeandroidknowledge/network/productsServices/ProductAPI.kt,3/7/37495e2956aee9344767313173b82082979a4708
+á
+Wapp/src/main/java/com/example/completeandroidknowledge/commons/dialogs/DialogManager.kt,3/5/35a043c9700ac20e305f30765aaa632ee1c867b8
+Ñ
+Tapp/src/main/java/com/example/completeandroidknowledge/commons/dialogs/BaseDialog.kt,2/6/2632439ec905ed1ea71882230ffea11a9dba561a
+à
+Xapp/src/main/java/com/example/completeandroidknowledge/commons/dialogs/DialogEventBus.kt,3/f/3f984dd8df72e96cf6afef5795bce057bbfe977d
+è
+_app/src/main/java/com/example/completeandroidknowledge/commons/dialogs/infoDialog/InfoDialog.kt,f/b/fb4b956e487846c4281b404ac1c04f66cb1b5f4a
+ï
+eapp/src/main/java/com/example/completeandroidknowledge/commons/dialogs/optionsDialog/OptionsDialog.kt,e/6/e64da2b1d8b3833933b41157da724ed44a977994

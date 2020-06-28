@@ -3,13 +3,15 @@ package com.example.completeandroidknowledge.section1.viewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.completeandroidknowledge.commons.dialogs.DialogManager
 import com.example.completeandroidknowledge.section1.model.*
 import com.example.completeandroidknowledge.network.sessionServices.SessionServicesUseCase
 import kotlinx.coroutines.*
 
 class UserViewModel(user: User,
                     private val userDatabaseDao: UserDatabaseDao,
-                    private val sessionServicesUseCase: SessionServicesUseCase):
+                    private val sessionServicesUseCase: SessionServicesUseCase,
+                    private val dialogManager: DialogManager):
     ViewModel(),
     SessionServicesUseCase.Listener{
     private var viewModelJob = Job()
@@ -83,6 +85,7 @@ class UserViewModel(user: User,
 
     override fun loginFailed() {
         actualState = STATES.LOGIN_FAIL
+        dialogManager.showErrorOnlyOneAction(null, "ERROR LOGIN","Fallo el login","Aceptar")
     }
 
     fun executeLoginService() {
