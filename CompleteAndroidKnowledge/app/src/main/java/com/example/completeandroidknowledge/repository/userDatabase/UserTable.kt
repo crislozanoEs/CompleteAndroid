@@ -1,4 +1,4 @@
-package com.example.completeandroidknowledge.section1.model
+package com.example.completeandroidknowledge.repository.userDatabase
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

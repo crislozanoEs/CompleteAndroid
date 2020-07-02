@@ -16,13 +16,4 @@ open class BaseActivity: AppCompatActivity() {
             }
             return field
         }
-
-     var compositionRoot: ControllerCompositionRoot? = null
-         private set
-        get(){
-            if(field == null){
-                field = ControllerCompositionRoot(activityCompositionRoot)
-            }
-            return field
-        }
 }

@@ -1,6 +1,6 @@
 package com.example.completeandroidknowledge.section1.model
 
-import androidx.room.ColumnInfo
+import com.example.completeandroidknowledge.repository.userDatabase.UserTable
 import java.util.*
 
 data class User(
@@ -23,7 +23,7 @@ data class User(
     }
 }
 
-fun User.asDatabaseObject(): UserTable{
+fun User.asDatabaseObject(): UserTable {
     return UserTable(
         document = userDocument,
         type = userType,
@@ -34,6 +34,6 @@ fun User.asDatabaseObject(): UserTable{
         imageSecure = userImageSecure,
         rt = userSessionRefresh,
         st = userSessionInactivity,
-        password  = userPassword
+        password = userPassword
     )
 }

@@ -19,10 +19,12 @@ import com.example.completeandroidknowledge.section2.uiControllers.MainActivity
  * A simple [Fragment] subclass.
  */
 class UserFragment : BaseFragment(), UserFragmentMVCView.Listener {
+
     private lateinit var userFragmentMVCView: UserFragmentMVCView
     private lateinit var viewModel: UserViewModel
     private lateinit var viewModelFactory: UserViewModelFactory
     private lateinit var args: UserFragmentArgs
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -31,9 +33,9 @@ class UserFragment : BaseFragment(), UserFragmentMVCView.Listener {
         userFragmentMVCView = getCompositionRootObject().getViewMVCFactory().getUserFragmentMVCView(container)
         args = UserFragmentArgs.fromBundle(arguments!!)
         val application = requireNotNull(this.activity).application
-        val dataSource = getCompositionRootObject().getUserDatabaseInstance(application).userDatabaseDao
         viewModelFactory = UserViewModelFactory(args.documentType,
-            args.document, dataSource,
+            args.document,
+            getCompositionRootObject().getUserDatabaseUseCase(application),
             getCompositionRootObject().getLoginServicesUseCase(),
             getCompositionRootObject().getDialogManager(),
             getCompositionRootObject().getDialogEventBus())
@@ -45,6 +47,13 @@ class UserFragment : BaseFragment(), UserFragmentMVCView.Listener {
                 val intent = Intent(application.baseContext, MainActivity::class.java)
                 startActivity(intent)
                 viewModel.doneNavigation()
+            }
+
+        })
+        viewModel.clearPasswordFlag.observe(viewLifecycleOwner, Observer {hasBeenCleaned ->
+            if(hasBeenCleaned){
+                userFragmentMVCView.clearPassword()
+                viewModel.doneClearingPassword()
             }
 
         })

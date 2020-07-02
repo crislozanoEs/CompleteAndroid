@@ -2,7 +2,7 @@ package com.example.completeandroidknowledge.commons.dependencyInjection
 
 import android.app.Application
 import com.example.completeandroidknowledge.commons.Constants
-import com.example.completeandroidknowledge.section1.model.UserDatabase
+import com.example.completeandroidknowledge.repository.userDatabase.UserDatabase
 import com.example.completeandroidknowledge.network.sessionServices.SessionAPI
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory

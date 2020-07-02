@@ -5,12 +5,12 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.completeandroidknowledge.commons.dialogs.DialogEventBus
 import com.example.completeandroidknowledge.commons.dialogs.DialogManager
 import com.example.completeandroidknowledge.section1.model.User
-import com.example.completeandroidknowledge.section1.model.UserDatabaseDao
 import com.example.completeandroidknowledge.network.sessionServices.SessionServicesUseCase
+import com.example.completeandroidknowledge.repository.userDatabase.UserDatabaseUseCaseImpl
 
 class UserViewModelFactory (private val userType: String,
                             private val userDoc: String,
-                            private val userDatabaseDao: UserDatabaseDao,
+                            private val userDatabaseUseCaseImpl: UserDatabaseUseCaseImpl,
                             private val sessionServicesUseCase: SessionServicesUseCase,
                             private val dialogManager: DialogManager,
                             private val dialogEventBus: DialogEventBus):
@@ -19,7 +19,7 @@ class UserViewModelFactory (private val userType: String,
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(UserViewModel::class.java)) {
             val user = User(userType = userType, userDocument =  userDoc)
-            return UserViewModel(user, userDatabaseDao, sessionServicesUseCase, dialogManager, dialogEventBus) as T
+            return UserViewModel(user, userDatabaseUseCaseImpl, sessionServicesUseCase, dialogManager, dialogEventBus) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

@@ -30,14 +30,14 @@
             tools:text="Dialog Message" />
 
         <Button
-            android:id="@+id/btnPositive"
+            android:id="@+id/btnNegative"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/btnNegative"
+            app:layout_constraintEnd_toStartOf="@+id/btnPositive"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_chainStyle="spread"
             app:layout_constraintStart_toStartOf="parent"
@@ -45,15 +45,15 @@
             tools:text="Positive caption" />
 
         <Button
-            android:id="@+id/btnNegative"
+            android:id="@+id/btnPositive"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/btnPositive"
-            app:layout_constraintTop_toTopOf="@+id/btnPositive"
+            app:layout_constraintStart_toEndOf="@+id/btnNegative"
+            app:layout_constraintTop_toTopOf="@+id/btnNegative"
             tools:text="Positive caption" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

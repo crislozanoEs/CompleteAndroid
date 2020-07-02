@@ -1,17 +1,13 @@
 package com.example.completeandroidknowledge.section1.uiControllers.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import com.example.completeandroidknowledge.commons.controllers.BaseFragment
-import com.example.completeandroidknowledge.commons.dialogs.DialogManager
-import com.example.completeandroidknowledge.section1.model.UserDatabase
 import com.example.completeandroidknowledge.section1.uiControllers.fragments.packageMVCViews.LoginFragmentMVCView
-import com.example.completeandroidknowledge.section1.uiControllers.fragments.packageMVCViews.LoginFragmentMVCViewImpl
 import com.example.completeandroidknowledge.section1.viewModel.LoginViewModel
 import com.example.completeandroidknowledge.section1.viewModel.LoginViewModelFactory
 
@@ -26,22 +22,23 @@ class LoginFragment : BaseFragment(), LoginFragmentMVCView.Listener{
     ): View? {
         loginFragmentMVCView = getCompositionRootObject().getViewMVCFactory().getLoginFragmentMVCView(container)
         val application = requireNotNull(this.activity).application
-        val dataSource = getCompositionRootObject().getUserDatabaseInstance(application).userDatabaseDao
-        viewModelFactory = LoginViewModelFactory(dataSource, application)
-        viewModel = ViewModelProviders.of(this, viewModelFactory).get(LoginViewModel::class.java)
-        loginFragmentMVCView.setViewModel(viewModel)
-        loginFragmentMVCView.setLifeCycleOwnerView(this)
+        this.viewModelFactory = LoginViewModelFactory(
+            getCompositionRootObject().getUserDatabaseUseCase(application),
+            application)
+        this.viewModel = ViewModelProviders.of(this, viewModelFactory).get(LoginViewModel::class.java)
+        this.loginFragmentMVCView.setViewModel(this.viewModel)
+        this.loginFragmentMVCView.setLifeCycleOwnerView(this)
         return loginFragmentMVCView.getRootView()
     }
 
     override fun onStart() {
         super.onStart()
-        loginFragmentMVCView.registerListener(this)
+        this.loginFragmentMVCView.registerListener(this)
     }
 
     override fun onStop() {
         super.onStop()
-        loginFragmentMVCView.unregisterListener(this)
+        this.loginFragmentMVCView.unregisterListener(this)
     }
 
     private fun transferToUserPage(){

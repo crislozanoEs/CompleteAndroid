@@ -15,4 +15,5 @@ interface UserFragmentMVCView :
     fun getPassword(): String
     fun setViewModel(viewModel: UserViewModel)
     fun setLifeCycleOwnerView(owner: LifecycleOwner)
+    fun clearPassword()
 }

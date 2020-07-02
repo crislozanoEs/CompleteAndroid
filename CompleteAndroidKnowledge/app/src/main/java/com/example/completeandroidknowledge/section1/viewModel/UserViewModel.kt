@@ -8,22 +8,19 @@ import com.example.completeandroidknowledge.commons.dialogs.DialogManager
 import com.example.completeandroidknowledge.commons.dialogs.optionsDialog.OptionDialogEvent
 import com.example.completeandroidknowledge.section1.model.*
 import com.example.completeandroidknowledge.network.sessionServices.SessionServicesUseCase
-import kotlinx.coroutines.*
+import com.example.completeandroidknowledge.repository.userDatabase.UserDatabaseUseCaseImpl
 
 class UserViewModel(user: User,
-                    private val userDatabaseDao: UserDatabaseDao,
+                    private val userDatabaseUseCaseImpl: UserDatabaseUseCaseImpl,
                     private val sessionServicesUseCase: SessionServicesUseCase,
                     private val dialogManager: DialogManager,
                     private val dialogEventBus: DialogEventBus):
     ViewModel(),
     SessionServicesUseCase.Listener,
-    DialogEventBus.Listener{
-    private var viewModelJob = Job()
-
-    private val uiScope = CoroutineScope(Dispatchers.Main +  viewModelJob)
+    DialogEventBus.Listener,
+    UserDatabaseUseCaseImpl.Listener{
 
     private var actualState: STATES = STATES.IDLE
-
     enum class STATES{
         IDLE, LOADING, LOGIN_SUCCEED, LOGIN_FAIL
     }
@@ -33,6 +30,11 @@ class UserViewModel(user: User,
     val navigationToMainFlag: LiveData<Boolean>
         get() = _navigationToMainFlag
 
+    private var _clearPasswordFlag = MutableLiveData<Boolean>()
+
+    val clearPasswordFlag: LiveData<Boolean>
+        get() = _clearPasswordFlag
+
     private var _user = MutableLiveData<User>()
 
     val user: LiveData<User>
@@ -40,6 +42,7 @@ class UserViewModel(user: User,
 
     init{
         _user.value = user
+        userDatabaseUseCaseImpl.registerListener(this)
         sessionServicesUseCase.registerListener(this)
         dialogEventBus.registerListener(this)
     }
@@ -47,33 +50,17 @@ class UserViewModel(user: User,
 
     override fun onCleared() {
         super.onCleared()
-        viewModelJob.cancel()
         sessionServicesUseCase.unregisterListener(this)
         sessionServicesUseCase.getJobObject().cancel()
         dialogEventBus.unregisterListener(this)
     }
 
+    fun doneClearingPassword(){
+        _clearPasswordFlag.value = false
+    }
     fun doneNavigation(){
         _navigationToMainFlag.value = false
     }
-
-    private fun updateUser(){
-        uiScope.launch {
-            if(user.value == null)
-                return@launch
-            else
-                updateUserInDatabase()
-            _navigationToMainFlag.value = true
-
-        }
-    }
-
-    private suspend fun updateUserInDatabase(){
-        withContext(Dispatchers.IO){
-            userDatabaseDao.update(_user.value!!.asDatabaseObject())
-        }
-    }
-
     override fun loginSucceed(user: User) {
         actualState = STATES.LOGIN_SUCCEED
         _user.value?.apply {
@@ -87,7 +74,7 @@ class UserViewModel(user: User,
             this.userType = user.userType
             this.userTypeBank = user.userTypeBank
         }
-        updateUser()
+        userDatabaseUseCaseImpl.initUpdateUser(_user.value)
     }
 
     override fun loginFailed() {
@@ -105,8 +92,21 @@ class UserViewModel(user: User,
             val eventDialog = event as OptionDialogEvent
             when(eventDialog.getClickedButton()){
                 OptionDialogEvent.Button.POSITIVE -> executeLoginService()
-                OptionDialogEvent.Button.NEGATIVE -> TODO()
+                OptionDialogEvent.Button.NEGATIVE -> {
+                    _user.value?.apply {
+                        this.userPassword = ""
+                    }
+                    _clearPasswordFlag.value = true
+                }
             }
         }
+    }
+
+    override fun onUserRetrieved(user: User?) {
+        //This method is not used in this fragment
+    }
+
+    override fun onUserUpdated() {
+        _navigationToMainFlag.value = true
     }
 }

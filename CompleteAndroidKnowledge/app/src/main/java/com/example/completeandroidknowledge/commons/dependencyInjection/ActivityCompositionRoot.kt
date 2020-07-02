@@ -2,7 +2,7 @@ package com.example.completeandroidknowledge.commons.dependencyInjection
 
 import android.app.Application
 import androidx.appcompat.app.AppCompatActivity
-import com.example.completeandroidknowledge.section1.model.UserDatabase
+import com.example.completeandroidknowledge.repository.userDatabase.UserDatabase
 import com.example.completeandroidknowledge.network.sessionServices.SessionAPI
 
 class ActivityCompositionRoot(private val compositionRoot: CompositionRoot, private val activity: AppCompatActivity) {

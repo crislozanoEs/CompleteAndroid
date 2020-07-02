@@ -10,6 +10,7 @@ import com.example.completeandroidknowledge.commons.dialogs.DialogManager
 import com.example.completeandroidknowledge.commons.views.ViewMVCFactory
 import com.example.completeandroidknowledge.network.sessionServices.SessionAPI
 import com.example.completeandroidknowledge.network.sessionServices.SessionServicesUseCase
+import com.example.completeandroidknowledge.repository.userDatabase.UserDatabaseUseCaseImpl
 
 class ControllerCompositionRoot(private val activityCompositionRoot: ActivityCompositionRoot?) {
 
@@ -32,5 +33,7 @@ class ControllerCompositionRoot(private val activityCompositionRoot: ActivityCom
     fun getDialogManager(): DialogManager = DialogManager(getContext(), getFragmentManager())
 
     fun getDialogEventBus(): DialogEventBus = DialogEventBus()
+
+    fun getUserDatabaseUseCase(application: Application): UserDatabaseUseCaseImpl = UserDatabaseUseCaseImpl(getUserDatabaseInstance(application).userDatabaseDao)
 
 }

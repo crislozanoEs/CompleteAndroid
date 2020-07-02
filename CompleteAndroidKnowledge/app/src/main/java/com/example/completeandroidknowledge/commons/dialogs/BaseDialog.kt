@@ -6,9 +6,9 @@ import com.example.completeandroidknowledge.section1.uiControllers.PublicActivit
 
 open class BaseDialog: DialogFragment() {
 
-    private lateinit var controllerCompositionRoot: ControllerCompositionRoot
+    private var controllerCompositionRoot: ControllerCompositionRoot? = null
 
-    protected fun getCompositionRoot(): ControllerCompositionRoot{
+    fun getCompositionRoot(): ControllerCompositionRoot?{
         if(controllerCompositionRoot == null){
             val activity = requireActivity() as PublicActivity
             controllerCompositionRoot = ControllerCompositionRoot(activity.activityCompositionRoot)

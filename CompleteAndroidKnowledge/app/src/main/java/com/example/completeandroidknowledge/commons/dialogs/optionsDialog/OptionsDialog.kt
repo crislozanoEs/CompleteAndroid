@@ -33,14 +33,14 @@ class OptionsDialog(): BaseDialog(), OptionDialogMVCView.Listener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        dialogEventBus = getCompositionRoot().getDialogEventBus()
+        dialogEventBus = getCompositionRoot()!!.getDialogEventBus()
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         if(arguments == null){
             throw IllegalStateException("Arguments must not be empty")
         }
-        optionDialogMVCView = getCompositionRoot().getViewMVCFactory().getOptionDialogMVCView(null)
+        optionDialogMVCView = getCompositionRoot()!!.getViewMVCFactory().getOptionDialogMVCView(null)
         optionDialogMVCView.setTitle(arguments!!.getString(ARG_TITLE)!!)
         optionDialogMVCView.setMessage(arguments!!.getString(ARG_MESSAGE)!!)
         optionDialogMVCView.setNegativeCaption(arguments!!.getString(ARG_NEGATIVE_BUTTON_CAPTION)!!)

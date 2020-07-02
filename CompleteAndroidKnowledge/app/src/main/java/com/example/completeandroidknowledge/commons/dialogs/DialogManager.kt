@@ -8,12 +8,12 @@ import com.example.completeandroidknowledge.commons.dialogs.optionsDialog.Option
 class DialogManager(private val context: Context, private val fragmentManager: FragmentManager) {
 
     fun showErrorOnlyOneAction(tag: String?, title: String, message: String, buttonCaption: String){
-        var dialog = InfoDialog.newInfoDialog(title,message,buttonCaption)
+        val dialog = InfoDialog.newInfoDialog(title,message,buttonCaption)
         dialog.show(fragmentManager, tag)
     }
 
     fun showErrorOnlyTwoAction(tag: String?, title: String, message: String, buttonPositiveCaption: String, buttonNegativeCaption: String){
-        var dialog = OptionsDialog.newOptionsDialog(title,message,buttonPositiveCaption, buttonNegativeCaption)
+        val dialog = OptionsDialog.newOptionsDialog(title,message,buttonPositiveCaption, buttonNegativeCaption)
         dialog.show(fragmentManager, tag)
     }
 }
