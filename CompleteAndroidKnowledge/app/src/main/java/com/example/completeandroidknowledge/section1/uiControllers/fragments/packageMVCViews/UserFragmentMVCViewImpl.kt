@@ -13,7 +13,7 @@ import com.example.completeandroidknowledge.databinding.UserFragmentBinding
 import com.example.completeandroidknowledge.section1.uiControllers.PublicActivity
 import com.example.completeandroidknowledge.section1.viewModel.UserViewModel
 
-class UserFragmentMVCViewImpl(layoutInflater: LayoutInflater, parent: ViewGroup?, val activity: PublicActivity): UserFragmentMVCView,
+class UserFragmentMVCViewImpl(layoutInflater: LayoutInflater, parent: ViewGroup?, private val activity: PublicActivity): UserFragmentMVCView,
     ObservableViewMVCImpl<UserFragmentMVCView.Listener, UserFragmentBinding>() {
 
     override var binding: UserFragmentBinding =
