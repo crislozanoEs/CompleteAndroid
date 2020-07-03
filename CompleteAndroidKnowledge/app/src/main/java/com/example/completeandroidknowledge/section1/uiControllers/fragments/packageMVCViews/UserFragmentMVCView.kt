@@ -16,4 +16,5 @@ interface UserFragmentMVCView :
     fun setViewModel(viewModel: UserViewModel)
     fun setLifeCycleOwnerView(owner: LifecycleOwner)
     fun clearPassword()
+    fun setLoadingVisibility(enable: Boolean)
 }

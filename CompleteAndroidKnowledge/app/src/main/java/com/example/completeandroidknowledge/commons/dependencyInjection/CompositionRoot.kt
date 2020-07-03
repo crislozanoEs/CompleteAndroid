@@ -2,6 +2,7 @@ package com.example.completeandroidknowledge.commons.dependencyInjection
 
 import android.app.Application
 import com.example.completeandroidknowledge.commons.Constants
+import com.example.completeandroidknowledge.commons.dialogs.DialogEventBus
 import com.example.completeandroidknowledge.repository.userDatabase.UserDatabase
 import com.example.completeandroidknowledge.network.sessionServices.SessionAPI
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
@@ -15,6 +16,7 @@ class CompositionRoot {
     private val moshi = Moshi.Builder()
         .add(KotlinJsonAdapterFactory())
         .build()
+
     private var retrofit: Retrofit? = null
         get() {
             if(field == null){
@@ -27,8 +29,16 @@ class CompositionRoot {
             return field
         }
 
+    private var dialogEventBus: DialogEventBus? = null
 
     fun getUserDatabaseInstance(application: Application): UserDatabase = UserDatabase.getInstance(application)
     fun getLoginAPI() : SessionAPI = retrofit!!.create(SessionAPI::class.java)
+
+    fun getDialogEventBus(): DialogEventBus{
+        if(dialogEventBus == null){
+            dialogEventBus = DialogEventBus()
+        }
+        return dialogEventBus!!
+    }
 
 }

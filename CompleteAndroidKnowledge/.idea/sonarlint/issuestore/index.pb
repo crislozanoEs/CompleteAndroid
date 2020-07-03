@@ -78,7 +78,7 @@ Kapp/src/main/java/com/example/completeandroidknowledge/commons/Constants.kt,5/
 ƒ
 Sapp/src/main/java/com/example/completeandroidknowledge/commons/CustomApplication.kt,2/d/2d0d5de940f5fa87e03a15b21c33f07c5ab42cab
 †
-Vapp/src/main/java/com/example/completeandroidknowledge/commons/views/ViewMVCFactory.kt,a\4\a47ca0673399eac1c0075cb0316c942468163a39
+Vapp/src/main/java/com/example/completeandroidknowledge/commons/views/ViewMVCFactory.kt,a/4/a47ca0673399eac1c0075cb0316c942468163a39
 ®
 ~app/src/main/java/com/example/completeandroidknowledge/section1/uiControllers/fragments/packageMVCViews/UserFragmentMVCView.kt,e/c/ec3ddf44f4c8b5d46c9f6b57a67148b84a016499
 ³
@@ -109,3 +109,13 @@ eapp/src/main/java/com/example/completeandroidknowledge/commons/dialogs/optionsD
 eapp/src/main/java/com/example/completeandroidknowledge/repository/userDatabase/UserDatabaseUseCase.kt,6/5/65d639459a69ed0d8d1e119c921b1c6b6dccc554
 ‘
 aapp/src/main/java/com/example/completeandroidknowledge/repository/userDatabase/UserDatabaseDao.kt,0/7/073be6bb0112005b4e8d699b1356c13094bc7873
+Ÿ
+oapp/src/main/java/com/example/completeandroidknowledge/commons/dialogs/optionsDialog/OptionDialogMVCViewImpl.kt,4/e/4ebbaf08715ce99d561a0bf2819ea5249939b4ff
+›
+kapp/src/main/java/com/example/completeandroidknowledge/commons/dialogs/optionsDialog/OptionDialogMVCView.kt,1/1/1161e701b9561f413cb2913d3c68385be27f498e
+Ž
+^app/src/main/java/com/example/completeandroidknowledge/repository/userDatabase/UserDatabase.kt,a/a/aa52d0fe04f24e67cd8ce989fe77171b994bb428
+™
+iapp/src/main/java/com/example/completeandroidknowledge/repository/userDatabase/UserDatabaseUseCaseImpl.kt,9/a/9ac5657e0992b23b745092189bcce4ba4a893fc5
+‹
+[app/src/main/java/com/example/completeandroidknowledge/repository/userDatabase/UserTable.kt,e/4/e4a3eb6f81b8b71c180ba35770fbf11d27678e52

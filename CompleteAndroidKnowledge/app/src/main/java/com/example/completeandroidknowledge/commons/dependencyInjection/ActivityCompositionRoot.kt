@@ -2,6 +2,7 @@ package com.example.completeandroidknowledge.commons.dependencyInjection
 
 import android.app.Application
 import androidx.appcompat.app.AppCompatActivity
+import com.example.completeandroidknowledge.commons.dialogs.DialogEventBus
 import com.example.completeandroidknowledge.repository.userDatabase.UserDatabase
 import com.example.completeandroidknowledge.network.sessionServices.SessionAPI
 
@@ -10,4 +11,5 @@ class ActivityCompositionRoot(private val compositionRoot: CompositionRoot, priv
     fun getSessionAPI(): SessionAPI = compositionRoot.getLoginAPI()
     fun getActivity(): AppCompatActivity = activity
     fun getUserDatabaseInstance(application: Application): UserDatabase = compositionRoot.getUserDatabaseInstance(application)
+    fun getDialogEventBus(): DialogEventBus = compositionRoot.getDialogEventBus()
 }

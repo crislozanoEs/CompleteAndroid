@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.completeandroidknowledge.commons.controllers.BaseFragment
 import com.example.completeandroidknowledge.commons.dialogs.DialogManager
+import com.example.completeandroidknowledge.section1.uiControllers.PublicActivity
 import com.example.completeandroidknowledge.section1.uiControllers.fragments.packageMVCViews.UserFragmentMVCView
 import com.example.completeandroidknowledge.section1.viewModel.UserViewModel
 import com.example.completeandroidknowledge.section1.viewModel.UserViewModelFactory
@@ -30,7 +31,7 @@ class UserFragment : BaseFragment(), UserFragmentMVCView.Listener {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        userFragmentMVCView = getCompositionRootObject().getViewMVCFactory().getUserFragmentMVCView(container)
+        userFragmentMVCView = getCompositionRootObject().getViewMVCFactory().getUserFragmentMVCView(container, getCompositionRootObject().getActivity() as PublicActivity)
         args = UserFragmentArgs.fromBundle(arguments!!)
         val application = requireNotNull(this.activity).application
         viewModelFactory = UserViewModelFactory(args.documentType,
@@ -57,6 +58,16 @@ class UserFragment : BaseFragment(), UserFragmentMVCView.Listener {
             }
 
         })
+        viewModel.actualState.observe(viewLifecycleOwner, Observer {status ->
+            val showLoading = when(status){
+                UserViewModel.STATES.LOADING -> true
+                UserViewModel.STATES.LOGIN_FAIL -> false
+                UserViewModel.STATES.LOGIN_SUCCEED -> false
+                else -> false
+            }
+            userFragmentMVCView.setLoadingVisibility(showLoading)
+        })
+
         return userFragmentMVCView.getRootView()
     }
 

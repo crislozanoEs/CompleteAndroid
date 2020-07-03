@@ -14,7 +14,7 @@ import com.example.completeandroidknowledge.repository.userDatabase.UserDatabase
 
 class ControllerCompositionRoot(private val activityCompositionRoot: ActivityCompositionRoot?) {
 
-    private fun getActivity(): AppCompatActivity = activityCompositionRoot!!.getActivity()
+    fun getActivity(): AppCompatActivity = activityCompositionRoot!!.getActivity()
 
     private fun getContext(): Context = activityCompositionRoot!!.getActivity().baseContext
 
@@ -24,7 +24,7 @@ class ControllerCompositionRoot(private val activityCompositionRoot: ActivityCom
 
     private fun getFragmentManager(): FragmentManager = getActivity().supportFragmentManager
 
-    fun getUserDatabaseInstance(application: Application) = activityCompositionRoot!!.getUserDatabaseInstance(application)
+    private fun getUserDatabaseInstance(application: Application) = activityCompositionRoot!!.getUserDatabaseInstance(application)
 
     fun getViewMVCFactory(): ViewMVCFactory = ViewMVCFactory(getLayoutInflater())
 
@@ -32,7 +32,7 @@ class ControllerCompositionRoot(private val activityCompositionRoot: ActivityCom
 
     fun getDialogManager(): DialogManager = DialogManager(getContext(), getFragmentManager())
 
-    fun getDialogEventBus(): DialogEventBus = DialogEventBus()
+    fun getDialogEventBus(): DialogEventBus = activityCompositionRoot!!.getDialogEventBus()
 
     fun getUserDatabaseUseCase(application: Application): UserDatabaseUseCaseImpl = UserDatabaseUseCaseImpl(getUserDatabaseInstance(application).userDatabaseDao)
 

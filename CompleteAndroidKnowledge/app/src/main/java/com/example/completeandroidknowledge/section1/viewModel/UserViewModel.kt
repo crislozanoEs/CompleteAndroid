@@ -20,7 +20,6 @@ class UserViewModel(user: User,
     DialogEventBus.Listener,
     UserDatabaseUseCaseImpl.Listener{
 
-    private var actualState: STATES = STATES.IDLE
     enum class STATES{
         IDLE, LOADING, LOGIN_SUCCEED, LOGIN_FAIL
     }
@@ -32,6 +31,11 @@ class UserViewModel(user: User,
 
     private var _clearPasswordFlag = MutableLiveData<Boolean>()
 
+    private var _actualState = MutableLiveData<STATES>()
+
+    val actualState: LiveData<STATES>
+        get() = _actualState
+
     val clearPasswordFlag: LiveData<Boolean>
         get() = _clearPasswordFlag
 
@@ -42,6 +46,7 @@ class UserViewModel(user: User,
 
     init{
         _user.value = user
+        _actualState.value = STATES.IDLE
         userDatabaseUseCaseImpl.registerListener(this)
         sessionServicesUseCase.registerListener(this)
         dialogEventBus.registerListener(this)
@@ -62,7 +67,7 @@ class UserViewModel(user: User,
         _navigationToMainFlag.value = false
     }
     override fun loginSucceed(user: User) {
-        actualState = STATES.LOGIN_SUCCEED
+        _actualState.postValue(STATES.LOGIN_SUCCEED)
         _user.value?.apply {
             this.userCompleteName = user.userCompleteName
             this.userDocument = user.userDocument
@@ -78,12 +83,12 @@ class UserViewModel(user: User,
     }
 
     override fun loginFailed() {
-        actualState = STATES.LOGIN_FAIL
+        _actualState.postValue(STATES.LOGIN_FAIL)
         dialogManager.showErrorOnlyTwoAction(null, "ERROR LOGIN","Fallo el login","Intentar","Cerrar")
     }
 
     fun executeLoginService() {
-        actualState = STATES.LOADING
+        _actualState.value = STATES.LOADING
         sessionServicesUseCase.executeLogin()
     }
 
@@ -93,9 +98,7 @@ class UserViewModel(user: User,
             when(eventDialog.getClickedButton()){
                 OptionDialogEvent.Button.POSITIVE -> executeLoginService()
                 OptionDialogEvent.Button.NEGATIVE -> {
-                    _user.value?.apply {
-                        this.userPassword = ""
-                    }
+                    _user.value?.userPassword = ""
                     _clearPasswordFlag.value = true
                 }
             }
