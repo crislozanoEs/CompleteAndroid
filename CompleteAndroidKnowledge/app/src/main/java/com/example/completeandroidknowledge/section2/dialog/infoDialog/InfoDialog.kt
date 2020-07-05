@@ -1,14 +1,14 @@
-package com.example.completeandroidknowledge.commons.dialogs.infoDialog
+package com.example.completeandroidknowledge.section2.dialog.infoDialog
 
 import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.databinding.DataBindingUtil
 import com.example.completeandroidknowledge.R
-import com.example.completeandroidknowledge.commons.dialogs.BaseDialog
+import com.example.completeandroidknowledge.commons.dialogs.BaseDialogMain
 import com.example.completeandroidknowledge.databinding.DialogInfoBinding
 
-class InfoDialog(): BaseDialog() {
+class InfoDialog(): BaseDialogMain() {
 
     private val ARG_TITLE = "ARG_TITLE"
     private val ARG_MESSAGE = "ARG_MESSAGE"
@@ -20,8 +20,9 @@ class InfoDialog(): BaseDialog() {
         private val ARG_TITLE = "ARG_TITLE"
         private val ARG_MESSAGE = "ARG_MESSAGE"
         private val ARG_BUTTON_CAPTION = "ARG_BUTTON_CAPTION"
-        fun newInfoDialog(title: String, message: String, buttonCaption: String): InfoDialog{
-            val infoDialog = InfoDialog();
+        fun newInfoDialog(title: String, message: String, buttonCaption: String): InfoDialog {
+            val infoDialog =
+                InfoDialog();
             val bundle = Bundle(3)
             bundle.putString(ARG_TITLE, title)
             bundle.putString(ARG_MESSAGE, message)

@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
 import com.example.completeandroidknowledge.commons.dialogs.DialogEventBus
 import com.example.completeandroidknowledge.commons.dialogs.DialogManager
+import com.example.completeandroidknowledge.commons.navigation.Navigation
 import com.example.completeandroidknowledge.commons.views.ViewMVCFactory
 import com.example.completeandroidknowledge.network.sessionServices.SessionAPI
 import com.example.completeandroidknowledge.network.sessionServices.SessionServicesUseCase
@@ -35,5 +36,7 @@ class ControllerCompositionRoot(private val activityCompositionRoot: ActivityCom
     fun getDialogEventBus(): DialogEventBus = activityCompositionRoot!!.getDialogEventBus()
 
     fun getUserDatabaseUseCase(application: Application): UserDatabaseUseCaseImpl = UserDatabaseUseCaseImpl(getUserDatabaseInstance(application).userDatabaseDao)
+
+    fun getNavigation(): Navigation = Navigation()
 
 }

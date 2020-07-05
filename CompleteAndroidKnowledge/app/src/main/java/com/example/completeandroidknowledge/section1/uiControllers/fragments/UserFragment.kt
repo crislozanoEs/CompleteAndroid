@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.completeandroidknowledge.commons.controllers.BaseFragment
 import com.example.completeandroidknowledge.commons.dialogs.DialogManager
+import com.example.completeandroidknowledge.commons.navigation.Navigation
 import com.example.completeandroidknowledge.section1.uiControllers.PublicActivity
 import com.example.completeandroidknowledge.section1.uiControllers.fragments.packageMVCViews.UserFragmentMVCView
 import com.example.completeandroidknowledge.section1.viewModel.UserViewModel
@@ -25,6 +26,7 @@ class UserFragment : BaseFragment(), UserFragmentMVCView.Listener {
     private lateinit var viewModel: UserViewModel
     private lateinit var viewModelFactory: UserViewModelFactory
     private lateinit var args: UserFragmentArgs
+    private lateinit var navigation: Navigation
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -32,6 +34,7 @@ class UserFragment : BaseFragment(), UserFragmentMVCView.Listener {
         savedInstanceState: Bundle?
     ): View? {
         userFragmentMVCView = getCompositionRootObject().getViewMVCFactory().getUserFragmentMVCView(container, getCompositionRootObject().getActivity() as PublicActivity)
+        navigation = getCompositionRootObject().getNavigation()
         args = UserFragmentArgs.fromBundle(arguments!!)
         val application = requireNotNull(this.activity).application
         viewModelFactory = UserViewModelFactory(args.documentType,
@@ -45,8 +48,7 @@ class UserFragment : BaseFragment(), UserFragmentMVCView.Listener {
         userFragmentMVCView.setLifeCycleOwnerView(this)
         viewModel.navigationToMainFlag.observe(viewLifecycleOwner, Observer {hasFinished ->
             if(hasFinished){
-                val intent = Intent(application.baseContext, MainActivity::class.java)
-                startActivity(intent)
+                navigation.fromPublicActivityToMainActivity(application.baseContext)
                 viewModel.doneNavigation()
             }
 

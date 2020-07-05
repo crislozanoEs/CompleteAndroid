@@ -2,15 +2,15 @@ package com.example.completeandroidknowledge.commons.dialogs
 
 import androidx.fragment.app.DialogFragment
 import com.example.completeandroidknowledge.commons.dependencyInjection.ControllerCompositionRoot
-import com.example.completeandroidknowledge.section1.uiControllers.PublicActivity
+import com.example.completeandroidknowledge.section2.uiControllers.MainActivity
 
-open class BaseDialog: DialogFragment() {
+open class BaseDialogMain: DialogFragment() {
 
     private var controllerCompositionRoot: ControllerCompositionRoot? = null
 
     fun getCompositionRoot(): ControllerCompositionRoot?{
         if(controllerCompositionRoot == null){
-            val activity = requireActivity() as PublicActivity
+            val activity = requireActivity() as MainActivity
             controllerCompositionRoot = ControllerCompositionRoot(activity.activityCompositionRoot)
         }
         return controllerCompositionRoot
