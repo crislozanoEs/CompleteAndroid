@@ -97,14 +97,8 @@ happ/src/main/java/com/example/completeandroidknowledge/network/productsServices
 ]app/src/main/java/com/example/completeandroidknowledge/network/productsServices/ProductAPI.kt,3/7/37495e2956aee9344767313173b82082979a4708
 á
 Wapp/src/main/java/com/example/completeandroidknowledge/commons/dialogs/DialogManager.kt,3/5/35a043c9700ac20e305f30765aaa632ee1c867b8
-Ñ
-Tapp/src/main/java/com/example/completeandroidknowledge/commons/dialogs/BaseDialog.kt,2/6/2632439ec905ed1ea71882230ffea11a9dba561a
 à
 Xapp/src/main/java/com/example/completeandroidknowledge/commons/dialogs/DialogEventBus.kt,3/f/3f984dd8df72e96cf6afef5795bce057bbfe977d
-è
-_app/src/main/java/com/example/completeandroidknowledge/commons/dialogs/infoDialog/InfoDialog.kt,f/b/fb4b956e487846c4281b404ac1c04f66cb1b5f4a
-ï
-eapp/src/main/java/com/example/completeandroidknowledge/commons/dialogs/optionsDialog/OptionsDialog.kt,e/6/e64da2b1d8b3833933b41157da724ed44a977994
 ï
 eapp/src/main/java/com/example/completeandroidknowledge/repository/userDatabase/UserDatabaseUseCase.kt,6/5/65d639459a69ed0d8d1e119c921b1c6b6dccc554
 ë
@@ -119,3 +113,7 @@ kapp/src/main/java/com/example/completeandroidknowledge/commons/dialogs/optionsD
 iapp/src/main/java/com/example/completeandroidknowledge/repository/userDatabase/UserDatabaseUseCaseImpl.kt,9/a/9ac5657e0992b23b745092189bcce4ba4a893fc5
 ã
 [app/src/main/java/com/example/completeandroidknowledge/repository/userDatabase/UserTable.kt,e/4/e4a3eb6f81b8b71c180ba35770fbf11d27678e52
+Y
+)app/src/main/res/layout/user_fragment.xml,c/8/c8ae4a7dba62ebd259eb3db754144ead41b9f923
+á
+Wapp/src/main/java/com/example/completeandroidknowledge/commons/navigation/Navigation.kt,7/6/767eb860329e7a6176c5c2d2b2e2f1974ac705f4

@@ -1,7 +1,7 @@
 package com.example.completeandroidknowledge.commons.controllers
 import androidx.fragment.app.Fragment
 import com.example.completeandroidknowledge.commons.dependencyInjection.ControllerCompositionRoot
-import com.example.completeandroidknowledge.section1.uiControllers.PublicActivity
+import com.example.completeandroidknowledge.publicSection.PublicActivity
 
 open class BaseFragment: Fragment() {
     private var compositionRoot: ControllerCompositionRoot?  = null

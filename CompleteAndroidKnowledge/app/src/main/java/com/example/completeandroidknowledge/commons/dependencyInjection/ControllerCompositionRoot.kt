@@ -17,7 +17,7 @@ class ControllerCompositionRoot(private val activityCompositionRoot: ActivityCom
 
     fun getActivity(): AppCompatActivity = activityCompositionRoot!!.getActivity()
 
-    private fun getContext(): Context = activityCompositionRoot!!.getActivity().baseContext
+    fun getContext(): Context = activityCompositionRoot!!.getActivity().baseContext
 
     private fun getSessionAPI(): SessionAPI = activityCompositionRoot!!.getSessionAPI()
 

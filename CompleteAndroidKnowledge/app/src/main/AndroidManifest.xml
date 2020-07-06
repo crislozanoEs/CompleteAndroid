@@ -12,14 +12,14 @@
         android:usesCleartextTraffic="true"
         android:name=".commons.CustomApplication"
         android:theme="@style/AppTheme">
-        <activity android:name=".section1.uiControllers.PublicActivity">
+        <activity android:name=".publicSection.PublicActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".section2.uiControllers.MainActivity">
+        <activity android:name=".transtationalSection.uiControllers.MainActivity">
         </activity>
     </application>
 

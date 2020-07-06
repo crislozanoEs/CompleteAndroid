@@ -3,7 +3,7 @@ package com.example.completeandroidknowledge.repository.userDatabase
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.example.completeandroidknowledge.section1.model.User
+import com.example.completeandroidknowledge.publicSection.model.User
 
 @Entity(tableName = "user_table")
 data class UserTable (

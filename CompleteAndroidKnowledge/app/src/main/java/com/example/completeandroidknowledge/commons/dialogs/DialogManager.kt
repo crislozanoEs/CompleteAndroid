@@ -2,8 +2,8 @@ package com.example.completeandroidknowledge.commons.dialogs
 
 import android.content.Context
 import androidx.fragment.app.FragmentManager
-import com.example.completeandroidknowledge.section1.dialog.infoDialog.InfoDialogPublic
-import com.example.completeandroidknowledge.section1.dialog.optionsDialog.OptionsDialogPublic
+import com.example.completeandroidknowledge.publicSection.dialog.infoDialog.InfoDialogPublic
+import com.example.completeandroidknowledge.publicSection.dialog.optionsDialog.OptionsDialogPublic
 
 class DialogManager(private val context: Context, private val fragmentManager: FragmentManager) {
 
