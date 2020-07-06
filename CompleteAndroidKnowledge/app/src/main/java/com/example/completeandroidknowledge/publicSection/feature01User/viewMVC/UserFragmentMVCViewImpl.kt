@@ -12,7 +12,7 @@ import com.example.completeandroidknowledge.databinding.UserFragmentBinding
 import com.example.completeandroidknowledge.publicSection.PublicActivity
 import com.example.completeandroidknowledge.publicSection.feature01User.viewModel.UserViewModel
 
-class UserFragmentMVCViewImpl(layoutInflater: LayoutInflater, parent: ViewGroup?, private val activity: PublicActivity): UserFragmentMVCView,
+class UserFragmentMVCViewImpl(layoutInflater: LayoutInflater, parent: ViewGroup?): UserFragmentMVCView,
     ObservableViewMVCImpl<UserFragmentMVCView.Listener, UserFragmentBinding>() {
 
     override var binding: UserFragmentBinding =
@@ -43,12 +43,10 @@ class UserFragmentMVCViewImpl(layoutInflater: LayoutInflater, parent: ViewGroup?
         binding.passwordEdit.text.clear()
     }
     override fun setLoadingVisibility(enable: Boolean) {
-        if(enable){
-            activity.window.setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE, WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
+        if(enable)
             binding.loadingProgress.visibility = View.VISIBLE
-        }else{
-            activity.window.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
+        else
             binding.loadingProgress.visibility = View.GONE
-        }
+
     }
 }

@@ -6,12 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.completeandroidknowledge.commons.controllers.BaseFragment
 import com.example.completeandroidknowledge.commons.navigation.Navigation
 import com.example.completeandroidknowledge.publicSection.PublicActivity
-import com.example.completeandroidknowledge.publicSection.uiControllers.fragments.UserFragmentArgs
 import com.example.completeandroidknowledge.publicSection.feature01User.viewMVC.UserFragmentMVCView
 import com.example.completeandroidknowledge.publicSection.feature01User.viewModel.UserViewModel
 import com.example.completeandroidknowledge.publicSection.feature01User.viewModel.UserViewModelFactory
@@ -33,7 +33,7 @@ class UserFragment : BaseFragment(), UserFragmentMVCView.Listener {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        userFragmentMVCView = getCompositionRootObject().getViewMVCFactory().getUserFragmentMVCView(container, getCompositionRootObject().getActivity() as PublicActivity)
+        userFragmentMVCView = getCompositionRootObject().getViewMVCFactory().getUserFragmentMVCView(container)
         navigation = getCompositionRootObject().getNavigation()
         args =
             UserFragmentArgs.fromBundle(
@@ -74,6 +74,13 @@ class UserFragment : BaseFragment(), UserFragmentMVCView.Listener {
                 UserViewModel.STATES.LOGIN_SUCCEED -> false
                 else -> false
             }
+            val activity = getCompositionRootObject().getActivity() as PublicActivity
+            // Put this logic here, so the MVCView does not know about the activity dependency needed
+            if(showLoading)
+                activity.window.setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE, WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
+            else
+                activity.window.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
+
             userFragmentMVCView.setLoadingVisibility(showLoading)
         })
 

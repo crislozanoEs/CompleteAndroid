@@ -17,11 +17,10 @@ class ViewMVCFactory(private val layoutInflater: LayoutInflater) {
             layoutInflater,
             parent
         )
-    fun getUserFragmentMVCView(parent: ViewGroup?, activity: PublicActivity): UserFragmentMVCView =
+    fun getUserFragmentMVCView(parent: ViewGroup?): UserFragmentMVCView =
         UserFragmentMVCViewImpl(
             layoutInflater,
-            parent,
-            activity
+            parent
         )
     fun getOptionDialogMVCView(parent: ViewGroup?): OptionDialogMVCView = OptionDialogMVCViewImpl(layoutInflater, parent)
 }
