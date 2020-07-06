@@ -2,7 +2,7 @@ package com.example.completeandroidknowledge.commons.dialogs
 
 import androidx.fragment.app.DialogFragment
 import com.example.completeandroidknowledge.commons.dependencyInjection.ControllerCompositionRoot
-import com.example.completeandroidknowledge.transtationalSection.uiControllers.MainActivity
+import com.example.completeandroidknowledge.sectionTransactional.uiControllers.MainActivity
 
 open class BaseDialogMain: DialogFragment() {
 

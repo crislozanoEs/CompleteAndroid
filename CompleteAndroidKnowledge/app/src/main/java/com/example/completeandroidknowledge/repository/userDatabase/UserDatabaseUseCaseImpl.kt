@@ -1,8 +1,8 @@
 package com.example.completeandroidknowledge.repository.userDatabase
 
 import com.example.completeandroidknowledge.commons.BaseObservable
-import com.example.completeandroidknowledge.publicSection.model.User
-import com.example.completeandroidknowledge.publicSection.model.asDatabaseObject
+import com.example.completeandroidknowledge.sectionPublic.model.User
+import com.example.completeandroidknowledge.sectionPublic.model.asDatabaseObject
 import kotlinx.coroutines.*
 
 class UserDatabaseUseCaseImpl(private val userDatabaseDao: UserDatabaseDao): BaseObservable<UserDatabaseUseCaseImpl.Listener>(), UserDatabaseUseCase {

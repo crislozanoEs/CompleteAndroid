@@ -5,7 +5,7 @@
     <data>
         <variable
             name="productSummaryViewModel"
-            type="com.example.completeandroidknowledge.transtationalSection.viewModel.ProductSummaryViewModel" />
+            type="com.example.completeandroidknowledge.sectionTransactional.viewModel.ProductSummaryViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -1,7 +1,7 @@
 package com.example.completeandroidknowledge.network.sessionServices
 
 import com.example.completeandroidknowledge.commons.BaseObservable
-import com.example.completeandroidknowledge.publicSection.model.User
+import com.example.completeandroidknowledge.sectionPublic.model.User
 import kotlinx.coroutines.*
 
 class SessionServicesUseCase(private val

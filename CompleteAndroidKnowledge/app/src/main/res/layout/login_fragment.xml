@@ -6,7 +6,7 @@
     <data>
         <variable
             name="loginViewModel"
-            type="com.example.completeandroidknowledge.publicSection.feature01Login.viewModel.LoginViewModel"/>
+            type="com.example.completeandroidknowledge.sectionPublic.feature01Login.viewModel.LoginViewModel"/>
     </data>
 
     <!--<data>

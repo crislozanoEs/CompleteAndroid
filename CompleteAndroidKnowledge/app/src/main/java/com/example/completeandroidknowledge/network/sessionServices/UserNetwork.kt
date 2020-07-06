@@ -2,7 +2,7 @@ package com.example.completeandroidknowledge.network.sessionServices
 
 import com.example.completeandroidknowledge.commons.getLastNameFromComplete
 import com.example.completeandroidknowledge.commons.getNameFromComplete
-import com.example.completeandroidknowledge.publicSection.model.User
+import com.example.completeandroidknowledge.sectionPublic.model.User
 import com.example.completeandroidknowledge.repository.userDatabase.UserTable
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass

@@ -1,6 +1,6 @@
 package com.example.completeandroidknowledge.repository.userDatabase
 
-import com.example.completeandroidknowledge.publicSection.model.User
+import com.example.completeandroidknowledge.sectionPublic.model.User
 
 interface UserDatabaseUseCase {
     fun initGetUserFromDatabase()

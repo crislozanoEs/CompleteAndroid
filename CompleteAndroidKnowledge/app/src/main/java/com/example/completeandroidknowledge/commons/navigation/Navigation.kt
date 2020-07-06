@@ -2,7 +2,7 @@ package com.example.completeandroidknowledge.commons.navigation
 
 import android.view.View
 import androidx.navigation.findNavController
-import com.example.completeandroidknowledge.publicSection.feature01Login.uiControl.LoginFragmentDirections
+import com.example.completeandroidknowledge.sectionPublic.feature01Login.uiControl.LoginFragmentDirections
 
 class Navigation {
 
