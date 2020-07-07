@@ -1,23 +1,22 @@
-package com.example.completeandroidknowledge.sectionTransactional.uiControllers.fragments
+package com.example.completeandroidknowledge.sectionTransactional.feature02ProductSummary.uiControl
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.example.completeandroidknowledge.R
+import com.example.completeandroidknowledge.commons.controllers.BaseFragmentTransactional
 import com.example.completeandroidknowledge.databinding.ProductSummaryFragmentBinding
 import com.example.completeandroidknowledge.sectionTransactional.model.ProductSummaryDatabase
-import com.example.completeandroidknowledge.sectionTransactional.uiControllers.adapters.ProductAdapter
-import com.example.completeandroidknowledge.sectionTransactional.viewModel.ProductSummaryViewModel
-import com.example.completeandroidknowledge.sectionTransactional.viewModel.ProductSummaryViewModelFactory
+import com.example.completeandroidknowledge.sectionTransactional.feature02ProductSummary.viewMVC.ProductSummaryFragmentMVCView
+import com.example.completeandroidknowledge.sectionTransactional.feature02ProductSummary.viewModel.ProductSummaryViewModel
+import com.example.completeandroidknowledge.sectionTransactional.feature02ProductSummary.viewModel.ProductSummaryViewModelFactory
 
-class ProductSummaryFragment: Fragment() {
+class ProductSummaryFragmentPublic: BaseFragmentTransactional() {
 
     private lateinit var binding: ProductSummaryFragmentBinding
+    private lateinit var productSummaryFragmentMVCView: ProductSummaryFragmentMVCView
     private lateinit var viewModelFactory: ProductSummaryViewModelFactory
     private lateinit var viewModel: ProductSummaryViewModel
     override fun onCreateView(
@@ -25,22 +24,21 @@ class ProductSummaryFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.product_summary_fragment, container, false)
+        productSummaryFragmentMVCView = getCompositionRootObject().getViewMVCFactory().getProductSummaryFragmentMVCView(container)
         // binding.user = user
         val application = requireNotNull(this.activity).application
         val dataSource = ProductSummaryDatabase.getInstance(application).productSummaryDatabaseDao
         viewModelFactory = ProductSummaryViewModelFactory(dataSource, application)
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(ProductSummaryViewModel::class.java)
-        binding.productSummaryViewModel =  viewModel
-        val adapter = ProductAdapter()
-        binding.productSummaryList.adapter = adapter
+        productSummaryFragmentMVCView.setViewModel(viewModel)
+        productSummaryFragmentMVCView.setAdapterProductSummary()
         temporalInitProductSummary()
         viewModel.productSummary.observe(viewLifecycleOwner,  Observer {
             it?.let{
-                adapter.submitList(it)
+                productSummaryFragmentMVCView.setListDataToAdapter(it)
             }
         })
-        return binding.root
+        return productSummaryFragmentMVCView.getRootView()
     }
 
     private fun temporalInitProductSummary(){

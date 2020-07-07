@@ -1,4 +1,4 @@
-package com.example.completeandroidknowledge.sectionTransactional.viewModel
+package com.example.completeandroidknowledge.sectionTransactional.feature02ProductSummary.viewModel
 
 import android.app.Application
 import androidx.lifecycle.LiveData

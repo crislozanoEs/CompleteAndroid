@@ -1,4 +1,4 @@
-package com.example.completeandroidknowledge.sectionTransactional.uiControllers.adapters.adaptersUtils
+package com.example.completeandroidknowledge.sectionTransactional.feature02ProductSummary.adapters.adaptersUtils
 
 import android.widget.TextView
 import androidx.databinding.BindingAdapter

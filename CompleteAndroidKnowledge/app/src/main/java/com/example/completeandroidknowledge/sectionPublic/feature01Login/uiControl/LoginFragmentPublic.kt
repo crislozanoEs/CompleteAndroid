@@ -5,13 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProviders
-import com.example.completeandroidknowledge.commons.controllers.BaseFragment
+import com.example.completeandroidknowledge.commons.controllers.BaseFragmentPublic
 import com.example.completeandroidknowledge.commons.navigation.Navigation
 import com.example.completeandroidknowledge.sectionPublic.feature01Login.viewMVC.LoginFragmentMVCView
 import com.example.completeandroidknowledge.sectionPublic.feature01Login.viewModel.LoginViewModel
 import com.example.completeandroidknowledge.sectionPublic.feature01Login.viewModel.LoginViewModelFactory
 
-class LoginFragment : BaseFragment(), LoginFragmentMVCView.Listener{
+class LoginFragmentPublic : BaseFragmentPublic(), LoginFragmentMVCView.Listener{
     private lateinit var loginFragmentMVCView: LoginFragmentMVCView
     private lateinit var viewModel: LoginViewModel
     private lateinit var viewModelFactory: LoginViewModelFactory

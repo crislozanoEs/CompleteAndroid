@@ -1,4 +1,4 @@
-package com.example.completeandroidknowledge.sectionTransactional.uiControllers.adapters
+package com.example.completeandroidknowledge.sectionTransactional.feature02ProductSummary.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,10 +8,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.completeandroidknowledge.databinding.ItemProductSummaryBinding
 import com.example.completeandroidknowledge.sectionTransactional.model.Product
 
-class ProductAdapter : ListAdapter<Product, ProductAdapter.ViewHolder>(ProductDiffCallBack()) {
+class ProductAdapter : ListAdapter<Product, ProductAdapter.ViewHolder>(
+    ProductDiffCallBack()
+) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder.from(parent)
+        return ViewHolder.from(
+            parent
+        )
     }
 
 
@@ -34,7 +38,9 @@ class ProductAdapter : ListAdapter<Product, ProductAdapter.ViewHolder>(ProductDi
             fun from(parent: ViewGroup): ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
                 val binding = ItemProductSummaryBinding.inflate(layoutInflater, parent, false)
-                return ViewHolder(binding)
+                return ViewHolder(
+                    binding
+                )
             }
         }
 

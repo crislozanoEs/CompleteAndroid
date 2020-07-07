@@ -3,7 +3,7 @@ import androidx.fragment.app.Fragment
 import com.example.completeandroidknowledge.commons.dependencyInjection.ControllerCompositionRoot
 import com.example.completeandroidknowledge.sectionPublic.PublicActivity
 
-open class BaseFragment: Fragment() {
+open class BaseFragmentPublic: Fragment() {
     private var compositionRoot: ControllerCompositionRoot?  = null
     fun getCompositionRootObject(): ControllerCompositionRoot{
         if(compositionRoot == null){

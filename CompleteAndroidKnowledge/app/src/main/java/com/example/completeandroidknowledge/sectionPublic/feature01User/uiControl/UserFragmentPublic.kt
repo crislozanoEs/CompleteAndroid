@@ -9,23 +9,20 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.example.completeandroidknowledge.commons.controllers.BaseFragment
+import com.example.completeandroidknowledge.commons.controllers.BaseFragmentPublic
 import com.example.completeandroidknowledge.commons.navigation.Navigation
 import com.example.completeandroidknowledge.sectionPublic.PublicActivity
 import com.example.completeandroidknowledge.sectionPublic.feature01User.viewMVC.UserFragmentMVCView
 import com.example.completeandroidknowledge.sectionPublic.feature01User.viewModel.UserViewModel
 import com.example.completeandroidknowledge.sectionPublic.feature01User.viewModel.UserViewModelFactory
-import com.example.completeandroidknowledge.sectionTransactional.uiControllers.MainActivity
+import com.example.completeandroidknowledge.sectionTransactional.MainActivity
 
-/**
- * A simple [Fragment] subclass.
- */
-class UserFragment : BaseFragment(), UserFragmentMVCView.Listener {
+class UserFragmentPublic : BaseFragmentPublic(), UserFragmentMVCView.Listener {
 
     private lateinit var userFragmentMVCView: UserFragmentMVCView
     private lateinit var viewModel: UserViewModel
     private lateinit var viewModelFactory: UserViewModelFactory
-    private lateinit var args: UserFragmentArgs
+    private lateinit var args: UserFragmentPublicArgs
     private lateinit var navigation: Navigation
 
     override fun onCreateView(
@@ -36,7 +33,7 @@ class UserFragment : BaseFragment(), UserFragmentMVCView.Listener {
         userFragmentMVCView = getCompositionRootObject().getViewMVCFactory().getUserFragmentMVCView(container)
         navigation = getCompositionRootObject().getNavigation()
         args =
-            UserFragmentArgs.fromBundle(
+            UserFragmentPublicArgs.fromBundle(
                 arguments!!
             )
         val application = requireNotNull(this.activity).application

@@ -1,4 +1,4 @@
-package com.example.completeandroidknowledge.sectionTransactional.uiControllers
+package com.example.completeandroidknowledge.sectionTransactional
 
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil

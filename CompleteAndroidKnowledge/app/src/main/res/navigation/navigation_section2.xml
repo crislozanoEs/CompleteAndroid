@@ -5,6 +5,6 @@
 
     <fragment
         android:id="@+id/productSummaryFragment"
-        android:name="com.example.completeandroidknowledge.sectionTransactional.uiControllers.fragments.ProductSummaryFragment"
+        android:name="com.example.completeandroidknowledge.sectionTransactional.feature02ProductSummary.uiControl.ProductSummaryFragmentPublic"
         android:label="ProductSummaryFragment" />
 </navigation>

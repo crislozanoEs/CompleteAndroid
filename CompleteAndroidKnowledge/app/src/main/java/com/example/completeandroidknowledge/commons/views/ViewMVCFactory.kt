@@ -8,6 +8,7 @@ import com.example.completeandroidknowledge.sectionPublic.feature01Login.viewMVC
 import com.example.completeandroidknowledge.sectionPublic.feature01Login.viewMVC.LoginFragmentMVCViewImpl
 import com.example.completeandroidknowledge.sectionPublic.feature01User.viewMVC.UserFragmentMVCView
 import com.example.completeandroidknowledge.sectionPublic.feature01User.viewMVC.UserFragmentMVCViewImpl
+import com.example.completeandroidknowledge.sectionTransactional.feature02ProductSummary.viewMVC.ProductSummaryFragmentMVCViewImpl
 
 class ViewMVCFactory(private val layoutInflater: LayoutInflater) {
 
@@ -21,5 +22,15 @@ class ViewMVCFactory(private val layoutInflater: LayoutInflater) {
             layoutInflater,
             parent
         )
-    fun getOptionDialogMVCView(parent: ViewGroup?): OptionDialogMVCView = OptionDialogMVCViewImpl(layoutInflater, parent)
+    fun getOptionDialogMVCView(parent: ViewGroup?): OptionDialogMVCView =
+        OptionDialogMVCViewImpl(
+            layoutInflater,
+            parent
+        )
+
+    fun getProductSummaryFragmentMVCView(parent: ViewGroup?): ProductSummaryFragmentMVCViewImpl =
+        ProductSummaryFragmentMVCViewImpl(
+            layoutInflater,
+            parent
+        )
 }
