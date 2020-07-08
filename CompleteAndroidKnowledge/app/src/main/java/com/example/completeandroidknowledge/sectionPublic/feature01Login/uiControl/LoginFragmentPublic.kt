@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import com.example.completeandroidknowledge.commons.controllers.BaseFragmentPublic
 import com.example.completeandroidknowledge.commons.navigation.Navigation
 import com.example.completeandroidknowledge.sectionPublic.feature01Login.viewMVC.LoginFragmentMVCView
@@ -29,7 +29,7 @@ class LoginFragmentPublic : BaseFragmentPublic(), LoginFragmentMVCView.Listener{
                 getCompositionRootObject().getUserDatabaseUseCase(application),
                 application
             )
-        this.viewModel = ViewModelProviders.of(this, viewModelFactory).get(LoginViewModel::class.java)
+        this.viewModel = ViewModelProvider(this, viewModelFactory).get(LoginViewModel::class.java)
         this.loginFragmentMVCView.setViewModel(this.viewModel)
         this.loginFragmentMVCView.setLifeCycleOwnerView(this)
         return loginFragmentMVCView.getRootView()

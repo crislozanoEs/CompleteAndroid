@@ -11,6 +11,7 @@ import com.example.completeandroidknowledge.commons.navigation.Navigation
 import com.example.completeandroidknowledge.commons.views.ViewMVCFactory
 import com.example.completeandroidknowledge.network.sessionServices.SessionAPI
 import com.example.completeandroidknowledge.network.sessionServices.SessionServicesUseCase
+import com.example.completeandroidknowledge.repository.productsDatabase.ProductSummaryDatabaseUseCaseImpl
 import com.example.completeandroidknowledge.repository.userDatabase.UserDatabaseUseCaseImpl
 
 class ControllerCompositionRoot(private val activityCompositionRoot: ActivityCompositionRoot?) {
@@ -27,6 +28,8 @@ class ControllerCompositionRoot(private val activityCompositionRoot: ActivityCom
 
     private fun getUserDatabaseInstance(application: Application) = activityCompositionRoot!!.getUserDatabaseInstance(application)
 
+    private fun getProductSummaryDatabaseInstance(application: Application) = activityCompositionRoot!!.getProductSummaryInstance(application)
+
     fun getViewMVCFactory(): ViewMVCFactory = ViewMVCFactory(getLayoutInflater())
 
     fun getLoginServicesUseCase(): SessionServicesUseCase = SessionServicesUseCase(getSessionAPI())
@@ -39,4 +42,8 @@ class ControllerCompositionRoot(private val activityCompositionRoot: ActivityCom
 
     fun getNavigation(): Navigation = Navigation()
 
+    fun getProductSummaryUseCaseImpl(application: Application) =  ProductSummaryDatabaseUseCaseImpl(getProductSummaryDatabaseInstance(application).productSummaryDatabaseDao)
+
 }
+
+

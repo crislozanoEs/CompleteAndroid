@@ -36,8 +36,8 @@ class ProductSummaryFragmentMVCViewImpl(inflater: LayoutInflater, parent: ViewGr
         binding.productSummaryList.adapter = productAdapter
     }
 
-    override fun setListDataToAdapter(product: List<Product>) {
-        productAdapter.submitList(product)
+    override fun setListDataToAdapter(products: List<Product>) {
+        productAdapter.submitList(products)
     }
 
 }

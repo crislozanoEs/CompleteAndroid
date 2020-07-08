@@ -11,7 +11,7 @@ import com.example.completeandroidknowledge.sectionTransactional.model.Product
 fun TextView.setProductNumberCasted(item: Product?){
     item?.let {
         text = maskProductId(
-            item.idBankProduct,
+            item.productBankId,
             context
         )
     }

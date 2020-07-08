@@ -96,8 +96,7 @@ class UserViewModel(user: User,
 
     override fun onDialogEvent(event: Any) {
         if(event is OptionDialogEvent){
-            val eventDialog = event as OptionDialogEvent
-            when(eventDialog.getClickedButton()){
+            when(event.getClickedButton()){
                 OptionDialogEvent.Button.POSITIVE -> executeLoginService()
                 OptionDialogEvent.Button.NEGATIVE -> {
                     _user.value?.userPassword = ""

@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import com.example.completeandroidknowledge.commons.controllers.BaseFragmentPublic
 import com.example.completeandroidknowledge.commons.navigation.Navigation
 import com.example.completeandroidknowledge.sectionPublic.PublicActivity
@@ -46,7 +46,7 @@ class UserFragmentPublic : BaseFragmentPublic(), UserFragmentMVCView.Listener {
                 getCompositionRootObject().getDialogManager(),
                 getCompositionRootObject().getDialogEventBus()
             )
-        viewModel = ViewModelProviders.of(this, viewModelFactory).get(UserViewModel::class.java)
+        viewModel = ViewModelProvider(this, viewModelFactory).get(UserViewModel::class.java)
         userFragmentMVCView.setViewModel(viewModel)
         userFragmentMVCView.setLifeCycleOwnerView(this)
         viewModel.navigationToMainFlag.observe(viewLifecycleOwner, Observer {hasFinished ->

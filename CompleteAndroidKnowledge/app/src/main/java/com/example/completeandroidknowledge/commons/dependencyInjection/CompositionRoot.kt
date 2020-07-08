@@ -5,6 +5,7 @@ import com.example.completeandroidknowledge.commons.Constants
 import com.example.completeandroidknowledge.commons.dialogs.DialogEventBus
 import com.example.completeandroidknowledge.repository.userDatabase.UserDatabase
 import com.example.completeandroidknowledge.network.sessionServices.SessionAPI
+import com.example.completeandroidknowledge.repository.productsDatabase.ProductSummaryDatabase
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import com.squareup.moshi.Moshi
@@ -32,6 +33,7 @@ class CompositionRoot {
     private var dialogEventBus: DialogEventBus? = null
 
     fun getUserDatabaseInstance(application: Application): UserDatabase = UserDatabase.getInstance(application)
+    fun getProductSummaryInstance(application: Application): ProductSummaryDatabase = ProductSummaryDatabase.getInstance(application)
     fun getLoginAPI() : SessionAPI = retrofit!!.create(SessionAPI::class.java)
 
     fun getDialogEventBus(): DialogEventBus{

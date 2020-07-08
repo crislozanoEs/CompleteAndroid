@@ -8,6 +8,7 @@ import com.example.completeandroidknowledge.sectionPublic.model.User
 import com.example.completeandroidknowledge.network.sessionServices.SessionServicesUseCase
 import com.example.completeandroidknowledge.repository.userDatabase.UserDatabaseUseCaseImpl
 
+@Suppress("UNCHECKED_CAST")
 class UserViewModelFactory (private val userType: String,
                             private val userDoc: String,
                             private val userDatabaseUseCaseImpl: UserDatabaseUseCaseImpl,

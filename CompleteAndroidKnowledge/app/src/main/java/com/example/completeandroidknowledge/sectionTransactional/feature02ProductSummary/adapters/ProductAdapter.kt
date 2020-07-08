@@ -48,7 +48,7 @@ class ProductAdapter : ListAdapter<Product, ProductAdapter.ViewHolder>(
 
     class ProductDiffCallBack: DiffUtil.ItemCallback<Product>(){
         override fun areItemsTheSame(oldItem: Product, newItem: Product): Boolean {
-            return oldItem.idProduct ==  newItem.idProduct
+            return oldItem.productBankId ==  newItem.productBankId
         }
 
         override fun areContentsTheSame(oldItem: Product, newItem: Product): Boolean {

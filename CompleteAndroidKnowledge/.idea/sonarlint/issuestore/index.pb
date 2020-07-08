@@ -119,8 +119,6 @@ uapp/src/main/java/com/example/completeandroidknowledge/sectionTransactional/rep
 àapp/src/main/java/com/example/completeandroidknowledge/sectionTransactional/feature02ProductSummary/viewModel/ProductSummaryViewModel.kt,a/7/a7668a4b0739b92118d0f473253142b6ed4ca825
 ¿
 èapp/src/main/java/com/example/completeandroidknowledge/sectionTransactional/feature02ProductSummary/viewModel/ProductSummaryViewModelFactory.kt,a/0/a00591a1cacf440cb0914ff16750891aa9b2cddc
-`
-0app/src/main/res/layout/item_product_summary.xml,3/9/399ebf2ac5e91a7fa554fbd17d0e6654178a0f63
 Z
 *app/src/main/res/layout/login_fragment.xml,8/c/8c62f5c3fc0e9661f8dfe821a66f5bcf4d0056d5
 d

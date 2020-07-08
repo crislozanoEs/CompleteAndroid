@@ -4,47 +4,30 @@ import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.completeandroidknowledge.repository.productsDatabase.ProductTable
+import com.example.completeandroidknowledge.repository.productsDatabase.ProductSummaryDatabaseUseCaseImpl
 import com.example.completeandroidknowledge.sectionTransactional.model.Product
-import com.example.completeandroidknowledge.sectionTransactional.model.ProductSummaryDatabaseDao
-import com.example.completeandroidknowledge.sectionTransactional.model.temporalModels.ProductSummaryClassT
 import kotlinx.coroutines.*
 
-class ProductSummaryViewModel (val productSummaryDatabaseDao: ProductSummaryDatabaseDao, val application: Application): ViewModel(){
-
-    private var viewModelJob = Job()
-    private val uiScope = CoroutineScope(Dispatchers.Main +  viewModelJob)
+class ProductSummaryViewModel (private val productSummaryDatabaseUseCaseImpl: ProductSummaryDatabaseUseCaseImpl, val application: Application): ViewModel(){
 
     private var _productSummary =  MutableLiveData<List<Product>>()
     val productSummary: LiveData<List<Product>>
         get() = _productSummary
 
-    fun saveProductSummary(products: List<Product>){
-        uiScope.launch {
-            saveProductSummaryInDataBase(products)
-        }
+    fun saveProductSummary(){
+        productSummaryDatabaseUseCaseImpl.saveProductSummaryInDatabase(_productSummary.value!!)
     }
 
-    private suspend fun saveProductSummaryInDataBase(products: List<Product>){
-        withContext(Dispatchers.IO){
-            productSummaryDatabaseDao.insertAllProducts(products)
-        }
-    }
+
 
     fun getProductSummary(){
-        uiScope.launch {
-            getProductSummaryInDataBase()
-        }
+        productSummaryDatabaseUseCaseImpl.getProductSummaryInDatabase()
     }
 
-    private suspend fun getProductSummaryInDataBase(){
-        withContext(Dispatchers.IO){
-            _productSummary.value = productSummaryDatabaseDao.getAllProducts().value
-        }
-    }
-
-    fun temporalInitProductSummary(){
-        val productSummaryT = ProductSummaryClassT()
-        _productSummary.value = productSummaryT.products
+    override fun onCleared() {
+        super.onCleared()
+        productSummaryDatabaseUseCaseImpl.getJobObject().cancel()
     }
 
 }

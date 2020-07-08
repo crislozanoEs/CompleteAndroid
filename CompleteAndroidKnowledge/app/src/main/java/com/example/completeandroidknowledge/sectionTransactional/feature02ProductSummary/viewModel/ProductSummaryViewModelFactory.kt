@@ -3,13 +3,14 @@ package com.example.completeandroidknowledge.sectionTransactional.feature02Produ
 import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.completeandroidknowledge.sectionTransactional.model.ProductSummaryDatabaseDao
+import com.example.completeandroidknowledge.repository.productsDatabase.ProductSummaryDatabaseUseCaseImpl
 
-class ProductSummaryViewModelFactory(private val productSummaryDatabaseDao: ProductSummaryDatabaseDao, private val application: Application): ViewModelProvider.Factory{
+@Suppress("UNCHECKED_CAST")
+class ProductSummaryViewModelFactory(private val productSummaryDatabaseUseCaseImpl: ProductSummaryDatabaseUseCaseImpl, private val application: Application): ViewModelProvider.Factory{
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(ProductSummaryViewModel::class.java)) {
             return ProductSummaryViewModel(
-                productSummaryDatabaseDao,
+                productSummaryDatabaseUseCaseImpl,
                 application
             ) as T
         }
