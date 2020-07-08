@@ -40,4 +40,11 @@ class ProductSummaryFragmentMVCViewImpl(inflater: LayoutInflater, parent: ViewGr
         productAdapter.submitList(products)
     }
 
+    fun showLoading(showLoading: Boolean){
+        if(showLoading)
+            binding.loadingProgress.visibility = View.VISIBLE
+        else
+            binding.loadingProgress.visibility = View.GONE
+    }
+
 }

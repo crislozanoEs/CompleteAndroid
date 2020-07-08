@@ -52,6 +52,7 @@ class UserFragmentPublic : BaseFragmentPublic(), UserFragmentMVCView.Listener {
         viewModel.navigationToMainFlag.observe(viewLifecycleOwner, Observer {hasFinished ->
             if(hasFinished){
                 val intent = Intent(getCompositionRootObject().getContext(), MainActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 startActivity(intent)
                 viewModel.doneNavigation()
             }

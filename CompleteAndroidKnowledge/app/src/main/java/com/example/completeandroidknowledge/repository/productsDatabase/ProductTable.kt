@@ -13,8 +13,8 @@ data class ProductTable(
     var idBankProduct: String,
     @ColumnInfo(name = "Product_number")
     var productNumber: String,
-    @ColumnInfo(name = "Complete_product_number")
-    var productNumberComplete: String,
+    @ColumnInfo(name = "Product_name")
+    var productName: String,
     @ColumnInfo(name = "Product_type")
     var productType: Int,
     @ColumnInfo(name = "Product_status")
@@ -27,7 +27,7 @@ fun ProductTable.asDomainObject(): Product {
     return Product(
         productBankId = idBankProduct,
         productNumber = productNumber,
-        productNumberComplete = productNumberComplete,
+        productName = productName,
         productType = productType,
         productStatus = productStatus,
         productBalance = productBalance

@@ -4,8 +4,7 @@ import com.example.completeandroidknowledge.commons.BaseObservable
 import com.example.completeandroidknowledge.sectionPublic.model.User
 import kotlinx.coroutines.*
 
-class SessionServicesUseCase(private val
-                             sessionAPI: SessionAPI):
+class SessionServicesUseCase(private val sessionAPI: SessionAPI):
     BaseObservable<SessionServicesUseCase.Listener>() {
 
     interface Listener{
@@ -21,10 +20,10 @@ class SessionServicesUseCase(private val
 
     fun executeLogin(){
         uiScope.launch {
-            doLogin()
+            callLoginService()
         }
     }
-    private suspend fun doLogin(){
+    private suspend fun callLoginService(){
         withContext(Dispatchers.IO){
             val userDeferred = sessionAPI.loginAsync()
             try{

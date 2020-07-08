@@ -9,6 +9,8 @@ import com.example.completeandroidknowledge.commons.dialogs.DialogEventBus
 import com.example.completeandroidknowledge.commons.dialogs.DialogManager
 import com.example.completeandroidknowledge.commons.navigation.Navigation
 import com.example.completeandroidknowledge.commons.views.ViewMVCFactory
+import com.example.completeandroidknowledge.network.productsServices.ProductAPI
+import com.example.completeandroidknowledge.network.productsServices.ProductSummaryServiceUseCase
 import com.example.completeandroidknowledge.network.sessionServices.SessionAPI
 import com.example.completeandroidknowledge.network.sessionServices.SessionServicesUseCase
 import com.example.completeandroidknowledge.repository.productsDatabase.ProductSummaryDatabaseUseCaseImpl
@@ -22,6 +24,8 @@ class ControllerCompositionRoot(private val activityCompositionRoot: ActivityCom
 
     private fun getSessionAPI(): SessionAPI = activityCompositionRoot!!.getSessionAPI()
 
+    private fun getProductAPI(): ProductAPI = activityCompositionRoot!!.getProductAPI()
+
     private fun getLayoutInflater(): LayoutInflater = LayoutInflater.from(getContext())
 
     private fun getFragmentManager(): FragmentManager = getActivity().supportFragmentManager
@@ -33,6 +37,8 @@ class ControllerCompositionRoot(private val activityCompositionRoot: ActivityCom
     fun getViewMVCFactory(): ViewMVCFactory = ViewMVCFactory(getLayoutInflater())
 
     fun getLoginServicesUseCase(): SessionServicesUseCase = SessionServicesUseCase(getSessionAPI())
+
+    fun getProductServiceUseCase(): ProductSummaryServiceUseCase = ProductSummaryServiceUseCase(getProductAPI())
 
     fun getDialogManager(): DialogManager = DialogManager(getContext(), getFragmentManager())
 

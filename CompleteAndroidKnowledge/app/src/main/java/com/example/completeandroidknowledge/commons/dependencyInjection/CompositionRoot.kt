@@ -3,6 +3,7 @@ package com.example.completeandroidknowledge.commons.dependencyInjection
 import android.app.Application
 import com.example.completeandroidknowledge.commons.Constants
 import com.example.completeandroidknowledge.commons.dialogs.DialogEventBus
+import com.example.completeandroidknowledge.network.productsServices.ProductAPI
 import com.example.completeandroidknowledge.repository.userDatabase.UserDatabase
 import com.example.completeandroidknowledge.network.sessionServices.SessionAPI
 import com.example.completeandroidknowledge.repository.productsDatabase.ProductSummaryDatabase
@@ -31,16 +32,21 @@ class CompositionRoot {
         }
 
     private var dialogEventBus: DialogEventBus? = null
-
-    fun getUserDatabaseInstance(application: Application): UserDatabase = UserDatabase.getInstance(application)
-    fun getProductSummaryInstance(application: Application): ProductSummaryDatabase = ProductSummaryDatabase.getInstance(application)
-    fun getLoginAPI() : SessionAPI = retrofit!!.create(SessionAPI::class.java)
-
     fun getDialogEventBus(): DialogEventBus{
         if(dialogEventBus == null){
             dialogEventBus = DialogEventBus()
         }
         return dialogEventBus!!
     }
+
+    // DatabaseInstance
+    fun getUserDatabaseInstance(application: Application): UserDatabase = UserDatabase.getInstance(application)
+    fun getProductSummaryDatabaseInstance(application: Application): ProductSummaryDatabase = ProductSummaryDatabase.getInstance(application)
+
+    // API
+    fun getLoginAPI() : SessionAPI = retrofit!!.create(SessionAPI::class.java)
+    fun getProductAPI(): ProductAPI = retrofit!!.create(ProductAPI::class.java)
+
+
 
 }

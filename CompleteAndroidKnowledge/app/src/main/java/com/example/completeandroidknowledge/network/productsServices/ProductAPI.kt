@@ -6,5 +6,5 @@ import retrofit2.http.GET
 
 interface ProductAPI {
     @GET("product/summary/")
-    fun getProductSummary() : Deferred<UserNetwork>
+    fun getProductSummary() : Deferred<List<ProductNetwork>>
 }

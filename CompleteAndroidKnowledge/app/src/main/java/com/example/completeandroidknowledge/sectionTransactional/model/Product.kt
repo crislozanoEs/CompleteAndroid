@@ -6,7 +6,7 @@ import com.example.completeandroidknowledge.repository.productsDatabase.ProductT
 data class Product (
     var productBankId: String,
     var productNumber: String,
-    var productNumberComplete: String,
+    var productName: String,
     var productType: Int,
     var productStatus: Int,
     var productBalance: Double
@@ -16,7 +16,7 @@ fun Product.asDatabaseObject(): ProductTable{
     return ProductTable(
         idBankProduct = productBankId,
         productNumber = productNumber,
-        productNumberComplete = productNumberComplete,
+        productName = productName,
         productType = productType,
         productStatus = productStatus,
         productBalance = productBalance
