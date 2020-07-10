@@ -38,9 +38,7 @@ class ProductAdapter : ListAdapter<Product, ProductAdapter.ViewHolder>(
             fun from(parent: ViewGroup): ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
                 val binding = ItemProductSummaryBinding.inflate(layoutInflater, parent, false)
-                return ViewHolder(
-                    binding
-                )
+                return ViewHolder(binding)
             }
         }
 

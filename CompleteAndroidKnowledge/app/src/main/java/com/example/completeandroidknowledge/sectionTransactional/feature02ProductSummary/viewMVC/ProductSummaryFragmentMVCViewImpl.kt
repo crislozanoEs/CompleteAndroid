@@ -12,8 +12,9 @@ import com.example.completeandroidknowledge.sectionTransactional.feature02Produc
 import com.example.completeandroidknowledge.sectionTransactional.feature02ProductSummary.viewModel.ProductSummaryViewModel
 import com.example.completeandroidknowledge.sectionTransactional.model.Product
 
-class ProductSummaryFragmentMVCViewImpl(inflater: LayoutInflater, parent: ViewGroup?): ProductSummaryFragmentMVCView,
-    ObservableViewMVCImpl<ProductSummaryFragmentMVCView.Listener, ProductSummaryFragmentBinding>() {
+class ProductSummaryFragmentMVCViewImpl(inflater: LayoutInflater, parent: ViewGroup?):
+    ProductSummaryFragmentMVCView,
+    ObservableViewMVCImpl<ProductSummaryFragmentMVCView.Listener, ProductSummaryFragmentBinding>(){
 
     private lateinit var productAdapter: ProductAdapter
 
@@ -23,6 +24,11 @@ class ProductSummaryFragmentMVCViewImpl(inflater: LayoutInflater, parent: ViewGr
     override fun setViewModel(viewModel: ProductSummaryViewModel) {
         binding.productSummaryViewModel = viewModel
     }
+    init{
+        binding.btnTryAgain.setOnClickListener {
+            notifyOnRetryButtonClicked()
+        }
+    }
 
     override fun getRootView(): View = binding.root
 
@@ -31,8 +37,7 @@ class ProductSummaryFragmentMVCViewImpl(inflater: LayoutInflater, parent: ViewGr
     }
 
     override fun setAdapterProductSummary() {
-        productAdapter =
-            ProductAdapter()
+        productAdapter = ProductAdapter()
         binding.productSummaryList.adapter = productAdapter
     }
 
@@ -45,6 +50,19 @@ class ProductSummaryFragmentMVCViewImpl(inflater: LayoutInflater, parent: ViewGr
             binding.loadingProgress.visibility = View.VISIBLE
         else
             binding.loadingProgress.visibility = View.GONE
+    }
+
+    fun showError(showError: Boolean){
+        if(showError)
+            binding.errorProductSummary.visibility = View.VISIBLE
+        else
+            binding.errorProductSummary.visibility = View.GONE
+    }
+
+    private fun notifyOnRetryButtonClicked() {
+        getListener().forEach {
+            it.onRetryButtonClicked()
+        }
     }
 
 }

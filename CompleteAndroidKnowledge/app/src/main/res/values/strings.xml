@@ -23,6 +23,8 @@
     <string name="status_inactive">INACTIVO</string>
     <string name="product_balance_format">$%s</string>
     <string name="format_balance">###,###,##0.00</string>
+    <string name="Error_product_summary">Por favor intente de nuevo</string>
+    <string name="txtTryAgain">Reintentar</string>
 
 
 </resources>

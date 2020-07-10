@@ -11,23 +11,26 @@ import com.example.completeandroidknowledge.repository.productsDatabase.ProductS
 import com.example.completeandroidknowledge.sectionTransactional.model.Product
 import kotlinx.coroutines.*
 
+enum class STATE{
+    IDLE, LOADING, PRODUCT_SUMMARY_SUCCEED, PRODUCT_SUMMARY_FAILED
+}
 class ProductSummaryViewModel (private val productSummaryDatabaseUseCaseImpl: ProductSummaryDatabaseUseCaseImpl,
                                private val productSummaryServiceUseCase: ProductSummaryServiceUseCase,
                                val application: Application):
     ViewModel(),
     ProductSummaryServiceUseCase.Listener{
 
-    enum class STATE{
-        IDLE, LOADING, PRODUCT_SUMMARY_SUCCEED, PRODUCT_SUMMARY_FAILED
-    }
+    private var clicksOnRetry: Int = 0
 
     private var _currentState =  MutableLiveData<STATE>()
     val currentState: LiveData<STATE>
         get() = _currentState
-
     private var _productSummary =  MutableLiveData<List<Product>>()
     val productSummary: LiveData<List<Product>>
         get() = _productSummary
+    private var _navigationToPublicFlag = MutableLiveData<Boolean>()
+    val navigationToPublicFlag: LiveData<Boolean>
+        get() = _navigationToPublicFlag
 
     private fun saveProductSummary(){
         productSummaryDatabaseUseCaseImpl.saveProductSummaryInDatabase(_productSummary.value!!)
@@ -42,8 +45,22 @@ class ProductSummaryViewModel (private val productSummaryDatabaseUseCaseImpl: Pr
         _currentState.value = STATE.LOADING
         productSummaryServiceUseCase.executeGetProductSummary()
     }
+
+    fun startRetryGettingProductSummary(){
+        clicksOnRetry++
+        if(clicksOnRetry < 3){
+            _currentState.value = STATE.LOADING
+            productSummaryServiceUseCase.executeGetProductSummary()
+        }else{
+            _navigationToPublicFlag.value = true
+        }
+
+    }
     fun getProductSummaryFromDatabase(){
         productSummaryDatabaseUseCaseImpl.getProductSummaryInDatabase()
+    }
+    fun doneNavigationToPublic() {
+        _navigationToPublicFlag.value = false
     }
 
     override fun onCleared() {

@@ -43,8 +43,6 @@ Papp/src/main/java/com/example/completeandroidknowledge/commons/BaseObservable.k
 happ/src/main/java/com/example/completeandroidknowledge/network/sessionServices/SessionServicesUseCase.kt,6/d/6dc33c141441475c3255f1d2645651a95924cf16
 ç
 ]app/src/main/java/com/example/completeandroidknowledge/network/sessionServices/UserNetwork.kt,e/a/ea233493bd837d07034babb872d7f93209a29e86
-ò
-happ/src/main/java/com/example/completeandroidknowledge/network/productsServices/ProductSummaryNetwork.kt,8/c/8cd5d663759594022f264d5a7d961452e27b5827
 ç
 ]app/src/main/java/com/example/completeandroidknowledge/network/productsServices/ProductAPI.kt,3/7/37495e2956aee9344767313173b82082979a4708
 á
@@ -97,8 +95,6 @@ kapp/src/main/java/com/example/completeandroidknowledge/sectionTransactional/dia
 qapp/src/main/java/com/example/completeandroidknowledge/sectionTransactional/dialog/optionsDialog/OptionsDialog.kt,d/e/de1eca9e5dd5c2e59201e0cdf614cb4ba8264c5e
 å
 \app/src/main/java/com/example/completeandroidknowledge/sectionTransactional/model/Product.kt,e/a/ea25145bf9bc418bd3fbb6216e17d6080cf26ed4
-•
-uapp/src/main/java/com/example/completeandroidknowledge/sectionTransactional/repositories/ProductSummaryApiServices.kt,e/6/e69bd36fcbc5ab1613b2c745d5e98c08b8bc0617
 ª
 äapp/src/main/java/com/example/completeandroidknowledge/sectionTransactional/feature02ProductSummary/adapters/adaptersUtils/AdapterUtils.kt,5/c/5c1182872f23d6cb4550377bc288b91d5531f3c1
 ã
@@ -141,3 +137,7 @@ tapp/src/main/java/com/example/completeandroidknowledge/sectionPublic/feature01L
 rapp/src/main/java/com/example/completeandroidknowledge/sectionPublic/feature01User/uiControl/UserFragmentPublic.kt,5/a/5ac187aa046067fc9712f0e578da58778dbe3faa
 æ
 çapp/src/main/java/com/example/completeandroidknowledge/sectionTransactional/feature02ProductSummary/uiControl/ProductSummaryFragmentPublic.kt,1/5/156fd4db8e1a07867cc068e63e745870b05d9be4
+ë
+aapp/src/main/java/com/example/completeandroidknowledge/network/productsServices/ProductNetwork.kt,5/a/5a358b4fcf7f9dcd8466b5b2ad6f04d2a18bd43b
+ü
+oapp/src/main/java/com/example/completeandroidknowledge/network/productsServices/ProductSummaryServiceUseCase.kt,e/1/e19436711101294672143d2e1f94cd30069ef4cb
