@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
         <variable
             name="loginViewModel"
             type="com.example.completeandroidknowledge.sectionPublic.feature01Login.viewModel.LoginViewModel"/>
+        <variable
+            name="validator"
+            type="com.example.completeandroidknowledge.sectionPublic.feature01Login.validator.LoginValidator"/>
     </data>
 
-    <!--<data>
-        <variable
-            name="User"
-            type="com.example.completeandroidknowledge.section1.model.User"/>
-    </data>-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -35,6 +33,7 @@
                 android:text="@string/document_type"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+                android:labelFor="@+id/type_doc_edit"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
@@ -43,10 +42,12 @@
                 android:inputType="text"
                 android:text="@{loginViewModel.userType}"
                 android:layout_height="wrap_content"
+                android:afterTextChanged="@{validator::typeUserValidator}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/type_doc_text" />
+                app:layout_constraintTop_toBottomOf="@+id/type_doc_text"
+                android:importantForAutofill="no" />
 
             <!--<EditText
                 android:id="@+id/type_doc_edit"
@@ -76,19 +77,22 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@string/document_number"
+                android:labelFor="@+id/text_doc_edit"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
            <EditText
-                android:id="@+id/text_doc_edit"
-                android:layout_width="0dp"
-                android:inputType="text"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/number_doc_text" />
+               android:id="@+id/text_doc_edit"
+               android:layout_width="0dp"
+               android:inputType="text"
+               android:layout_height="wrap_content"
+               android:afterTextChanged="@{validator::userValidator}"
+               app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toBottomOf="@+id/number_doc_text"
+               android:importantForAutofill="no"/>
             <!--<EditText
                 android:id="@+id/text_doc_edit"
                 android:layout_width="0dp"
@@ -106,6 +110,7 @@
             android:layout_height="wrap_content"
             android:text="@string/action_next"
             android:id="@+id/next_user_button"
+            android:enabled="@{validator.isFormValid}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/number_doc_container"
             app:layout_constraintStart_toStartOf="@+id/number_doc_container"

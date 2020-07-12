@@ -103,8 +103,6 @@ qapp/src/main/java/com/example/completeandroidknowledge/sectionTransactional/dia
 àapp/src/main/java/com/example/completeandroidknowledge/sectionTransactional/feature02ProductSummary/viewModel/ProductSummaryViewModel.kt,a/7/a7668a4b0739b92118d0f473253142b6ed4ca825
 ¿
 èapp/src/main/java/com/example/completeandroidknowledge/sectionTransactional/feature02ProductSummary/viewModel/ProductSummaryViewModelFactory.kt,a/0/a00591a1cacf440cb0914ff16750891aa9b2cddc
-Z
-*app/src/main/res/layout/login_fragment.xml,8/c/8c62f5c3fc0e9661f8dfe821a66f5bcf4d0056d5
 c
 3app/src/main/res/navigation/navigation_section1.xml,d/5/d58ed9cbd34f39eb0b7b755b58fd567f1e0d134e
 Æ

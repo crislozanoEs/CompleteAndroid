@@ -8,6 +8,7 @@ import androidx.lifecycle.LifecycleOwner
 import com.example.completeandroidknowledge.R
 import com.example.completeandroidknowledge.commons.views.ObservableViewMVCImpl
 import com.example.completeandroidknowledge.databinding.LoginFragmentBinding
+import com.example.completeandroidknowledge.sectionPublic.feature01Login.validator.LoginValidator
 import com.example.completeandroidknowledge.sectionPublic.feature01Login.viewModel.LoginViewModel
 
 class LoginFragmentMVCViewImpl(inflater: LayoutInflater, parent: ViewGroup?) :
@@ -16,8 +17,11 @@ class LoginFragmentMVCViewImpl(inflater: LayoutInflater, parent: ViewGroup?) :
     override var binding: LoginFragmentBinding =
         DataBindingUtil.inflate(inflater, R.layout.login_fragment, parent, false)
 
+    private var loginValidator =  LoginValidator(binding)
+
     init{
         binding.nextUserButton.setOnClickListener{ notifyListeners() }
+        binding.validator = loginValidator
         setRootView(binding.root)
     }
 
