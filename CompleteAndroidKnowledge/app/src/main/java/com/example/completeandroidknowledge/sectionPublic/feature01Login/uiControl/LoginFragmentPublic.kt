@@ -1,15 +1,18 @@
 package com.example.completeandroidknowledge.sectionPublic.feature01Login.uiControl
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.completeandroidknowledge.commons.controllers.BaseFragmentPublic
 import com.example.completeandroidknowledge.commons.navigation.Navigation
 import com.example.completeandroidknowledge.sectionPublic.feature01Login.viewMVC.LoginFragmentMVCView
 import com.example.completeandroidknowledge.sectionPublic.feature01Login.viewModel.LoginViewModel
 import com.example.completeandroidknowledge.sectionPublic.feature01Login.viewModel.LoginViewModelFactory
+import com.example.completeandroidknowledge.sectionTransactional.MainActivity
 
 class LoginFragmentPublic : BaseFragmentPublic(), LoginFragmentMVCView.Listener{
     private lateinit var loginFragmentMVCView: LoginFragmentMVCView
@@ -32,6 +35,14 @@ class LoginFragmentPublic : BaseFragmentPublic(), LoginFragmentMVCView.Listener{
         this.viewModel = ViewModelProvider(this, viewModelFactory).get(LoginViewModel::class.java)
         this.loginFragmentMVCView.setViewModel(this.viewModel)
         this.loginFragmentMVCView.setLifeCycleOwnerView(this)
+        viewModel.executeCallDocumentsTypes()
+
+        viewModel.documentType.observe(viewLifecycleOwner, Observer {documentList ->
+            if(documentList != null) {
+                this.loginFragmentMVCView.initDocumentsSpinner(documentList, getCompositionRootObject().getContext())
+            }
+        })
+
         return loginFragmentMVCView.getRootView()
     }
 

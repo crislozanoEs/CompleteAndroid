@@ -1,17 +1,21 @@
 package com.example.completeandroidknowledge.sectionPublic.feature01Login.viewModel
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.completeandroidknowledge.commons.Constants
 import com.example.completeandroidknowledge.repository.userDatabase.UserDatabaseUseCaseImpl
 import com.example.completeandroidknowledge.sectionPublic.model.User
 
 class LoginViewModel(private val userDatabaseUseCaseImpl: UserDatabaseUseCaseImpl, application: Application): ViewModel(), UserDatabaseUseCaseImpl.Listener {
 
+    private val _documentTypes= MutableLiveData<MutableList<String>>()
+    val documentType: LiveData<MutableList<String>>
+        get() = _documentTypes
+
     private var _userType = MutableLiveData<String>()
-
-
     val userType: LiveData<String>
         get() = _userType
 
@@ -21,11 +25,19 @@ class LoginViewModel(private val userDatabaseUseCaseImpl: UserDatabaseUseCaseImp
 
 
     init{
+
+        _documentTypes.value = mutableListOf<String>()
         _userType.value = "Usuario"
         userDatabaseUseCaseImpl.registerListener(this)
         userDatabaseUseCaseImpl.initGetUserFromDatabase()
+
     }
 
+    fun executeCallDocumentsTypes(){
+        Constants.documentType1.forEach{
+            _documentTypes.value!!.add(it.value)
+        }
+    }
     fun saveUser(){
         userDatabaseUseCaseImpl.initSaveUserInDatabase(_userDoc.value!!, _userType.value!!)
     }

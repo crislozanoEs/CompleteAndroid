@@ -1,8 +1,12 @@
 package com.example.completeandroidknowledge.sectionPublic.feature01Login.viewMVC
 
+import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Adapter
+import android.widget.ArrayAdapter
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.LifecycleOwner
 import com.example.completeandroidknowledge.R
@@ -36,12 +40,17 @@ class LoginFragmentMVCViewImpl(inflater: LayoutInflater, parent: ViewGroup?) :
     override fun setViewModel(viewModel: LoginViewModel){
         binding.loginViewModel = viewModel
     }
-    override fun getTypeDocument(): String = binding.typeDocEdit.text.toString()
+    override fun getTypeDocument(): String = binding.typeDocEdit.selectedItem.toString()
 
     override fun getDocument(): String = binding.textDocEdit.text.toString()
 
     override fun setLifeCycleOwnerView(owner: LifecycleOwner) {
         setLifecycleOwner(binding, owner)
+    }
+
+    override fun initDocumentsSpinner(documents: List<String>, context: Context) {
+        val adapter = ArrayAdapter(context, android.R.layout.simple_spinner_dropdown_item, documents)
+        binding.typeDocEdit.adapter = adapter
     }
 
 }
