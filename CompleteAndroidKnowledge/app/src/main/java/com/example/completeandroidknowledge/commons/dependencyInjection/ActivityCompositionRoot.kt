@@ -13,7 +13,7 @@ class ActivityCompositionRoot(private val compositionRoot: CompositionRoot, priv
     fun getSessionAPI(): SessionAPI = compositionRoot.getLoginAPI()
     fun getProductAPI(): ProductAPI = compositionRoot.getProductAPI()
     fun getActivity(): AppCompatActivity = activity
-    fun getUserDatabaseInstance(application: Application): UserDatabase = compositionRoot.getUserDatabaseInstance(application)
-    fun getProductSummaryInstance(application: Application): ProductSummaryDatabase = compositionRoot.getProductSummaryDatabaseInstance(application)
+    fun getUserDatabaseInstance(): UserDatabase = compositionRoot.getUserDatabaseInstance()
+    fun getProductSummaryInstance(): ProductSummaryDatabase = compositionRoot.getProductSummaryDatabaseInstance()
     fun getDialogEventBus(): DialogEventBus = compositionRoot.getDialogEventBus()
 }

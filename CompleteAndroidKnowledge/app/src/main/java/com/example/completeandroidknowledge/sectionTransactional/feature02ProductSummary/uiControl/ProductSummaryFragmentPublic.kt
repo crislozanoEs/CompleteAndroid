@@ -33,7 +33,7 @@ class ProductSummaryFragmentPublic:
         productSummaryFragmentMVCViewImpl = getCompositionRootObject().getViewMVCFactory().getProductSummaryFragmentMVCView(container)
         val application = requireNotNull(this.activity).application
         viewModelFactory = ProductSummaryViewModelFactory(
-            getCompositionRootObject().getProductSummaryUseCaseImpl(application),
+            getCompositionRootObject().getProductSummaryUseCaseImpl(),
             getCompositionRootObject().getProductServiceUseCase(),
             application)
         viewModel = ViewModelProvider(this, viewModelFactory).get(ProductSummaryViewModel::class.java)

@@ -30,9 +30,9 @@ class ControllerCompositionRoot(private val activityCompositionRoot: ActivityCom
 
     private fun getFragmentManager(): FragmentManager = getActivity().supportFragmentManager
 
-    private fun getUserDatabaseInstance(application: Application) = activityCompositionRoot!!.getUserDatabaseInstance(application)
+    private fun getUserDatabaseInstance() = activityCompositionRoot!!.getUserDatabaseInstance()
 
-    private fun getProductSummaryDatabaseInstance(application: Application) = activityCompositionRoot!!.getProductSummaryInstance(application)
+    private fun getProductSummaryDatabaseInstance() = activityCompositionRoot!!.getProductSummaryInstance()
 
     fun getViewMVCFactory(): ViewMVCFactory = ViewMVCFactory(getLayoutInflater())
 
@@ -44,11 +44,11 @@ class ControllerCompositionRoot(private val activityCompositionRoot: ActivityCom
 
     fun getDialogEventBus(): DialogEventBus = activityCompositionRoot!!.getDialogEventBus()
 
-    fun getUserDatabaseUseCase(application: Application): UserDatabaseUseCaseImpl = UserDatabaseUseCaseImpl(getUserDatabaseInstance(application).userDatabaseDao)
+    fun getUserDatabaseUseCase(): UserDatabaseUseCaseImpl = UserDatabaseUseCaseImpl(getUserDatabaseInstance().userDatabaseDao)
 
     fun getNavigation(): Navigation = Navigation()
 
-    fun getProductSummaryUseCaseImpl(application: Application) =  ProductSummaryDatabaseUseCaseImpl(getProductSummaryDatabaseInstance(application).productSummaryDatabaseDao)
+    fun getProductSummaryUseCaseImpl():ProductSummaryDatabaseUseCaseImpl =  ProductSummaryDatabaseUseCaseImpl(getProductSummaryDatabaseInstance().productSummaryDatabaseDao)
 
 }
 

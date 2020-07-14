@@ -26,7 +26,7 @@ class LoginFragmentPublic : BaseFragmentPublic(), LoginFragmentMVCView.Listener{
         val application = requireNotNull(this.activity).application
         this.viewModelFactory =
             LoginViewModelFactory(
-                getCompositionRootObject().getUserDatabaseUseCase(application),
+                getCompositionRootObject().getUserDatabaseUseCase(),
                 application
             )
         this.viewModel = ViewModelProvider(this, viewModelFactory).get(LoginViewModel::class.java)

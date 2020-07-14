@@ -8,7 +8,7 @@ class CustomApplication: Application() {
 
     override fun onCreate() {
         super.onCreate()
-        compositionRoot = CompositionRoot()
+        compositionRoot = CompositionRoot(this)
     }
 
     fun getCompositionRoot(): CompositionRoot = compositionRoot

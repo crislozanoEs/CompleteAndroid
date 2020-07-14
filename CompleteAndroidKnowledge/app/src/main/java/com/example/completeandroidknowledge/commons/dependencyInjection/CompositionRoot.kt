@@ -13,7 +13,7 @@ import com.squareup.moshi.Moshi
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
-class CompositionRoot {
+class CompositionRoot(var application: Application) {
 
     private val moshi = Moshi.Builder()
         .add(KotlinJsonAdapterFactory())
@@ -40,8 +40,8 @@ class CompositionRoot {
     }
 
     // DatabaseInstance
-    fun getUserDatabaseInstance(application: Application): UserDatabase = UserDatabase.getInstance(application)
-    fun getProductSummaryDatabaseInstance(application: Application): ProductSummaryDatabase = ProductSummaryDatabase.getInstance(application)
+    fun getUserDatabaseInstance(): UserDatabase = UserDatabase.getInstance(application)
+    fun getProductSummaryDatabaseInstance(): ProductSummaryDatabase = ProductSummaryDatabase.getInstance(application)
 
     // API
     fun getLoginAPI() : SessionAPI = retrofit!!.create(SessionAPI::class.java)

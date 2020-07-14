@@ -41,7 +41,7 @@ class UserFragmentPublic : BaseFragmentPublic(), UserFragmentMVCView.Listener {
             UserViewModelFactory(
                 args.documentType,
                 args.document,
-                getCompositionRootObject().getUserDatabaseUseCase(application),
+                getCompositionRootObject().getUserDatabaseUseCase(),
                 getCompositionRootObject().getLoginServicesUseCase(),
                 getCompositionRootObject().getDialogManager(),
                 getCompositionRootObject().getDialogEventBus()

@@ -139,3 +139,9 @@ rapp/src/main/java/com/example/completeandroidknowledge/sectionPublic/feature01U
 aapp/src/main/java/com/example/completeandroidknowledge/network/productsServices/ProductNetwork.kt,5/a/5a358b4fcf7f9dcd8466b5b2ad6f04d2a18bd43b
 Ÿ
 oapp/src/main/java/com/example/completeandroidknowledge/network/productsServices/ProductSummaryServiceUseCase.kt,e/1/e19436711101294672143d2e1f94cd30069ef4cb
+d
+4app/src/main/res/layout/product_summary_fragment.xml,0/9/0960ce547dd656ca423b966abbb10555975e0a8f
+S
+#app/src/main/res/values/strings.xml,d/2/d2281fbb3027de2722081a53408dd77628bf080e
+Ÿ
+oapp/src/main/java/com/example/completeandroidknowledge/sectionPublic/feature01Login/validator/LoginValidator.kt,7/b/7b8e348238b29144a29f7115d6a18850f9a865b3
