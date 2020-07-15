@@ -25,29 +25,39 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/type_doc_text"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/password_user"
-
-                android:labelFor="@+id/password_edit"
+            <RelativeLayout
+                android:id="@+id/type_doc_container"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/border_input_height"
+                android:layout_marginTop="@dimen/border_input_top_margin"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent">
+                <EditText
+                    android:id="@+id/password_edit"
+                    android:inputType="textPassword"
+                    android:text="@{UserViewModel.user.userPassword}"
+                    android:afterTextChanged="@{Validator::passwordValidator}"
+                    android:importantForAutofill="no"
+                    style="@style/defaultTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/border"
+                    android:layout_marginTop="@dimen/input_top_margin"
+                    android:paddingStart="@dimen/input_start_padding"
+                    android:paddingEnd="@dimen/input_end_padding"/>
 
-            <EditText
-                android:id="@+id/password_edit"
-                android:layout_width="0dp"
-                android:inputType="textPassword"
-                android:layout_height="wrap_content"
-                android:text="@{UserViewModel.user.userPassword}"
-                android:afterTextChanged="@{Validator::passwordValidator}"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/type_doc_text"
-                android:importantForAutofill="no" />
+                <TextView
+                    android:id="@+id/type_doc_text"
+                    android:text="@string/password_user"
+                    android:labelFor="@+id/password_edit"
+                    style="@style/defaultLabelStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/label_start_margin"
+                    android:layout_marginTop="@dimen/label_top_margin"
+                    android:background="@color/white" />
+            </RelativeLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <Button
@@ -59,7 +69,9 @@
             app:layout_constraintEnd_toEndOf="@+id/password_container"
             app:layout_constraintStart_toStartOf="@+id/password_container"
             app:layout_constraintTop_toBottomOf="@+id/password_container"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.0"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/button_style_default"/>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/user_container"
@@ -77,6 +89,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@string/salute_user"
+                style="@style/defaultLabelStyle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -85,6 +98,7 @@
                 android:id="@+id/user_text"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                style="@style/defaultTextStyle"
                 android:text="@{UserViewModel.user.userDocument}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

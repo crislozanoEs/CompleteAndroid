@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="border_input_height">60dp</dimen>
+    <dimen name="border_input_top_margin">16dp</dimen>
+    <dimen name="input_top_margin">15dp</dimen>
+    <dimen name="label_start_margin">10dp</dimen>
+    <dimen name="label_top_margin">7dp</dimen>
+    <dimen name="input_start_padding">16dp</dimen>
+    <dimen name="input_end_padding">3dp</dimen>
+
+
+</resources>

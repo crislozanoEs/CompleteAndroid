@@ -48,8 +48,8 @@
             <RelativeLayout
                 android:id="@+id/type_doc_container"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginTop="16dp"
+                android:layout_height="@dimen/border_input_height"
+                android:layout_marginTop="@dimen/border_input_top_margin"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -59,18 +59,18 @@
                     style="@style/defaultTextStyle"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="@dimen/input_top_margin"
                     android:background="@drawable/border"
                     android:paddingStart="5dp"
-                    android:paddingEnd="3dp" />
+                    android:paddingEnd="@dimen/input_end_padding" />
 
                 <TextView
                     android:id="@+id/type_doc_text"
                     style="@style/defaultLabelStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="7dp"
+                    android:layout_marginStart="@dimen/label_start_margin"
+                    android:layout_marginTop="@dimen/label_top_margin"
                     android:background="@color/white"
                     android:labelFor="@+id/type_doc_edit"
                     android:text="@string/document_type" />
@@ -79,9 +79,8 @@
             <RelativeLayout
                 android:id="@+id/number_doc_container"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
+                android:layout_height="@dimen/border_input_height"
+                android:layout_marginTop="@dimen/border_input_top_margin"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/type_doc_container"
@@ -89,42 +88,42 @@
 
                 <EditText
                     android:id="@+id/text_doc_edit"
+                    android:importantForAutofill="no"
+                    android:inputType="text"
+                    android:afterTextChanged="@{Validator::userValidator}"
                     style="@style/defaultTextStyle"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="15dp"
-                    android:afterTextChanged="@{Validator::userValidator}"
+                    android:layout_marginTop="@dimen/input_top_margin"
                     android:background="@drawable/border"
-                    android:importantForAutofill="no"
-                    android:inputType="text"
-                    android:paddingStart="16dp"
-                    android:paddingEnd="3dp" />
+                    android:paddingStart="@dimen/input_start_padding"
+                    android:paddingEnd="@dimen/input_end_padding" />
 
                 <TextView
                     android:id="@+id/number_doc_text"
+                    android:labelFor="@+id/text_doc_edit"
+                    android:text="@string/document_number"
                     style="@style/defaultLabelStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="7dp"
-                    android:background="@color/white"
-                    android:labelFor="@+id/text_doc_edit"
-                    android:text="@string/document_number" />
+                    android:layout_marginStart="@dimen/label_start_margin"
+                    android:layout_marginTop="@dimen/label_top_margin"
+                    android:background="@color/white" />
             </RelativeLayout>
 
             <Button
                 android:id="@+id/next_user_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:background="@drawable/button_style_default"
                 android:enabled="@{Validator.isFormValid}"
                 android:text="@string/action_next"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/number_doc_container"
                 app:layout_constraintStart_toStartOf="@+id/number_doc_container"
                 app:layout_constraintTop_toBottomOf="@+id/number_doc_container"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintVertical_bias="0.0"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/button_style_default"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
