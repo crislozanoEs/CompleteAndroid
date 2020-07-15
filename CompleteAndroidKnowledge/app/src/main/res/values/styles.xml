@@ -16,9 +16,13 @@
         <item name="android:textColor">@color/defaultTextColor</item>
         <item name="android:textSize">16sp</item>
     </style>
-
     <style name="defaultLabelStyle" parent="basicTextStyle">
         <item name="android:textColor">@color/defaultLabelColor</item>
         <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="defaultValueStyle" parent="basicTextStyle">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">13sp</item>
     </style>
 </resources>

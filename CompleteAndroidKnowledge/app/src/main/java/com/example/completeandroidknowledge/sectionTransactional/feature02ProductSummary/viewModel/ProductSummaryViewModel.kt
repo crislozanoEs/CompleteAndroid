@@ -72,6 +72,7 @@ class ProductSummaryViewModel (private val productSummaryDatabaseUseCaseImpl: Pr
 
     override fun onProductSummarySucceed(productSummary: List<Product>) {
         _productSummary.postValue(productSummary)
+        productSummaryServiceUseCase.unregisterListener(this)
         _currentState.postValue( STATE.PRODUCT_SUMMARY_SUCCEED)
         saveProductSummary()
     }

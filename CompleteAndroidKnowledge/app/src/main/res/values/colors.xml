@@ -2,9 +2,10 @@
 <resources>
     <color name="colorPrimary">#689F38</color>
     <color name="colorPrimaryDark">#486F27</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorAccent">#f44336</color>
     <color name="backgroundFocus">#86b25f</color>
     <color name="defaultTextColor">#282121</color>
+    <color name="defaultValueColor">#2196f3</color>
     <color name="defaultLabelColor">#486F27</color>
     <color name="disabled_button_color">#A79F9E</color>
     <color name="enabled_button_color">#486F27</color>
