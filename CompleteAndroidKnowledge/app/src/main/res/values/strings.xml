@@ -3,14 +3,14 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <!--Login-->
-    <string name="document_number">Document</string>
-    <string name="document_number_user">User Type</string>
-    <string name="document_type">Document</string>
+    <string name="document_number">User ID</string>
+    <string name="document_number_user">Document Type</string>
+    <string name="document_type">User Type</string>
     <string name="password_user">Password</string>
-    <string name="salute_user">User: </string>
+    <string name="salute_user">User ID: </string>
 
-    <string name="action_next">Next</string>
-    <string name="action_login">Login</string>
+    <string name="action_next">Continue</string>
+    <string name="action_login">Sign in</string>
     <string name="more_information">More information</string>
     <string name="open_product_button">Open product button</string>
 
@@ -25,6 +25,7 @@
     <string name="format_balance">###,###,##0.00</string>
     <string name="Error_product_summary">Please, try again</string>
     <string name="txtTryAgain">Retry</string>
+    <string name="icon_bank">ICON_BANK</string>
 
 
 </resources>

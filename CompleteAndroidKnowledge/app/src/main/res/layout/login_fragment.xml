@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
+<layout xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -17,104 +17,116 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="16dp">
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/type_doc_container"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+
+        <ImageView
+            android:id="@+id/iconImage"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:padding="10dp"
+            android:contentDescription="@string/icon_bank"
+            android:src="@drawable/ic_bank_logo"
+            android:background="@drawable/rounded_container"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:id="@+id/type_doc_text"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/document_type"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                android:labelFor="@+id/type_doc_edit"
-                app:layout_constraintTop_toTopOf="parent" />
-
-           <!-- <EditText
-                android:id="@+id/type_doc_edit"
-                android:layout_width="0dp"
-                android:inputType="text"
-                android:text="@{loginViewModel.userType}"
-                android:layout_height="wrap_content"
-                android:afterTextChanged="@{validator::typeUserValidator}"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/type_doc_text"
-                android:importantForAutofill="no" />-->
-            <Spinner
-                android:id="@+id/type_doc_edit"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/type_doc_text"/>
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/number_doc_container"
-            android:layout_width="match_parent"
+            android:id="@+id/constraintLayout"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/type_doc_container"
-            app:layout_constraintVertical_bias="0.0">
+            app:layout_constraintTop_toBottomOf="@id/iconImage"
+            app:layout_constraintVertical_bias="0.10">
 
-            <TextView
-                android:id="@+id/number_doc_text"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/document_number"
-                android:labelFor="@+id/text_doc_edit"
+            <RelativeLayout
+                android:id="@+id/type_doc_container"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent">
 
-           <EditText
-               android:id="@+id/text_doc_edit"
-               android:layout_width="0dp"
-               android:inputType="text"
-               android:layout_height="wrap_content"
-               android:afterTextChanged="@{Validator::userValidator}"
-               app:layout_constraintBottom_toBottomOf="parent"
-               app:layout_constraintEnd_toEndOf="parent"
-               app:layout_constraintStart_toStartOf="parent"
-               app:layout_constraintTop_toBottomOf="@+id/number_doc_text"
-               android:importantForAutofill="no"/>
-            <!--<EditText
-                android:id="@+id/text_doc_edit"
-                android:layout_width="0dp"
-                android:inputType="text"
-                android:text="@={User.document}"
+                <Spinner
+                    android:id="@+id/type_doc_edit"
+                    style="@style/defaultTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/border"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="3dp" />
+
+                <TextView
+                    android:id="@+id/type_doc_text"
+                    style="@style/defaultLabelStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="7dp"
+                    android:background="@color/white"
+                    android:labelFor="@+id/type_doc_edit"
+                    android:text="@string/document_type" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/number_doc_container"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/type_doc_container"
+                app:layout_constraintVertical_bias="0.0">
+
+                <EditText
+                    android:id="@+id/text_doc_edit"
+                    style="@style/defaultTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="15dp"
+                    android:afterTextChanged="@{Validator::userValidator}"
+                    android:background="@drawable/border"
+                    android:importantForAutofill="no"
+                    android:inputType="text"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="3dp" />
+
+                <TextView
+                    android:id="@+id/number_doc_text"
+                    style="@style/defaultLabelStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="7dp"
+                    android:background="@color/white"
+                    android:labelFor="@+id/text_doc_edit"
+                    android:text="@string/document_number" />
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/next_user_button"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/button_style_default"
+                android:enabled="@{Validator.isFormValid}"
+                android:text="@string/action_next"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/number_doc_text" />-->
+                app:layout_constraintEnd_toEndOf="@+id/number_doc_container"
+                app:layout_constraintStart_toStartOf="@+id/number_doc_container"
+                app:layout_constraintTop_toBottomOf="@+id/number_doc_container"
+                app:layout_constraintVertical_bias="0.0" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/action_next"
-            android:id="@+id/next_user_button"
-            android:enabled="@{Validator.isFormValid}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/number_doc_container"
-            app:layout_constraintStart_toStartOf="@+id/number_doc_container"
-            app:layout_constraintTop_toBottomOf="@+id/number_doc_container"
-            app:layout_constraintVertical_bias="0.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

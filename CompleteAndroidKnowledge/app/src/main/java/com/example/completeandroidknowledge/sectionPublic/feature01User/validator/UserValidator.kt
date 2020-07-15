@@ -19,7 +19,7 @@ class UserValidator (private val binding: UserFragmentBinding){
     }
     fun passwordValidator(editable: Editable){
         if(TextUtils.isEmpty(editable.toString())){
-            binding.passwordEdit.error = "El usuario no debe estar vacio"
+            binding.passwordEdit.error = "The password must not be empty"
             isPasswordValid = false
         }else{
             binding.passwordEdit.error = null

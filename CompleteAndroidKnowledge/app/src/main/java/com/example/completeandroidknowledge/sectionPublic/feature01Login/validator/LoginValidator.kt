@@ -20,7 +20,7 @@ class LoginValidator (private val binding: LoginFragmentBinding){
     }
     fun userValidator(editable: Editable){
         if(TextUtils.isEmpty(editable.toString())){
-            binding.textDocEdit.error = "El usuario no debe estar vacio"
+            binding.textDocEdit.error = "The user must not be empty"
             isUserValid = false
         }else{
             binding.textDocEdit.error = null
