@@ -12,7 +12,6 @@ import com.example.completeandroidknowledge.commons.navigation.Navigation
 import com.example.completeandroidknowledge.sectionPublic.feature01Login.viewMVC.LoginFragmentMVCView
 import com.example.completeandroidknowledge.sectionPublic.feature01Login.viewModel.LoginViewModel
 import com.example.completeandroidknowledge.sectionPublic.feature01Login.viewModel.LoginViewModelFactory
-import com.example.completeandroidknowledge.sectionTransactional.MainActivity
 
 class LoginFragmentPublic : BaseFragmentPublic(), LoginFragmentMVCView.Listener{
     private lateinit var loginFragmentMVCView: LoginFragmentMVCView
@@ -49,6 +48,11 @@ class LoginFragmentPublic : BaseFragmentPublic(), LoginFragmentMVCView.Listener{
     override fun onStart() {
         super.onStart()
         this.loginFragmentMVCView.registerListener(this)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        this.loginFragmentMVCView.startValidator()
     }
 
     override fun onStop() {

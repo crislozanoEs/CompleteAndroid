@@ -8,7 +8,7 @@
             name="loginViewModel"
             type="com.example.completeandroidknowledge.sectionPublic.feature01Login.viewModel.LoginViewModel"/>
         <variable
-            name="validator"
+            name="Validator"
             type="com.example.completeandroidknowledge.sectionPublic.feature01Login.validator.LoginValidator"/>
     </data>
 
@@ -86,7 +86,7 @@
                android:layout_width="0dp"
                android:inputType="text"
                android:layout_height="wrap_content"
-               android:afterTextChanged="@{validator::userValidator}"
+               android:afterTextChanged="@{Validator::userValidator}"
                app:layout_constraintBottom_toBottomOf="parent"
                app:layout_constraintEnd_toEndOf="parent"
                app:layout_constraintStart_toStartOf="parent"
@@ -109,7 +109,7 @@
             android:layout_height="wrap_content"
             android:text="@string/action_next"
             android:id="@+id/next_user_button"
-            android:enabled="@{validator.isFormValid}"
+            android:enabled="@{Validator.isFormValid}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/number_doc_container"
             app:layout_constraintStart_toStartOf="@+id/number_doc_container"

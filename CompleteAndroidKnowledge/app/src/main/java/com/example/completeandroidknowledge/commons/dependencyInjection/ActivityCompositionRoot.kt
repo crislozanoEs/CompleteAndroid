@@ -7,6 +7,7 @@ import com.example.completeandroidknowledge.network.productsServices.ProductAPI
 import com.example.completeandroidknowledge.repository.userDatabase.UserDatabase
 import com.example.completeandroidknowledge.network.sessionServices.SessionAPI
 import com.example.completeandroidknowledge.repository.productsDatabase.ProductSummaryDatabase
+import com.example.completeandroidknowledge.sectionPublic.feature01Login.validator.LoginValidator
 
 class ActivityCompositionRoot(private val compositionRoot: CompositionRoot, private val activity: AppCompatActivity) {
 

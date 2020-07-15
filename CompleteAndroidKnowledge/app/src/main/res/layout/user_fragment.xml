@@ -6,6 +6,10 @@
         <variable
             name="UserViewModel"
             type="com.example.completeandroidknowledge.sectionPublic.feature01User.viewModel.UserViewModel" />
+
+        <variable
+            name="Validator"
+            type="com.example.completeandroidknowledge.sectionPublic.feature01User.validator.UserValidator" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -26,6 +30,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@string/password_user"
+
+                android:labelFor="@+id/password_edit"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -36,10 +42,12 @@
                 android:inputType="textPassword"
                 android:layout_height="wrap_content"
                 android:text="@{UserViewModel.user.userPassword}"
+                android:afterTextChanged="@{Validator::passwordValidator}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/type_doc_text" />
+                app:layout_constraintTop_toBottomOf="@+id/type_doc_text"
+                android:importantForAutofill="no" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <Button
@@ -47,6 +55,7 @@
             android:layout_height="wrap_content"
             android:text="@string/action_login"
             android:id="@+id/login_button"
+            android:enabled="@{Validator.isFormValid}"
             app:layout_constraintEnd_toEndOf="@+id/password_container"
             app:layout_constraintStart_toStartOf="@+id/password_container"
             app:layout_constraintTop_toBottomOf="@+id/password_container"

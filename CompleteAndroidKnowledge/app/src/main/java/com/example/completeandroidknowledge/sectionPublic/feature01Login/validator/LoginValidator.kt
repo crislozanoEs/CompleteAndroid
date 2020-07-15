@@ -2,7 +2,6 @@ package com.example.completeandroidknowledge.sectionPublic.feature01Login.valida
 
 import android.text.Editable
 import android.text.TextUtils
-import android.widget.EditText
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.completeandroidknowledge.databinding.LoginFragmentBinding
@@ -16,7 +15,8 @@ class LoginValidator (private val binding: LoginFragmentBinding){
         get() = _isFromValid
 
     init{
-        _isFromValid.value = false
+        isUserValid = !TextUtils.isEmpty(binding.textDocEdit.text.toString())
+        evaluateFormValidation()
     }
     fun userValidator(editable: Editable){
         if(TextUtils.isEmpty(editable.toString())){
@@ -34,7 +34,7 @@ class LoginValidator (private val binding: LoginFragmentBinding){
         evaluateFormValidation()
     }
 
-    private fun evaluateFormValidation(){
+     private fun evaluateFormValidation(){
         _isFromValid.value = isUserValid && isTypeUserValid
     }
 }

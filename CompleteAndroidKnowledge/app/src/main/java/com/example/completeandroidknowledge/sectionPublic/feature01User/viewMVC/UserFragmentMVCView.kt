@@ -17,4 +17,5 @@ interface UserFragmentMVCView :
     fun setLifeCycleOwnerView(owner: LifecycleOwner)
     fun clearPassword()
     fun setLoadingVisibility(enable: Boolean)
+    fun startValidator()
 }

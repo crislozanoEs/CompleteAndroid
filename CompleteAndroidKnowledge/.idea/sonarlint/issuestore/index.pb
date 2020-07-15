@@ -143,3 +143,5 @@ d
 4app/src/main/res/layout/product_summary_fragment.xml,0/9/0960ce547dd656ca423b966abbb10555975e0a8f
 Ÿ
 oapp/src/main/java/com/example/completeandroidknowledge/sectionPublic/feature01Login/validator/LoginValidator.kt,7/b/7b8e348238b29144a29f7115d6a18850f9a865b3
+S
+#app/src/main/res/values/strings.xml,d/2/d2281fbb3027de2722081a53408dd77628bf080e

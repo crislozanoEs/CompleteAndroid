@@ -18,4 +18,5 @@ interface LoginFragmentMVCView :
     fun getDocument(): String
     fun setLifeCycleOwnerView(owner: LifecycleOwner)
     fun initDocumentsSpinner(documents: List<String>, context: Context)
+    fun startValidator()
 }

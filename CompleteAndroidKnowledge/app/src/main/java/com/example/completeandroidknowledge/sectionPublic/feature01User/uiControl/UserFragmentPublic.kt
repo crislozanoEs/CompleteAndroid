@@ -90,6 +90,10 @@ class UserFragmentPublic : BaseFragmentPublic(), UserFragmentMVCView.Listener {
         userFragmentMVCView.registerListener(this)
     }
 
+    override fun onResume() {
+        super.onResume()
+        userFragmentMVCView.startValidator()
+    }
     override fun onStop() {
         super.onStop()
         userFragmentMVCView.unregisterListener(this)

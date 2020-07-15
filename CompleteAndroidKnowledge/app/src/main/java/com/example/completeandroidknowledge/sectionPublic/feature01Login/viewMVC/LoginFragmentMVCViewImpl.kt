@@ -21,14 +21,12 @@ class LoginFragmentMVCViewImpl(inflater: LayoutInflater, parent: ViewGroup?) :
     override var binding: LoginFragmentBinding =
         DataBindingUtil.inflate(inflater, R.layout.login_fragment, parent, false)
 
-    private var loginValidator =  LoginValidator(binding)
+    private lateinit var loginValidator: LoginValidator
 
     init{
         binding.nextUserButton.setOnClickListener{ notifyListeners() }
-        binding.validator = loginValidator
         setRootView(binding.root)
     }
-
 
     private fun notifyListeners(){
         getListener().forEach {
@@ -51,6 +49,11 @@ class LoginFragmentMVCViewImpl(inflater: LayoutInflater, parent: ViewGroup?) :
     override fun initDocumentsSpinner(documents: List<String>, context: Context) {
         val adapter = ArrayAdapter(context, android.R.layout.simple_spinner_dropdown_item, documents)
         binding.typeDocEdit.adapter = adapter
+    }
+
+    override fun startValidator() {
+        loginValidator = LoginValidator(binding)
+        binding.validator = loginValidator
     }
 
 }
