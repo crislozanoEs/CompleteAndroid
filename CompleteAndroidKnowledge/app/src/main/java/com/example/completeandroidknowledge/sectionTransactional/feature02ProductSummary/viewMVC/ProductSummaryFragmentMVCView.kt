@@ -9,6 +9,7 @@ import com.example.completeandroidknowledge.sectionTransactional.model.Product
 interface ProductSummaryFragmentMVCView : ObservableViewMVC<ProductSummaryFragmentMVCView.Listener, ProductSummaryFragmentBinding>{
     interface Listener{
         fun onRetryButtonClicked()
+        fun onProductClicked(product: Product)
     }
     var binding: ProductSummaryFragmentBinding
     fun setViewModel(viewModel: ProductSummaryViewModel)

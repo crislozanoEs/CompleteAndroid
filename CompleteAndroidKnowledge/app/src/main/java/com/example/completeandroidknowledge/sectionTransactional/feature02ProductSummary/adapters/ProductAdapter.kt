@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.completeandroidknowledge.databinding.ItemProductSummaryBinding
 import com.example.completeandroidknowledge.sectionTransactional.model.Product
 
-class ProductAdapter : ListAdapter<Product, ProductAdapter.ViewHolder>(
+class ProductAdapter(private val onClickListener: OnClickListener) : ListAdapter<Product, ProductAdapter.ViewHolder>(
     ProductDiffCallBack()
 ) {
 
@@ -20,6 +20,9 @@ class ProductAdapter : ListAdapter<Product, ProductAdapter.ViewHolder>(
 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.itemView.setOnClickListener {
+            onClickListener.onClick(getItem(position))
+        }
         holder.bind(getItem(position))
     }
 
@@ -41,7 +44,10 @@ class ProductAdapter : ListAdapter<Product, ProductAdapter.ViewHolder>(
                 return ViewHolder(binding)
             }
         }
+    }
 
+    class OnClickListener(val clickListener: (product: Product) -> Unit) {
+        fun onClick(product: Product) = clickListener(product)
     }
 
     class ProductDiffCallBack: DiffUtil.ItemCallback<Product>(){

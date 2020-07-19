@@ -2,6 +2,7 @@ package com.example.completeandroidknowledge.sectionTransactional.feature02Produ
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,6 +18,7 @@ import com.example.completeandroidknowledge.sectionTransactional.feature02Produc
 import com.example.completeandroidknowledge.sectionTransactional.feature02ProductSummary.viewModel.ProductSummaryViewModel
 import com.example.completeandroidknowledge.sectionTransactional.feature02ProductSummary.viewModel.ProductSummaryViewModelFactory
 import com.example.completeandroidknowledge.sectionTransactional.feature02ProductSummary.viewModel.STATE
+import com.example.completeandroidknowledge.sectionTransactional.model.Product
 
 class ProductSummaryFragmentPublic:
     BaseFragmentTransactional(),
@@ -85,5 +87,9 @@ class ProductSummaryFragmentPublic:
     }
     override fun onRetryButtonClicked() {
         viewModel.startRetryGettingProductSummary()
+    }
+
+    override fun onProductClicked(product: Product) {
+        Log.e("ProductSummary", "Product Clicked "+product.productNumber)
     }
 }

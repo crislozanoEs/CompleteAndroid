@@ -37,9 +37,13 @@ class ProductSummaryFragmentMVCViewImpl(inflater: LayoutInflater, parent: ViewGr
     }
 
     override fun setAdapterProductSummary() {
-        productAdapter = ProductAdapter()
+        productAdapter = ProductAdapter(ProductAdapter.OnClickListener{
+            notifyOnProductClicked(it)
+        })
         binding.productSummaryList.adapter = productAdapter
     }
+
+
 
     override fun setListDataToAdapter(products: List<Product>) {
         productAdapter.submitList(products)
@@ -62,6 +66,12 @@ class ProductSummaryFragmentMVCViewImpl(inflater: LayoutInflater, parent: ViewGr
     private fun notifyOnRetryButtonClicked() {
         getListener().forEach {
             it.onRetryButtonClicked()
+        }
+    }
+
+    private fun notifyOnProductClicked(product: Product) {
+        getListener().forEach {
+            it.onProductClicked(product)
         }
     }
 
