@@ -9,7 +9,8 @@ data class Product (
     var productName: String,
     var productType: Int,
     var productStatus: Int,
-    var productBalance: Double
+    var productBalance: Double,
+    var isOpened: Boolean = false
 )
 
 fun Product.asDatabaseObject(): ProductTable{

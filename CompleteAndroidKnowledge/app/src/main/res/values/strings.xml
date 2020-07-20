@@ -21,11 +21,21 @@
     <string name="status_blocked">LOCKED</string>
     <string name="status_default">ARREARS</string>
     <string name="status_inactive">INACTIVE</string>
+
+    <string name="product_1">Saving Account</string>
+    <string name="product_2">Salary Account</string>
+    <string name="product_3">Credit Card</string>
+    <string name="product_4">Loan</string>
+    <string name="product_5">Inversion Account</string>
+
     <string name="product_balance_format">$%s</string>
     <string name="format_balance">###,###,##0.00</string>
     <string name="Error_product_summary">Please, try again</string>
     <string name="txtTryAgain">Retry</string>
     <string name="icon_bank">ICON_BANK</string>
+    <string name="product_status">Status</string>
+    <string name="bank_type">Type</string>
+    <string name="more_details">More Details</string>
 
 
 </resources>

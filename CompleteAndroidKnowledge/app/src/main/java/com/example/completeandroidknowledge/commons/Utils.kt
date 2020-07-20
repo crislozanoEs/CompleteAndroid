@@ -18,6 +18,14 @@ fun passStatusProduct(idStatus: Int, context: Context): String =
     5 -> context.getString(R.string.status_inactive)
     else -> "" }
 
+fun passTypeBankProduct(type: Int, context: Context): String =
+    when(type){
+        1 -> context.getString(R.string.product_1)
+        2 -> context.getString(R.string.product_2)
+        3 -> context.getString(R.string.product_3)
+        4 -> context.getString(R.string.product_4)
+        5 -> context.getString(R.string.product_5)
+        else -> "" }
 
 fun castProductBalance(productBalance: Double, context: Context): String{
     val format = DecimalFormat(context.getString(R.string.format_balance))

@@ -7,6 +7,7 @@ import androidx.databinding.BindingAdapter
 import com.example.completeandroidknowledge.commons.castProductBalance
 import com.example.completeandroidknowledge.commons.maskProductId
 import com.example.completeandroidknowledge.commons.passStatusProduct
+import com.example.completeandroidknowledge.commons.passTypeBankProduct
 import com.example.completeandroidknowledge.sectionTransactional.feature02ProductSummary.viewModel.STATE
 import com.example.completeandroidknowledge.sectionTransactional.model.Product
 
@@ -25,6 +26,16 @@ fun TextView.setStatusCast(item: Product?){
     item?.let {
         text = passStatusProduct(
             item.productStatus,
+            context
+        )
+    }
+}
+
+@BindingAdapter("productTypeCast")
+fun TextView.setTypeBankCast(item: Product?){
+    item?.let {
+        text = passTypeBankProduct(
+            item.productType,
             context
         )
     }
