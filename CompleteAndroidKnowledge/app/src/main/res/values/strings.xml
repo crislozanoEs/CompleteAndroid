@@ -37,5 +37,11 @@
     <string name="bank_type">Type</string>
     <string name="more_details">More Details</string>
 
+    <!--Footer-->
+    <string name="home">Home</string>
+    <string name="products">Products</string>
+    <string name="news">News</string>
+    <string name="more">More</string>
+
 
 </resources>
