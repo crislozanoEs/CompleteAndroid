@@ -103,8 +103,6 @@ qapp/src/main/java/com/example/completeandroidknowledge/sectionTransactional/dia
 àapp/src/main/java/com/example/completeandroidknowledge/sectionTransactional/feature02ProductSummary/viewModel/ProductSummaryViewModel.kt,a/7/a7668a4b0739b92118d0f473253142b6ed4ca825
 ¿
 èapp/src/main/java/com/example/completeandroidknowledge/sectionTransactional/feature02ProductSummary/viewModel/ProductSummaryViewModelFactory.kt,a/0/a00591a1cacf440cb0914ff16750891aa9b2cddc
-c
-3app/src/main/res/navigation/navigation_section1.xml,d/5/d58ed9cbd34f39eb0b7b755b58fd567f1e0d134e
 Æ
 ~app/src/main/java/com/example/completeandroidknowledge/sectionTransactional/feature02ProductSummary/adapters/ProductAdapter.kt,0/0/002f1b2fd556300ec16ccbe804fa86c632f8a258
 £
@@ -143,3 +141,15 @@ d
 4app/src/main/res/layout/product_summary_fragment.xml,0/9/0960ce547dd656ca423b966abbb10555975e0a8f
 ü
 oapp/src/main/java/com/example/completeandroidknowledge/sectionPublic/feature01Login/validator/LoginValidator.kt,7/b/7b8e348238b29144a29f7115d6a18850f9a865b3
+≠
+}app/src/main/java/com/example/completeandroidknowledge/sectionPublic/feature20ProductsInfo/viewModel/ProductsInfoViewModel.kt,f/f/ff74897703029902ffcb5cac991824808d6dbfdc
+∂
+Öapp/src/main/java/com/example/completeandroidknowledge/sectionPublic/feature20ProductsInfo/viewMVC/ProductsInfoFragmentMVCViewImpl.kt,c/0/c07c1672bcc79444ed811771e642091915cc8098
+≥
+Çapp/src/main/java/com/example/completeandroidknowledge/sectionPublic/feature20ProductsInfo/uiControl/ProductsInfoFragmentPublic.kt,2/c/2c6710d8ac093e8d5f69e4cf6e22a16db3d3a7a7
+≤
+Åapp/src/main/java/com/example/completeandroidknowledge/sectionPublic/feature20ProductsInfo/viewMVC/ProductsInfoFragmentMVCView.kt,1/f/1f974cc083c814b9852e36f96c21e5a1e0453b6e
+ç
+]app/src/main/java/com/example/completeandroidknowledge/sectionPublic/PublicActivityMVCView.kt,d/6/d65b119d6cf16fb7ae9077b5a35b72ca5837b2ca
+ë
+aapp/src/main/java/com/example/completeandroidknowledge/sectionPublic/PublicActivityMVCViewImpl.kt,1/9/198aa88192ef2bdb78f1ca28f0c0a949e0f8301e

@@ -10,6 +10,6 @@
     <color name="disabled_button_color">#A79F9E</color>
     <color name="enabled_button_color">#486F27</color>
     <color name="white">#ffffff</color>
-    <color name="white_no_focus">#68FFFFFF</color>
+    <color name="white_no_focus">#8FFFFFFF</color>
     <color name="black">#000000</color>
 </resources>

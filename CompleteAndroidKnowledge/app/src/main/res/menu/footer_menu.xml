@@ -5,17 +5,21 @@
     <item
         android:id="@+id/item_home"
         android:title="@string/home"
+        android:icon="@drawable/ic_home_item"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/item_new_products"
         android:title="@string/products"
+        android:icon="@drawable/ic_products_item"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/item_new"
-        android:title="@string/news"
+        android:title="@string/localization"
+        android:icon="@drawable/ic_maps_item"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/item_more"
         android:title="@string/more"
+        android:icon="@drawable/ic_more_item"
         app:showAsAction="ifRoom"/>
 </menu>
