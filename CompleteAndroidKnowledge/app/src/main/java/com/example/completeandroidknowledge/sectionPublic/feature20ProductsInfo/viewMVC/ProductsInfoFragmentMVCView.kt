@@ -12,6 +12,5 @@ interface ProductsInfoFragmentMVCView:
 
     }
     val binding: ProductInfoBinding
-    fun setLifeCycleOwnerView(owner: LifecycleOwner)
     fun setViewModel(viewModel: ProductsInfoViewModel)
 }

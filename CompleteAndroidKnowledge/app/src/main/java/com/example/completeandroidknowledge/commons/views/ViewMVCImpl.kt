@@ -18,7 +18,7 @@ open class ViewMVCImpl<BindingType : ViewDataBinding>: ViewMVC<BindingType> {
 
     fun getContext(): Context = rootView.context
 
-    override fun setLifecycleOwner(binding: BindingType, owner: LifecycleOwner) {
-        binding.lifecycleOwner = owner
+    override fun setLifecycleOwner(owner: LifecycleOwner) {
+        // Each view implements it, TO DO: IMPROVE IT
     }
 }

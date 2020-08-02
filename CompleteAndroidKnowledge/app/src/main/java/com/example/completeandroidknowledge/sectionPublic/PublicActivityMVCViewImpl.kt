@@ -11,43 +11,39 @@ class PublicActivityMVCViewImpl(activity: PublicActivity): PublicActivityMVCView
 
     override var binding: ActivityPublicBinding = DataBindingUtil.setContentView(activity, R.layout.activity_public)
 
-    override fun setLifeCycleOwnerView(owner: LifecycleOwner) {
-        binding.lifecycleOwner = owner
-    }
     init {
         bindNavigationListenerBottom()
     }
     private fun bindNavigationListenerBottom() {
         binding.bottomNavigation.setOnNavigationItemSelectedListener {item ->
             when(item.itemId){
-                R.id.item_home -> {
-                    if(binding.bottomNavigation.selectedItemId != R.id.item_home){
-                        when(binding.bottomNavigation.selectedItemId){
-                            R.id.item_new_products -> {updateGoFromProductsInfoToLogin()}
-                        }
-                    }
-                }
-                R.id.item_new_products -> {
-                    if(binding.bottomNavigation.selectedItemId != R.id.item_new_products){
-                        when(binding.bottomNavigation.selectedItemId){
-                            R.id.item_home -> {updateGoFromLoginToProductsInfo()}
-                        }
-                    }
-                }
+                R.id.item_home -> {updateOnClickHome()}
+                R.id.item_new_products -> {updateOnClickProductsInfo()}
+                R.id.item_new -> {updateOnClickNews()}
             }
             true
         }
     }
 
-    private fun updateGoFromProductsInfoToLogin(){
+    private fun updateOnClickHome(){
         getListener().forEach {
-            it.goFromProductsInfoToLoginFragment()
+            it.onClickOnHome()
         }
     }
 
-    private fun updateGoFromLoginToProductsInfo(){
+    private fun updateOnClickNews(){
         getListener().forEach {
-            it.goFromLoginFragmentToProductsInfo()
+            it.onClickInOnNews()
         }
+    }
+
+    private fun updateOnClickProductsInfo(){
+        getListener().forEach {
+            it.onClickOnProductsInfo()
+        }
+    }
+
+    override fun setLifecycleOwner(owner: LifecycleOwner) {
+        binding.lifecycleOwner = owner
     }
 }

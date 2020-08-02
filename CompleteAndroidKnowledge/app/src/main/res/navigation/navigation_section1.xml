@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_loginFragment_to_productsInfoFragmentPublic"
             app:destination="@id/productsInfoFragmentPublic" />
+        <action
+            android:id="@+id/action_loginFragment_to_newsFragmentPublic"
+            app:destination="@id/newsFragmentPublic" />
     </fragment>
     <fragment
         android:id="@+id/userFragment"
@@ -29,6 +32,11 @@
             app:destination="@id/productsInfoFragmentPublic"
             app:popUpTo="@id/userFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_userFragment_to_newsFragmentPublic"
+            app:destination="@id/newsFragmentPublic"
+            app:popUpTo="@id/userFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/productsInfoFragmentPublic"
@@ -36,6 +44,20 @@
         android:label="ProductsInfoFragmentPublic" >
         <action
             android:id="@+id/action_productsInfoFragmentPublic_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_productsInfoFragmentPublic_to_newsFragmentPublic"
+            app:destination="@id/newsFragmentPublic" />
+    </fragment>
+    <fragment
+        android:id="@+id/newsFragmentPublic"
+        android:name="com.example.completeandroidknowledge.sectionPublic.feature21News.uiControl.NewsFragmentPublic"
+        android:label="NewsFragmentPublic" >
+        <action
+            android:id="@+id/action_newsFragmentPublic_to_productsInfoFragmentPublic"
+            app:destination="@id/productsInfoFragmentPublic" />
+        <action
+            android:id="@+id/action_newsFragmentPublic_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
 </navigation>

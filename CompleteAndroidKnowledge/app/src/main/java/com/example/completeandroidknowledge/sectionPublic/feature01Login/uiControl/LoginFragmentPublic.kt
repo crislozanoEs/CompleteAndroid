@@ -1,6 +1,5 @@
 package com.example.completeandroidknowledge.sectionPublic.feature01Login.uiControl
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,15 +8,21 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.completeandroidknowledge.commons.controllers.BaseFragmentPublic
 import com.example.completeandroidknowledge.commons.navigation.Navigation
+import com.example.completeandroidknowledge.commons.navigation.NavigationActivity
 import com.example.completeandroidknowledge.sectionPublic.feature01Login.viewMVC.LoginFragmentMVCView
 import com.example.completeandroidknowledge.sectionPublic.feature01Login.viewModel.LoginViewModel
 import com.example.completeandroidknowledge.sectionPublic.feature01Login.viewModel.LoginViewModelFactory
 
-class LoginFragmentPublic : BaseFragmentPublic(), LoginFragmentMVCView.Listener{
+class LoginFragmentPublic :
+    BaseFragmentPublic(),
+    LoginFragmentMVCView.Listener,
+    NavigationActivity.Listener{
+
     private lateinit var loginFragmentMVCView: LoginFragmentMVCView
     private lateinit var viewModel: LoginViewModel
     private lateinit var viewModelFactory: LoginViewModelFactory
     private lateinit var navigation: Navigation
+    private lateinit var navigationActivity: NavigationActivity
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -25,6 +30,7 @@ class LoginFragmentPublic : BaseFragmentPublic(), LoginFragmentMVCView.Listener{
     ): View? {
         loginFragmentMVCView = getCompositionRootObject().getViewMVCFactory().getLoginFragmentMVCView(container)
         navigation = getCompositionRootObject().getNavigation()
+        navigationActivity = getCompositionRootObject().getMainNavigation()
         val application = requireNotNull(this.activity).application
         this.viewModelFactory =
             LoginViewModelFactory(
@@ -33,7 +39,7 @@ class LoginFragmentPublic : BaseFragmentPublic(), LoginFragmentMVCView.Listener{
             )
         this.viewModel = ViewModelProvider(this, viewModelFactory).get(LoginViewModel::class.java)
         this.loginFragmentMVCView.setViewModel(this.viewModel)
-        this.loginFragmentMVCView.setLifeCycleOwnerView(this)
+        this.loginFragmentMVCView.setLifecycleOwner(this)
         viewModel.executeCallDocumentsTypes()
 
         viewModel.documentType.observe(viewLifecycleOwner, Observer {documentList ->
@@ -48,6 +54,8 @@ class LoginFragmentPublic : BaseFragmentPublic(), LoginFragmentMVCView.Listener{
     override fun onStart() {
         super.onStart()
         this.loginFragmentMVCView.registerListener(this)
+        this.navigationActivity.registerListener(this)
+        
     }
 
     override fun onResume() {
@@ -58,6 +66,7 @@ class LoginFragmentPublic : BaseFragmentPublic(), LoginFragmentMVCView.Listener{
     override fun onStop() {
         super.onStop()
         this.loginFragmentMVCView.unregisterListener(this)
+        this.navigationActivity.unregisterListener(this)
     }
 
     private fun transferToUserPage(){
@@ -71,4 +80,13 @@ class LoginFragmentPublic : BaseFragmentPublic(), LoginFragmentMVCView.Listener{
     override fun onNextButtonClick() {
         transferToUserPage()
     }
+
+    override fun onHomeClicked() {
+        //Not move to any destination
+    }
+
+    override fun onProductsInfoClicked() {
+        navigationActivity.fromHomeToProductsInfo()
+    }
+
 }

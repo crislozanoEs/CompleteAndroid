@@ -35,10 +35,6 @@ class UserFragmentMVCViewImpl(layoutInflater: LayoutInflater, parent: ViewGroup?
         binding.userViewModel = viewModel
     }
 
-    override fun setLifeCycleOwnerView(owner: LifecycleOwner) {
-        binding.lifecycleOwner = owner
-    }
-
     override fun clearPassword() {
         binding.passwordEdit.text.clear()
     }
@@ -53,5 +49,9 @@ class UserFragmentMVCViewImpl(layoutInflater: LayoutInflater, parent: ViewGroup?
     override fun startValidator() {
         userValidator = UserValidator(binding)
         binding.validator = userValidator
+    }
+
+    override fun setLifecycleOwner(owner: LifecycleOwner) {
+        binding.lifecycleOwner = owner
     }
 }

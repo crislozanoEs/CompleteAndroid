@@ -17,11 +17,11 @@ class ProductsInfoFragmentMVCViewImpl(layoutInflater: LayoutInflater, parent: Vi
     init {
         setRootView(binding.root)
     }
-    override fun setLifeCycleOwnerView(owner: LifecycleOwner) {
-        binding.lifecycleOwner = owner
-    }
-
     override fun setViewModel(viewModel: ProductsInfoViewModel) {
         TODO("Not yet implemented")
+    }
+
+    override fun setLifecycleOwner(owner: LifecycleOwner) {
+        binding.lifecycleOwner = owner
     }
 }

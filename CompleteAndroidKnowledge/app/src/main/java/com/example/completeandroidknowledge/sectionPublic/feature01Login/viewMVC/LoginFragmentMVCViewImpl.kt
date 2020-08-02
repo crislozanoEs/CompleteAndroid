@@ -42,10 +42,6 @@ class LoginFragmentMVCViewImpl(inflater: LayoutInflater, parent: ViewGroup?) :
 
     override fun getDocument(): String = binding.textDocEdit.text.toString()
 
-    override fun setLifeCycleOwnerView(owner: LifecycleOwner) {
-        setLifecycleOwner(binding, owner)
-    }
-
     override fun initDocumentsSpinner(documents: List<String>, context: Context) {
         val adapter = ArrayAdapter(context, android.R.layout.simple_spinner_dropdown_item, documents)
         binding.typeDocEdit.adapter = adapter
@@ -54,6 +50,10 @@ class LoginFragmentMVCViewImpl(inflater: LayoutInflater, parent: ViewGroup?) :
     override fun startValidator() {
         loginValidator = LoginValidator(binding)
         binding.validator = loginValidator
+    }
+
+    override fun setLifecycleOwner(owner: LifecycleOwner) {
+        binding.lifecycleOwner = owner
     }
 
 }

@@ -7,9 +7,9 @@ import com.example.completeandroidknowledge.databinding.ActivityPublicBinding
 interface PublicActivityMVCView: ObservableViewMVC<PublicActivityMVCView.Listener, ActivityPublicBinding> {
 
     interface Listener{
-        fun goFromLoginFragmentToProductsInfo()
-        fun goFromProductsInfoToLoginFragment()
+        fun onClickOnHome()
+        fun onClickOnProductsInfo()
+        fun onClickInOnNews()
     }
     var binding: ActivityPublicBinding
-    fun setLifeCycleOwnerView(owner: LifecycleOwner)
 }

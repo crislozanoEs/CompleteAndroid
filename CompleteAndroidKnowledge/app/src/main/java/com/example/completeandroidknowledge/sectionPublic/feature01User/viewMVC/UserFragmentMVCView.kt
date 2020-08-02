@@ -14,8 +14,8 @@ interface UserFragmentMVCView :
     var binding: UserFragmentBinding
     fun getPassword(): String
     fun setViewModel(viewModel: UserViewModel)
-    fun setLifeCycleOwnerView(owner: LifecycleOwner)
     fun clearPassword()
     fun setLoadingVisibility(enable: Boolean)
     fun startValidator()
+    override fun setLifecycleOwner(owner: LifecycleOwner)
 }

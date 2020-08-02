@@ -5,9 +5,11 @@ import android.content.Context
 import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
+import androidx.navigation.NavController
 import com.example.completeandroidknowledge.commons.dialogs.DialogEventBus
 import com.example.completeandroidknowledge.commons.dialogs.DialogManager
 import com.example.completeandroidknowledge.commons.navigation.Navigation
+import com.example.completeandroidknowledge.commons.navigation.NavigationActivity
 import com.example.completeandroidknowledge.commons.views.ViewMVCFactory
 import com.example.completeandroidknowledge.network.productsServices.ProductAPI
 import com.example.completeandroidknowledge.network.productsServices.ProductSummaryServiceUseCase
@@ -47,6 +49,8 @@ class ControllerCompositionRoot(private val activityCompositionRoot: ActivityCom
     fun getUserDatabaseUseCase(): UserDatabaseUseCaseImpl = UserDatabaseUseCaseImpl(getUserDatabaseInstance().userDatabaseDao)
 
     fun getNavigation(): Navigation = Navigation()
+
+    fun getMainNavigation(): NavigationActivity = activityCompositionRoot!!.getNavigationActivity()
 
     fun getProductSummaryUseCaseImpl():ProductSummaryDatabaseUseCaseImpl =  ProductSummaryDatabaseUseCaseImpl(getProductSummaryDatabaseInstance().productSummaryDatabaseDao)
 

@@ -13,6 +13,8 @@ import com.example.completeandroidknowledge.sectionPublic.feature01User.viewMVC.
 import com.example.completeandroidknowledge.sectionPublic.feature01User.viewMVC.UserFragmentMVCViewImpl
 import com.example.completeandroidknowledge.sectionPublic.feature20ProductsInfo.viewMVC.ProductsInfoFragmentMVCView
 import com.example.completeandroidknowledge.sectionPublic.feature20ProductsInfo.viewMVC.ProductsInfoFragmentMVCViewImpl
+import com.example.completeandroidknowledge.sectionPublic.feature21News.viewMVC.NewsFragmentMVCView
+import com.example.completeandroidknowledge.sectionPublic.feature21News.viewMVC.NewsFragmentMVCViewImpl
 import com.example.completeandroidknowledge.sectionTransactional.feature02ProductSummary.viewMVC.ProductSummaryFragmentMVCView
 import com.example.completeandroidknowledge.sectionTransactional.feature02ProductSummary.viewMVC.ProductSummaryFragmentMVCViewImpl
 
@@ -44,5 +46,11 @@ class ViewMVCFactory(private val layoutInflater: LayoutInflater) {
         ProductsInfoFragmentMVCViewImpl(
             layoutInflater,
             parent
+        )
+
+    fun getNewsFragmentMVCView(container: ViewGroup?): NewsFragmentMVCView  =
+        NewsFragmentMVCViewImpl(
+            layoutInflater,
+            container
         )
 }

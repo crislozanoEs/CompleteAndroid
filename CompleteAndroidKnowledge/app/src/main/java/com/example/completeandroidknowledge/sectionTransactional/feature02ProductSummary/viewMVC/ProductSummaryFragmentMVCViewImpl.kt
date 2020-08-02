@@ -32,9 +32,6 @@ class ProductSummaryFragmentMVCViewImpl(inflater: LayoutInflater, parent: ViewGr
 
     override fun getRootView(): View = binding.root
 
-    override fun setLifeCycleOwnerView(owner: LifecycleOwner) {
-        binding.lifecycleOwner = owner
-    }
 
     override fun setAdapterProductSummary() {
         productAdapter = ProductAdapter(ProductAdapter.OnClickListener{
@@ -73,6 +70,10 @@ class ProductSummaryFragmentMVCViewImpl(inflater: LayoutInflater, parent: ViewGr
         getListener().forEach {
             it.onProductClicked(product)
         }
+    }
+
+    override fun setLifecycleOwner(owner: LifecycleOwner) {
+        binding.lifecycleOwner = owner
     }
 
 }

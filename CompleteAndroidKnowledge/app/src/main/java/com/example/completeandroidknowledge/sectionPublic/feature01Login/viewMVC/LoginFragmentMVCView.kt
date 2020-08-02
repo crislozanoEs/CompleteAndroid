@@ -16,7 +16,8 @@ interface LoginFragmentMVCView :
     fun setViewModel(viewModel: LoginViewModel)
     fun getTypeDocument(): String
     fun getDocument(): String
-    fun setLifeCycleOwnerView(owner: LifecycleOwner)
     fun initDocumentsSpinner(documents: List<String>, context: Context)
     fun startValidator()
+    override fun setLifecycleOwner(owner: LifecycleOwner)
+
 }

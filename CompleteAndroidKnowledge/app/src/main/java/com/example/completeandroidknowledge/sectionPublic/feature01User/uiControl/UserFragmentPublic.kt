@@ -48,7 +48,7 @@ class UserFragmentPublic : BaseFragmentPublic(), UserFragmentMVCView.Listener {
             )
         viewModel = ViewModelProvider(this, viewModelFactory).get(UserViewModel::class.java)
         userFragmentMVCView.setViewModel(viewModel)
-        userFragmentMVCView.setLifeCycleOwnerView(this)
+        userFragmentMVCView.setLifecycleOwner(this)
         viewModel.navigationToMainFlag.observe(viewLifecycleOwner, Observer {hasFinished ->
             if(hasFinished){
                 val intent = Intent(getCompositionRootObject().getContext(), MainActivity::class.java)

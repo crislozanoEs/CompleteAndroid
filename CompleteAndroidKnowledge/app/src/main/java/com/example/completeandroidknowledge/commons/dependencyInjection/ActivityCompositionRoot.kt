@@ -12,9 +12,11 @@ import com.example.completeandroidknowledge.network.sessionServices.SessionAPI
 import com.example.completeandroidknowledge.repository.productsDatabase.ProductSummaryDatabase
 import com.example.completeandroidknowledge.sectionPublic.PublicActivity
 import com.example.completeandroidknowledge.sectionPublic.PublicActivityMVCViewImpl
-import com.example.completeandroidknowledge.sectionPublic.feature01Login.validator.LoginValidator
 
 class ActivityCompositionRoot(private val compositionRoot: CompositionRoot, private val activity: AppCompatActivity) {
+
+    var navController: NavController?= null
+    private var navigationActivity: NavigationActivity?= null
 
     fun getSessionAPI(): SessionAPI = compositionRoot.getLoginAPI()
     fun getProductAPI(): ProductAPI = compositionRoot.getProductAPI()
@@ -22,6 +24,7 @@ class ActivityCompositionRoot(private val compositionRoot: CompositionRoot, priv
     fun getUserDatabaseInstance(): UserDatabase = compositionRoot.getUserDatabaseInstance()
     fun getProductSummaryInstance(): ProductSummaryDatabase = compositionRoot.getProductSummaryDatabaseInstance()
     fun getDialogEventBus(): DialogEventBus = compositionRoot.getDialogEventBus()
-    fun getNavigationActivity(navController: NavController): NavigationActivity = NavigationActivity(navController)
+    fun createNavigationActivity() { navigationActivity = NavigationActivity(navController!!) }
+    fun getNavigationActivity(): NavigationActivity = navigationActivity!!
     fun getActivityMVCView(publicActivity: PublicActivity): PublicActivityMVCViewImpl = PublicActivityMVCViewImpl(publicActivity)
 }

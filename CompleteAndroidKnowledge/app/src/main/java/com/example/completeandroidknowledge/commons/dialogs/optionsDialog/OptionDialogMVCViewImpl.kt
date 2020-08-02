@@ -3,6 +3,7 @@ package com.example.completeandroidknowledge.commons.dialogs.optionsDialog
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.LifecycleOwner
 import com.example.completeandroidknowledge.R
 import com.example.completeandroidknowledge.commons.views.ObservableViewMVCImpl
 import com.example.completeandroidknowledge.databinding.DialogOptionsBinding
@@ -43,6 +44,10 @@ class OptionDialogMVCViewImpl(inflater: LayoutInflater, parent: ViewGroup?):
 
     override fun setNegativeCaption(caption: String) {
         binding.btnNegative.text = caption
+    }
+
+    override fun setLifecycleOwner(owner: LifecycleOwner) {
+        binding.lifecycleOwner = owner
     }
 
 }

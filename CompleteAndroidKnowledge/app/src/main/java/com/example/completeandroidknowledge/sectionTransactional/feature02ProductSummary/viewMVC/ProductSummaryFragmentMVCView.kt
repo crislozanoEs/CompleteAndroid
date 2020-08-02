@@ -13,7 +13,6 @@ interface ProductSummaryFragmentMVCView : ObservableViewMVC<ProductSummaryFragme
     }
     var binding: ProductSummaryFragmentBinding
     fun setViewModel(viewModel: ProductSummaryViewModel)
-    fun setLifeCycleOwnerView(owner: LifecycleOwner)
     fun setAdapterProductSummary()
     fun setListDataToAdapter(products: List<Product>)
 }

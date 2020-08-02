@@ -12,12 +12,12 @@ import com.example.completeandroidknowledge.databinding.ActivityMainBinding
 class MainActivity : BaseActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        navController = this.findNavController(R.id.insert_point_main)
+        val navController = this.findNavController(R.id.insert_point_main)
+        super.setNavController(navController)
         NavigationUI.setupActionBarWithNavController(this, navController)
     }
 }

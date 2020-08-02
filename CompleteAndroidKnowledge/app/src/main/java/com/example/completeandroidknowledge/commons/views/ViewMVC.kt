@@ -6,5 +6,5 @@ import androidx.lifecycle.LifecycleOwner
 
 interface ViewMVC<BindingType : ViewDataBinding> {
     fun getRootView(): View
-    fun setLifecycleOwner(binding: BindingType, owner: LifecycleOwner)
+    fun setLifecycleOwner(owner: LifecycleOwner)
 }
