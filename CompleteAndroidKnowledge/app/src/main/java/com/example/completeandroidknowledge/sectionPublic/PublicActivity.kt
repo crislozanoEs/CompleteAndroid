@@ -48,6 +48,6 @@ class PublicActivity : BaseActivity(),PublicActivityMVCView.Listener {
     }
 
     override fun onClickInOnNews() {
-        TODO("Not yet implemented")
+        navigationActivity.updateOnNewsClicked()
     }
 }

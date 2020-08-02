@@ -89,4 +89,8 @@ class LoginFragmentPublic :
         navigationActivity.fromHomeToProductsInfo()
     }
 
+    override fun onNewsClicked() {
+        navigationActivity.fromHomeToNews()
+    }
+
 }
