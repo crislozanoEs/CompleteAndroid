@@ -11,13 +11,16 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.completeandroidknowledge.commons.controllers.BaseFragmentPublic
 import com.example.completeandroidknowledge.commons.navigation.Navigation
+import com.example.completeandroidknowledge.commons.navigation.NavigationActivity
 import com.example.completeandroidknowledge.sectionPublic.PublicActivity
 import com.example.completeandroidknowledge.sectionPublic.feature01User.viewMVC.UserFragmentMVCView
 import com.example.completeandroidknowledge.sectionPublic.feature01User.viewModel.UserViewModel
 import com.example.completeandroidknowledge.sectionPublic.feature01User.viewModel.UserViewModelFactory
 import com.example.completeandroidknowledge.sectionTransactional.MainActivity
 
-class UserFragmentPublic : BaseFragmentPublic(), UserFragmentMVCView.Listener {
+class UserFragmentPublic :
+    BaseFragmentPublic(),
+    UserFragmentMVCView.Listener{
 
     private lateinit var userFragmentMVCView: UserFragmentMVCView
     private lateinit var viewModel: UserViewModel

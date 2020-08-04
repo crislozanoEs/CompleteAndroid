@@ -3,6 +3,7 @@ package com.example.completeandroidknowledge.sectionPublic
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.LifecycleOwner
 import com.example.completeandroidknowledge.R
+import com.example.completeandroidknowledge.commons.Constants
 import com.example.completeandroidknowledge.commons.views.ObservableViewMVCImpl
 import com.example.completeandroidknowledge.databinding.ActivityPublicBinding
 
@@ -17,32 +18,19 @@ class PublicActivityMVCViewImpl(activity: PublicActivity): PublicActivityMVCView
     private fun bindNavigationListenerBottom() {
         binding.bottomNavigation.setOnNavigationItemSelectedListener {item ->
             when(item.itemId){
-                R.id.item_home -> {updateOnClickHome()}
-                R.id.item_new_products -> {updateOnClickProductsInfo()}
-                R.id.item_new -> {updateOnClickNews()}
+                R.id.item_home -> {updateOnFooterOptionClicked(Constants.Companion.FOOTER.HOME)}
+                R.id.item_new_products -> {updateOnFooterOptionClicked(Constants.Companion.FOOTER.PRODUCTS_INFO)}
+                R.id.item_new -> {updateOnFooterOptionClicked(Constants.Companion.FOOTER.NEWS)}
             }
             true
         }
     }
 
-    private fun updateOnClickHome(){
+    private fun updateOnFooterOptionClicked(selected: Constants.Companion.FOOTER) {
         getListener().forEach {
-            it.onClickOnHome()
+            it.onFooterClicked(selected)
         }
     }
-
-    private fun updateOnClickNews(){
-        getListener().forEach {
-            it.onClickInOnNews()
-        }
-    }
-
-    private fun updateOnClickProductsInfo(){
-        getListener().forEach {
-            it.onClickOnProductsInfo()
-        }
-    }
-
     override fun setLifecycleOwner(owner: LifecycleOwner) {
         binding.lifecycleOwner = owner
     }

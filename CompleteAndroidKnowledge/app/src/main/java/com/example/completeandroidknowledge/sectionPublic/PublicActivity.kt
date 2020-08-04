@@ -1,15 +1,12 @@
 package com.example.completeandroidknowledge.sectionPublic
 
 import android.os.Bundle
-import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.example.completeandroidknowledge.R
-import com.example.completeandroidknowledge.commons.BaseObservable
+import com.example.completeandroidknowledge.commons.Constants
 import com.example.completeandroidknowledge.commons.controllers.BaseActivity
-import com.example.completeandroidknowledge.commons.navigation.Navigation
 import com.example.completeandroidknowledge.commons.navigation.NavigationActivity
-import com.example.completeandroidknowledge.databinding.ActivityPublicBinding
 
 class PublicActivity : BaseActivity(),PublicActivityMVCView.Listener {
 
@@ -39,15 +36,12 @@ class PublicActivity : BaseActivity(),PublicActivityMVCView.Listener {
         super.onStop()
     }
 
-    override fun onClickOnHome() {
-        navigationActivity.updateOnHomeClicked()
-    }
-
-    override fun onClickOnProductsInfo() {
-        navigationActivity.updateOnProductsInfoClicked()
-    }
-
-    override fun onClickInOnNews() {
-        navigationActivity.updateOnNewsClicked()
+    override fun onFooterClicked(selected: Constants.Companion.FOOTER) {
+        when(selected){
+            Constants.Companion.FOOTER.HOME -> navigationActivity.updateOnHomeClicked()
+            Constants.Companion.FOOTER.PRODUCTS_INFO -> navigationActivity.updateOnProductsInfoClicked()
+            Constants.Companion.FOOTER.NEWS -> navigationActivity.updateOnNewsClicked()
+            else -> navigationActivity.updateOnHomeClicked()
+        }
     }
 }
