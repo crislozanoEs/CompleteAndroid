@@ -43,6 +43,8 @@
     <string name="news">News</string>
     <string name="localization">Maps</string>
     <string name="more">More</string>
+    <string name="more_information_product">MORE INFORMATION</string>
+    <string name="products_imag">Products Imag</string>
 
 
 </resources>

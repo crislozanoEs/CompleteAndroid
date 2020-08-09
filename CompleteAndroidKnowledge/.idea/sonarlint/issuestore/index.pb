@@ -137,8 +137,6 @@ rapp/src/main/java/com/example/completeandroidknowledge/sectionPublic/feature01U
 aapp/src/main/java/com/example/completeandroidknowledge/network/productsServices/ProductNetwork.kt,5/a/5a358b4fcf7f9dcd8466b5b2ad6f04d2a18bd43b
 Ÿ
 oapp/src/main/java/com/example/completeandroidknowledge/network/productsServices/ProductSummaryServiceUseCase.kt,e/1/e19436711101294672143d2e1f94cd30069ef4cb
-d
-4app/src/main/res/layout/product_summary_fragment.xml,0/9/0960ce547dd656ca423b966abbb10555975e0a8f
 Ÿ
 oapp/src/main/java/com/example/completeandroidknowledge/sectionPublic/feature01Login/validator/LoginValidator.kt,7/b/7b8e348238b29144a29f7115d6a18850f9a865b3
 ­
@@ -181,3 +179,9 @@ qapp/src/main/java/com/example/completeandroidknowledge/sectionPublic/feature21N
 uapp/src/main/java/com/example/completeandroidknowledge/sectionPublic/feature21News/viewModel/NewsFragmentViewModel.kt,e/4/e4276e2fb2fbebd9edb481dd89d72761a393d16d
 ¢
 rapp/src/main/java/com/example/completeandroidknowledge/sectionPublic/feature21News/uiControl/NewsFragmentPublic.kt,a/1/a1c8ac2b46e12e254d7bce8c65bb1fefc63dd484
+c
+3app/src/main/res/navigation/navigation_section1.xml,d/5/d58ed9cbd34f39eb0b7b755b58fd567f1e0d134e
+‰
+Yapp/src/main/java/com/example/completeandroidknowledge/sectionPublic/model/BankProduct.kt,a/1/a1db44c92e94acc833679d210745b4fa09ee79f5
+©
+yapp/src/main/java/com/example/completeandroidknowledge/sectionPublic/feature20ProductsInfo/adapters/BankProductAdapter.kt,e/f/ef5a55b63cc17ea78378eb14d41fb253715aabe3

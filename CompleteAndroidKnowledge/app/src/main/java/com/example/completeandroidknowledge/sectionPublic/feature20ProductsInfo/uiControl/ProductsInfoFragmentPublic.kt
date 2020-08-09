@@ -10,6 +10,7 @@ import com.example.completeandroidknowledge.commons.navigation.Navigation
 import com.example.completeandroidknowledge.commons.navigation.NavigationActivity
 import com.example.completeandroidknowledge.sectionPublic.feature20ProductsInfo.viewMVC.ProductsInfoFragmentMVCView
 import com.example.completeandroidknowledge.sectionPublic.feature20ProductsInfo.viewModel.ProductsInfoViewModel
+import com.example.completeandroidknowledge.sectionPublic.model.BankProduct
 
 class ProductsInfoFragmentPublic : BaseFragmentPublic(), NavigationActivity.Listener {
 
@@ -25,7 +26,12 @@ class ProductsInfoFragmentPublic : BaseFragmentPublic(), NavigationActivity.List
         productsInfoFragmentMVCViewImpl = getCompositionRootObject().getViewMVCFactory().getProductsInfoFragmentMVCView(container)
         navigationActivity = getCompositionRootObject().getMainNavigation()
         viewModel = ViewModelProvider(this).get(ProductsInfoViewModel::class.java)
-
+        productsInfoFragmentMVCViewImpl.setViewModel(viewModel)
+        productsInfoFragmentMVCViewImpl.setAdapterBankProducts()
+        var bankProduct = BankProduct(1,1,"ESTE TEXTO DE PRUEBA","http://google.com", false)
+        var bankProduct1 = BankProduct(2,1,"ESTE TEXTO DE PRUEBA 2","http://wikipedia.com", false)
+        var bankProductList = listOf<BankProduct>(bankProduct, bankProduct1)
+        productsInfoFragmentMVCViewImpl.setListBankProducts(bankProductList)
         return productsInfoFragmentMVCViewImpl.getRootView()
     }
 

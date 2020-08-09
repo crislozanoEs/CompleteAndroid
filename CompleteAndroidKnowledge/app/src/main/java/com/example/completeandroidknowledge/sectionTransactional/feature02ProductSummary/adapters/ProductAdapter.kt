@@ -10,15 +10,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.completeandroidknowledge.databinding.ItemProductSummaryBinding
 import com.example.completeandroidknowledge.sectionTransactional.model.Product
 
-class ProductAdapter(private val onClickListener: OnClickListener) : ListAdapter<Product, ProductAdapter.ViewHolder>(
-    ProductDiffCallBack()
-) {
+class ProductAdapter(private val onClickListener: OnClickListener) :
+    ListAdapter<Product, ProductAdapter.ViewHolder>(ProductDiffCallBack()){
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder.from(
-            parent, onClickListener
-        )
-    }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder.from(parent, onClickListener)
+
 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
