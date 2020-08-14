@@ -12,34 +12,35 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/product_image"
             android:layout_width="match_parent"
-            android:layout_height="500dp"
+            android:layout_height="320dp"
             app:setBankProductImage="@{BankProduct}"
             android:contentDescription="@string/products_imag"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="?attr/actionModePasteDrawable" />
+
         <ImageButton
             android:id="@+id/more_button"
             android:layout_width="150dp"
             android:layout_height="50dp"
-            android:src="@android:drawable/arrow_down_float"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/more_information_product"
+            android:src="@android:drawable/ic_menu_more"
             android:tint="@color/colorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/product_image"
-            app:layout_constraintVertical_bias="0.0"
-            android:contentDescription="@string/more_information_product"/>
+            app:layout_constraintTop_toBottomOf="@+id/product_image" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/expanded_detail_product"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/more_button"
@@ -47,13 +48,14 @@
 
             <ScrollView
                 android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_height="200dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
                 <TextView
                     android:id="@+id/products_info_text"
+                    style="@style/defaultTextStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="10dp"

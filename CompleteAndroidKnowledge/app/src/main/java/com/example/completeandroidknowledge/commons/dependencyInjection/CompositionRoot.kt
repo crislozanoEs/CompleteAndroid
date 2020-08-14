@@ -5,6 +5,7 @@ import com.example.completeandroidknowledge.commons.Constants
 import com.example.completeandroidknowledge.commons.dialogs.DialogEventBus
 import com.example.completeandroidknowledge.commons.navigation.Navigation
 import com.example.completeandroidknowledge.network.productsServices.ProductAPI
+import com.example.completeandroidknowledge.network.publicServices.PublicAPI
 import com.example.completeandroidknowledge.repository.userDatabase.UserDatabase
 import com.example.completeandroidknowledge.network.sessionServices.SessionAPI
 import com.example.completeandroidknowledge.repository.productsDatabase.ProductSummaryDatabase
@@ -47,6 +48,7 @@ class CompositionRoot(var application: Application) {
     // API
     fun getLoginAPI() : SessionAPI = retrofit!!.create(SessionAPI::class.java)
     fun getProductAPI(): ProductAPI = retrofit!!.create(ProductAPI::class.java)
+    fun getPublicAPI(): PublicAPI = retrofit!!.create(PublicAPI::class.java)
 
 
 

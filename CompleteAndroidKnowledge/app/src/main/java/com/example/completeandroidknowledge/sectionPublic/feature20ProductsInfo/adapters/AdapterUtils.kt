@@ -16,8 +16,10 @@ fun TextView.setTexProduct(item: BankProduct?){
 @BindingAdapter("setBankProductImage")
 fun ImageView.setBankProductImage(item: BankProduct?){
     item?.let{
-        when(it.id){
+        when(it.imageId){
             1 -> setImageResource(R.drawable.bp_1)
+            2 -> setImageResource(R.drawable.bp_2)
+            3 -> setImageResource(R.drawable.bp_3)
             else -> setImageResource(R.drawable.bp_1)
         }
 

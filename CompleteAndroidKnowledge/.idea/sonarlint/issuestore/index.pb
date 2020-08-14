@@ -169,8 +169,6 @@ U
 %app/src/main/res/menu/footer_menu.xml,f/8/f812fc45b9cab13d8da685ad7c262e49e021997c
 R
 "app/src/main/res/values/colors.xml,9/6/969faa2a5d9f5e8390e958d2c07f2cfd54676e6b
-S
-#app/src/main/res/values/strings.xml,d/2/d2281fbb3027de2722081a53408dd77628bf080e
 ¥
 uapp/src/main/java/com/example/completeandroidknowledge/sectionPublic/feature21News/viewMVC/NewsFragmentMVCViewImpl.kt,a/2/a2063bf4f536b0057199ea7a0c6481ff84c49160
 ¡
@@ -185,3 +183,5 @@ c
 Yapp/src/main/java/com/example/completeandroidknowledge/sectionPublic/model/BankProduct.kt,a/1/a1db44c92e94acc833679d210745b4fa09ee79f5
 ©
 yapp/src/main/java/com/example/completeandroidknowledge/sectionPublic/feature20ProductsInfo/adapters/BankProductAdapter.kt,e/f/ef5a55b63cc17ea78378eb14d41fb253715aabe3
+£
+sapp/src/main/java/com/example/completeandroidknowledge/sectionPublic/feature20ProductsInfo/adapters/AdapterUtils.kt,7/b/7b527f46f1ee039e3dc397e57939902cb1037943

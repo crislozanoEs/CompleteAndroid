@@ -7,6 +7,7 @@ import com.example.completeandroidknowledge.commons.dialogs.DialogEventBus
 import com.example.completeandroidknowledge.commons.navigation.Navigation
 import com.example.completeandroidknowledge.commons.navigation.NavigationActivity
 import com.example.completeandroidknowledge.network.productsServices.ProductAPI
+import com.example.completeandroidknowledge.network.publicServices.PublicAPI
 import com.example.completeandroidknowledge.repository.userDatabase.UserDatabase
 import com.example.completeandroidknowledge.network.sessionServices.SessionAPI
 import com.example.completeandroidknowledge.repository.productsDatabase.ProductSummaryDatabase
@@ -20,6 +21,7 @@ class ActivityCompositionRoot(private val compositionRoot: CompositionRoot, priv
 
     fun getSessionAPI(): SessionAPI = compositionRoot.getLoginAPI()
     fun getProductAPI(): ProductAPI = compositionRoot.getProductAPI()
+    fun getPublicAPI(): PublicAPI = compositionRoot.getPublicAPI()
     fun getActivity(): AppCompatActivity = activity
     fun getUserDatabaseInstance(): UserDatabase = compositionRoot.getUserDatabaseInstance()
     fun getProductSummaryInstance(): ProductSummaryDatabase = compositionRoot.getProductSummaryDatabaseInstance()

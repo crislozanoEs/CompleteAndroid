@@ -16,4 +16,6 @@ interface ProductsInfoFragmentMVCView:
     fun setViewModel(viewModel: ProductsInfoViewModel)
     fun setAdapterBankProducts()
     fun setListBankProducts(bankProducts: List<BankProduct>)
+    fun showLoading(showLoading: Boolean)
+    fun showError()
 }

@@ -45,6 +45,7 @@
     <string name="more">More</string>
     <string name="more_information_product">MORE INFORMATION</string>
     <string name="products_imag">Products Imag</string>
+    <string name="generic_error">We are so sorry, there was a problem!</string>
 
 
 </resources>

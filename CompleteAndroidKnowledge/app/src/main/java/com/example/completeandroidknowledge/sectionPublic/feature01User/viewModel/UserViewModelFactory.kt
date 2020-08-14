@@ -1,5 +1,6 @@
 package com.example.completeandroidknowledge.sectionPublic.feature01User.viewModel
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.completeandroidknowledge.commons.dialogs.DialogEventBus
@@ -7,6 +8,7 @@ import com.example.completeandroidknowledge.commons.dialogs.DialogManager
 import com.example.completeandroidknowledge.sectionPublic.model.User
 import com.example.completeandroidknowledge.network.sessionServices.SessionServicesUseCase
 import com.example.completeandroidknowledge.repository.userDatabase.UserDatabaseUseCaseImpl
+import com.example.completeandroidknowledge.sectionPublic.model.BankProduct
 
 @Suppress("UNCHECKED_CAST")
 class UserViewModelFactory (private val userType: String,

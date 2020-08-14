@@ -1,8 +1,11 @@
 package com.example.completeandroidknowledge.sectionPublic.feature20ProductsInfo.adapters
 
+import android.graphics.Matrix
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
+import android.widget.ImageView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -19,19 +22,28 @@ class BankProductAdapter(private val onClickListener: OnClickListener):
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val product = getItem(position)
         holder.itemView.setOnClickListener {
-            product.isOpen = !product.isOpen
-            notifyItemChanged(position)
+            openBankProductDetail(product, position)
+        }
+        holder.binding.moreButton.setOnClickListener {
+            openBankProductDetail(product, position)
         }
         holder.bind(getItem(position))
     }
 
+
+    private fun openBankProductDetail(product: BankProduct, position: Int){
+        product.isOpen = !product.isOpen
+        notifyItemChanged(position)
+    }
     class ViewHolder(val binding: ItemBankProductBinding, val onClickListener: OnClickListener): RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: BankProduct){
             binding.bankProduct = item
             if(item.isOpen){
+                binding.moreButton.visibility = View.GONE
                 binding.expandedDetailProduct.visibility = View.VISIBLE
             }else{
+                binding.moreButton.visibility = View.VISIBLE
                 binding.expandedDetailProduct.visibility = View.GONE
             }
             binding.executePendingBindings()
