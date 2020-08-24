@@ -1,11 +1,11 @@
 package com.example.completeandroidknowledge.commons.dependencyInjection
 
-import android.app.Application
 import android.content.Context
 import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
+import androidx.camera.view.PreviewView
 import androidx.fragment.app.FragmentManager
-import androidx.navigation.NavController
+import androidx.lifecycle.LifecycleOwner
 import com.example.completeandroidknowledge.commons.dialogs.DialogEventBus
 import com.example.completeandroidknowledge.commons.dialogs.DialogManager
 import com.example.completeandroidknowledge.commons.navigation.Navigation
@@ -19,6 +19,8 @@ import com.example.completeandroidknowledge.network.sessionServices.SessionAPI
 import com.example.completeandroidknowledge.network.sessionServices.SessionServicesUseCase
 import com.example.completeandroidknowledge.repository.productsDatabase.ProductSummaryDatabaseUseCaseImpl
 import com.example.completeandroidknowledge.repository.userDatabase.UserDatabaseUseCaseImpl
+import com.example.completeandroidknowledge.sectionPublic.feature21News.utilities.CameraFun
+import com.example.completeandroidknowledge.sectionPublic.feature21News.utilities.CustomImageAnalyzer
 
 class ControllerCompositionRoot(private val activityCompositionRoot: ActivityCompositionRoot?) {
 
@@ -42,6 +44,8 @@ class ControllerCompositionRoot(private val activityCompositionRoot: ActivityCom
 
     fun getViewMVCFactory(): ViewMVCFactory = ViewMVCFactory(getLayoutInflater())
 
+    fun getCameraFun(viewFinder: PreviewView, lifecycleOwner: LifecycleOwner, customImageAnalyzer: CustomImageAnalyzer): CameraFun = CameraFun(getContext(), viewFinder,lifecycleOwner, customImageAnalyzer)
+
     fun getLoginServicesUseCase(): SessionServicesUseCase = SessionServicesUseCase(getSessionAPI())
 
     fun getProductServiceUseCase(): ProductSummaryServiceUseCase = ProductSummaryServiceUseCase(getProductAPI())
@@ -59,6 +63,8 @@ class ControllerCompositionRoot(private val activityCompositionRoot: ActivityCom
     fun getMainNavigation(): NavigationActivity = activityCompositionRoot!!.getNavigationActivity()
 
     fun getProductSummaryUseCaseImpl():ProductSummaryDatabaseUseCaseImpl =  ProductSummaryDatabaseUseCaseImpl(getProductSummaryDatabaseInstance().productSummaryDatabaseDao)
+
+    fun getCustomImageAnalyzer() = CustomImageAnalyzer()
 
 }
 

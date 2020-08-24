@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "727627748658",
+    "firebase_url": "https://completeknowledgeandroid.firebaseio.com",
+    "project_id": "completeknowledgeandroid",
+    "storage_bucket": "completeknowledgeandroid.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:727627748658:android:66af6cb116829d0381f32b",
+        "android_client_info": {
+          "package_name": "com.crisav2.completeandroidknowledge"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "727627748658-ejpl1hkndudj750f2g0vkvkkauhik1e9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBec7F3pvueUYjOxh3Z3iisoGmZniQNUdI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "727627748658-ejpl1hkndudj750f2g0vkvkkauhik1e9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
