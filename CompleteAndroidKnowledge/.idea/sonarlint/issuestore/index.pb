@@ -163,12 +163,8 @@ Z
 *app/src/main/res/drawable/ic_more_item.xml,6/5/6518425d2dc2a969354882ec49f5eeed1121ec9b
 ^
 .app/src/main/res/drawable/ic_products_item.xml,e/f/ef2d103bafec72e0dd30567f8164da8827a1a4c7
-[
-+app/src/main/res/layout/activity_public.xml,c/3/c314ae39916dcd915495b41abe1ee9932d1bc12d
 U
 %app/src/main/res/menu/footer_menu.xml,f/8/f812fc45b9cab13d8da685ad7c262e49e021997c
-R
-"app/src/main/res/values/colors.xml,9/6/969faa2a5d9f5e8390e958d2c07f2cfd54676e6b
 ¥
 uapp/src/main/java/com/example/completeandroidknowledge/sectionPublic/feature21News/viewMVC/NewsFragmentMVCViewImpl.kt,a/2/a2063bf4f536b0057199ea7a0c6481ff84c49160
 ¡
