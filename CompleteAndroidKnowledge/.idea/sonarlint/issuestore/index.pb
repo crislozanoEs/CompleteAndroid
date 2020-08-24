@@ -189,5 +189,3 @@ yapp/src/main/java/com/example/completeandroidknowledge/network/publicServices/p
 Zapp/src/main/java/com/example/completeandroidknowledge/network/publicServices/PublicAPI.kt,8/6/868327c4df95fd09fe5fbe530d4e1590b6eb9525
 µ
 „app/src/main/java/com/example/completeandroidknowledge/sectionPublic/feature20ProductsInfo/viewModel/ProductsInfoViewModelFactory.kt,c/a/ca2127ebe498ee6d8a00ebc2b847f20b2996c6f2
-]
--app/src/main/res/layout/item_bank_product.xml,9/9/9902fedd14fc9525a55d2567258a21360014cd3a
