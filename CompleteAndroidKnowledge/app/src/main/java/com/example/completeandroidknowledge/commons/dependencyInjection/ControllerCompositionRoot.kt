@@ -8,6 +8,8 @@ import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.LifecycleOwner
 import com.example.completeandroidknowledge.commons.dialogs.DialogEventBus
 import com.example.completeandroidknowledge.commons.dialogs.DialogManager
+import com.example.completeandroidknowledge.commons.headerStep.StepHeaderAPI
+import com.example.completeandroidknowledge.commons.headerStep.StepHeaderFragment
 import com.example.completeandroidknowledge.commons.navigation.Navigation
 import com.example.completeandroidknowledge.commons.navigation.NavigationActivity
 import com.example.completeandroidknowledge.commons.views.ViewMVCFactory
@@ -65,6 +67,9 @@ class ControllerCompositionRoot(private val activityCompositionRoot: ActivityCom
     fun getProductSummaryUseCaseImpl():ProductSummaryDatabaseUseCaseImpl =  ProductSummaryDatabaseUseCaseImpl(getProductSummaryDatabaseInstance().productSummaryDatabaseDao)
 
     fun getCustomImageAnalyzer() = CustomImageAnalyzer()
+
+    fun getHeaderFragment() = StepHeaderFragment()
+
 
 }
 

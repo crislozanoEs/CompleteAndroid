@@ -46,6 +46,9 @@
     <string name="more_information_product">MORE INFORMATION</string>
     <string name="products_imag">Products Imag</string>
     <string name="generic_error">We are so sorry, there was a problem!</string>
+    <string name="step_one_image">STEP_ONE_IMAGE</string>
+    <string name="step_two_image">STEP TWO IMAGE</string>
+    <string name="step_three_image">STEP THREE IMAGE</string>
 
 
 </resources>

@@ -11,6 +11,8 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import com.example.completeandroidknowledge.commons.controllers.BaseFragmentPublic
+import com.example.completeandroidknowledge.commons.headerStep.StepHeaderAPI
+import com.example.completeandroidknowledge.commons.headerStep.StepHeaderFragment
 import com.example.completeandroidknowledge.commons.navigation.NavigationActivity
 import com.example.completeandroidknowledge.sectionPublic.feature21News.utilities.CameraFun
 import com.example.completeandroidknowledge.sectionPublic.feature21News.utilities.CustomImageAnalyzer
@@ -33,6 +35,7 @@ class NewsFragmentPublic: BaseFragmentPublic(), NavigationActivity.Listener, New
     private lateinit var cameraFun: CameraFun
     private lateinit var newsViewModelFactory: NewsViewModelFactory
     private lateinit var customImageAnalyzer: CustomImageAnalyzer
+    private lateinit var stepHeaderAPI: StepHeaderAPI
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -40,11 +43,12 @@ class NewsFragmentPublic: BaseFragmentPublic(), NavigationActivity.Listener, New
     ): View? {
         baseContext = context!!
         customImageAnalyzer = getCompositionRootObject().getCustomImageAnalyzer()
-        newsFragmentMVCView = getCompositionRootObject().getViewMVCFactory().getNewsFragmentMVCView(container)
+        newsFragmentMVCView = getCompositionRootObject().getViewMVCFactory().getNewsFragmentMVCView(container, getCompositionRootObject().getHeaderFragment(), childFragmentManager)
         newsFragmentMVCView.setLifecycleOwner(this)
         navigationActivity = getCompositionRootObject().getMainNavigation()
         newsViewModelFactory = NewsViewModelFactory(customImageAnalyzer)
         viewModel = ViewModelProvider(this, newsViewModelFactory).get(NewsViewModel::class.java)
+        newsFragmentMVCView.startSeptHeader()
         return newsFragmentMVCView.getRootView()
     }
     override fun onStart() {
