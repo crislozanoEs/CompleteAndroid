@@ -9,17 +9,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.completeandroidknowledge.commons.controllers.BaseFragmentPublic
 import com.example.completeandroidknowledge.commons.headerStep.StepHeaderAPI
-import com.example.completeandroidknowledge.commons.headerStep.StepHeaderFragment
 import com.example.completeandroidknowledge.commons.navigation.NavigationActivity
 import com.example.completeandroidknowledge.sectionPublic.feature21News.utilities.CameraFun
 import com.example.completeandroidknowledge.sectionPublic.feature21News.utilities.CustomImageAnalyzer
 import com.example.completeandroidknowledge.sectionPublic.feature21News.viewMVC.NewsFragmentMVCView
 import com.example.completeandroidknowledge.sectionPublic.feature21News.viewModel.NewsViewModel
 import com.example.completeandroidknowledge.sectionPublic.feature21News.viewModel.NewsViewModelFactory
-import kotlinx.android.synthetic.main.new_fragment.*
+import kotlinx.android.synthetic.main.news_fragment_step1.*
 
 class NewsFragmentPublic: BaseFragmentPublic(), NavigationActivity.Listener, NewsFragmentMVCView.Listener {
 
@@ -42,15 +42,35 @@ class NewsFragmentPublic: BaseFragmentPublic(), NavigationActivity.Listener, New
         savedInstanceState: Bundle?
     ): View? {
         baseContext = context!!
+        stepHeaderAPI = StepHeaderAPI
         customImageAnalyzer = getCompositionRootObject().getCustomImageAnalyzer()
         newsFragmentMVCView = getCompositionRootObject().getViewMVCFactory().getNewsFragmentMVCView(container, getCompositionRootObject().getHeaderFragment(), childFragmentManager)
         newsFragmentMVCView.setLifecycleOwner(this)
         navigationActivity = getCompositionRootObject().getMainNavigation()
-        newsViewModelFactory = NewsViewModelFactory(customImageAnalyzer)
+        val dialogEventBus = getCompositionRootObject().getDialogEventBus()
+        val dialogManager = getCompositionRootObject().getDialogManager()
+        newsViewModelFactory = NewsViewModelFactory(customImageAnalyzer,dialogEventBus, dialogManager)
         viewModel = ViewModelProvider(this, newsViewModelFactory).get(NewsViewModel::class.java)
         newsFragmentMVCView.startSeptHeader()
+        viewModel.currentState.observe(viewLifecycleOwner, Observer {
+            controlStateView(it)
+        })
+
         return newsFragmentMVCView.getRootView()
     }
+
+    private fun controlStateView(state: NewsViewModel.STATE?) {
+        newsFragmentMVCView.goToStep(state!!)
+        val movement = viewModel.movement
+        when(movement.value){
+            NewsViewModel.MOVEMENT.FORWARD -> stepHeaderAPI.goForward()
+            NewsViewModel.MOVEMENT.BACKWARD -> stepHeaderAPI.goBackward()
+            NewsViewModel.MOVEMENT.STAY -> {
+                //Not moving
+            }
+        }
+    }
+
     override fun onStart() {
         cameraFun = getCompositionRootObject().getCameraFun(viewFinder, this, customImageAnalyzer)
         if(allPermissionGranted()){

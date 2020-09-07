@@ -50,5 +50,8 @@
     <string name="step_two_image">STEP TWO IMAGE</string>
     <string name="step_three_image">STEP THREE IMAGE</string>
 
+    <!--WORDS FOR FLOW-->
+    <string name="action_buy">Buy</string>
+
 
 </resources>

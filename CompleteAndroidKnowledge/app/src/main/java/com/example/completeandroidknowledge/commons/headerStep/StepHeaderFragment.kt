@@ -12,6 +12,7 @@ class StepHeaderFragment: BaseFragmentPublic() {
 
     private lateinit var mvcView: StepHeaderMVCView
     private lateinit var viewModel: StepHeaderViewModel
+    private var stepHeaderAPI = StepHeaderAPI
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -20,6 +21,7 @@ class StepHeaderFragment: BaseFragmentPublic() {
         mvcView = getCompositionRootObject().getViewMVCFactory().getStepHeaderMVCView(container)
         viewModel = ViewModelProvider(this).get(StepHeaderViewModel::class.java)
         mvcView.setLifecycleOwner(this)
+        stepHeaderAPI.setViewModel(viewModel)
         changeStep(viewModel.currentState.value!!)
         viewModel.currentState.observe(viewLifecycleOwner, Observer {
             changeStep(it)
@@ -34,5 +36,4 @@ class StepHeaderFragment: BaseFragmentPublic() {
             3 -> mvcView.activateThirdStep()
         }
     }
-
 }
